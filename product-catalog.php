@@ -11,7 +11,7 @@ Text Domain: product-catalog
 */
 
 
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 add_action('media_buttons_context', 'add_my_custom_button_for_catalog');
 
@@ -260,11 +260,9 @@ function catalog_frontend_scripts_and_styles() {
     wp_register_script( 'elevateZoomParams', plugins_url('/js/elevateZoomParams.js', __FILE__), array('jquery'),'1.0.0',true  ); 
     wp_enqueue_script( 'elevateZoomParams' );
     
-    //    wp_deregister_script('catalog-carousel');
     wp_register_script('catalog-carousel', (plugins_url('/js/jquery.cycle2.js', __FILE__)), false);
     wp_enqueue_script('catalog-carousel');
     
-//    wp_deregister_script('catalog-carousel-2');
     wp_register_script('catalog-carousel-2', (plugins_url('/js/jquery.cycle2.carousel.js', __FILE__)), false);
     wp_enqueue_script('catalog-carousel-2');
     
@@ -277,17 +275,10 @@ function catalog_frontend_scripts_and_styles() {
     wp_register_style( 'lightbox-css', plugins_url('/style/lightbox.css', __FILE__) );   
     wp_enqueue_style( 'lightbox-css' );
     
-     wp_register_style( 'fontawesome-css', plugins_url('/style/css/font-awesome.css', __FILE__) );   
+     wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
      wp_enqueue_style( 'fontawesome-css' );
 }
 add_action('wp_enqueue_scripts', 'catalog_frontend_scripts_and_styles');
-
-//function wpb_adding_scripts() {
-//    
-//
-//} 
-//
-//add_action( 'wp_enqueue_scripts', 'wpb_adding_scripts', 999 ); 
 
 add_action('admin_menu', 'huge_it_catalog_options_panel');
 function huge_it_catalog_options_panel()
@@ -503,7 +494,6 @@ function huge_it_catalog_albums_page(){
     require_once("admin/albums_func.php");
     require_once("admin/albums_view.php");
     
-//    show_albums();
     if (isset($_GET["del_review"]))
         $del_review_id = $_GET["del_review"]; 
     if (isset($_GET["task"]))
@@ -592,8 +582,6 @@ function huge_it_catalog_products_page(){
     require_once("admin/product_options_func.php");
     require_once("admin/product_options_view.php");
     wp_enqueue_script('param_block2', plugins_url("elements/jscolor/jscolor.js", __FILE__));
-//    wp_enqueue_script('colorbox..js', plugins_url("js/jquery.colorbox.js", __FILE__));
-//    wp_enqueue_script('colorbox..js', plugins_url("js/jquery.colorbox.js", __FILE__));
     if (isset($_GET['task'])){
         if ($_GET['task'] == 'save'){
             save_styles_options();
@@ -970,7 +958,6 @@ function huge_it_catalog_my_action_callback_frontend() {
                                     </td>
                                 </tr>
                         </table>";
-		//$sendMessage = preg_replace('/\b{userMessage}\b/', $massage, $sendMessage);
             $sendMessage = str_ireplace("{userMessage}",$massage,$sendMessage);
             $date = date("Y/m/d");
             $time = date("h:i");
@@ -1054,8 +1041,6 @@ function huge_it_catalog_my_action_callback_frontend() {
             }
             elseif($_POST["post"] == "load_more_elements_into_catalog"){
                 $catalog_id = $_POST["catalog_id"];
-              //  $old_count = $_POST["old_count"];
-			//	$test = $_POST["text"];
                 $count_into_page = $_POST["count_into_page"];
                 $show_thumbs = $_POST["show_thumbs"];
                 $show_description = $_POST["show_description"];
@@ -1075,7 +1060,6 @@ function huge_it_catalog_my_action_callback_frontend() {
                     $linkbutton_text = $_POST["linkbutton_text"];
                 }else{ $linkbutton_text = ""; }
                 
-              //  $from = $old_count + 1;
                 $to = $count_into_page - 1;
 				
 				/****<SEARCH AND LOAD MORE>****/	//+ changed group_keys_in cases			
@@ -1091,9 +1075,6 @@ function huge_it_catalog_my_action_callback_frontend() {
 					$type = $_POST["type"];
 				if(isset($_POST["pagetype"]) && $_POST["pagetype"] != '')
 					$pagetype = $_POST["pagetype"];
-				//$elements = '';
-					//		echo $elements;
-				//die();
 				if($type == 'search') {
 					$query = ($pagetype == 'load_more')?"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%') order by ordering ASC LIMIT ".$count_into_page
 					:"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%')";
@@ -1115,7 +1096,6 @@ function huge_it_catalog_my_action_callback_frontend() {
                 $group_key = 0;
                 switch ($view){
                     case 0:
-              //          $group_key = $from + 1;
                         $moreImages = "";
                         foreach($moreImagesInArray as $key=>$row)
                         {
@@ -1152,7 +1132,6 @@ function huge_it_catalog_my_action_callback_frontend() {
                             $moreImages .= "<div class='element_".$catalog_id." ".$allow_lightbox."' data-symbol='".$row->name."' data-element-id='".$row->id."' data-category='alkaline-earth'>";
                             $moreImages .= "<div class='default-block_".$catalog_id."'>";
                             $moreImages .= "<div class='image-block_".$catalog_id." for_zoom'>";
-//                            $imgurl=explode(";",$row->image_url);
                              if($row->image_url != ';'){
                                      $moreImages .= "<img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
                              }else{
@@ -1206,12 +1185,10 @@ function huge_it_catalog_my_action_callback_frontend() {
                         }
                         $response = array('moreImages' => $moreImages, 'query' => $query);
                         echo json_encode($response);
-                      //  echo $moreImages;
                         die();
                         break;
                     case 1:
                         
-             //   $group_key = $from + 1;
                         $moreImages = "";
                         foreach($moreImagesInArray as $key=>$row)
                         {
@@ -1244,12 +1221,9 @@ function huge_it_catalog_my_action_callback_frontend() {
                                 }
                             }
 
-
-                           // $group_key ++;
                             $moreImages .= "<div class='element_".$catalog_id." ".$allow_lightbox."' data-symbol='".$row->name."'  data-element-id='".$row->id."' data-category='alkaline-earth'>";
                             $moreImages .= "<div class='default-block_".$catalog_id."'>";
                             $moreImages .= "<div class='image-block_".$catalog_id." for_zoom'>";
-//                            $imgurl=explode(";",$row->image_url);
                              if($row->image_url != ';'){
                                      $moreImages .= "<img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
                              }else{
@@ -1371,11 +1345,9 @@ function huge_it_catalog_my_action_callback_frontend() {
                         
                         
                         
-               // $group_key = $from;
                 $show_popup_linkbutton = $_POST["show_popup_linkbutton"];
                 $show_popup_title = $_POST['show_popup_title'];
                 $morePopups = "";
-//                $morePopups .= "<ul id='huge_it_catalog_popup_list_".$catalog_id."' style='display: none;'";
                 foreach($moreImagesInArray as $key=>$row)
                 {
                     
@@ -1461,8 +1433,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                             <div style='clear:both;'></div>
                                             </div></li>";
                     }
-//                    $morePopups .= "</ul>";
-                    
+
                         $response = array('moreImages' => $moreImages, 'morePopups' => $morePopups,'query' => $query);
                         echo json_encode($response);
                         die();
@@ -1470,10 +1441,8 @@ function huge_it_catalog_my_action_callback_frontend() {
                     case 3:
                         
                         $moreImages = "";
-                       // $group_key = $from;
                         foreach($moreImagesInArray as $key=>$row)
                         {
-                              //  $group_key++;
                                 $link = $row->sl_url;
                                 $imgurl = explode(";",$row->image_url);
 								$thumbs_li = '';
@@ -1539,10 +1508,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                         die();
                         break;
                 }
-                
-                
-//                echo $from." ".$to;
-        }
+            }
     }
 //}
 
@@ -1559,26 +1525,6 @@ function huge_it_catalog_activate()
     global $wpdb;
 
 /// creating database tables
-
-
-//    $sql_huge_it_catalog_params = "
-//CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_params`(
-//  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-//  `name` varchar(50) CHARACTER SET utf8 NOT NULL,
-//  `title` varchar(200) CHARACTER SET utf8 NOT NULL,
-//  `description` text CHARACTER SET utf8 NOT NULL,
-//  `value` varchar(200) CHARACTER SET utf8 NOT NULL,
-//  PRIMARY KEY (`id`)
-//) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ";
-    
-//    $sql_huge_it_catalog_product_params = "
-//CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_product_params`(
-//  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-//  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
-//  `title` varchar(200) CHARACTER SET utf8 NOT NULL,
-//  `value` varchar(200) CHARACTER SET utf8 NOT NULL,
-//  PRIMARY KEY (`id`)
-//) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ";
     
     $sql_huge_it_catalog_general_params = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_general_params`(
@@ -1589,15 +1535,6 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_general_params`
   `value` varchar(200) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 )  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ";
-    
-//    $sql_huge_it_catalog_related_params = "
-//CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_related_params`(
-//  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-//  `name` varchar(50) CHARACTER SET utf8 NOT NULL,
-//  `title` varchar(200) CHARACTER SET utf8 NOT NULL,
-//  `value` varchar(200) CHARACTER SET utf8 NOT NULL,
-//  PRIMARY KEY (`id`)
-//) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ";
     
     $sql_huge_it_catalog_album_catalog_contact = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_album_catalog_contact`(
@@ -1698,19 +1635,6 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_asc_seller`(
   PRIMARY KEY (`id`)
 )  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ";
     
-    
-//    $sql_huge_it_catalog_reviews = "
-//CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_reviews` (
-//  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-//  `name` text CHARACTER SET utf8 NOT NULL,
-//  `content` text CHARACTER SET utf8 NOT NULL,
-//  `product_id` int(11),
-//  `spam` int(11),
-//  `ip` text CHARACTER SET utf8 NOT NULL,
-//  
-//  PRIMARY KEY (`id`)
-//) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ";
-    
 $sql_huge_it_catalog_albums = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_albums` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -1719,476 +1643,7 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_it_catalog_albums` (
   
   PRIMARY KEY (`id`)
 )  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ";
-    
-    
 
-//    $table_name = $wpdb->prefix . "huge_it_catalog_params";
-//    $sql_1 = <<<query1
-//INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
-//
-///*############################## VIEW 0 #####################################*/
-//
-//('ht_view0_togglebutton_style', 'Toggle Button Style', 'Toggle Button Style','dark'),
-//('ht_view0_show_separator_lines', 'Show Separator Lines', 'Show Separator Lines','on'),
-//('ht_view0_linkbutton_text', 'Link Button Text', 'Link Button Text', 'View Product'),
-//('ht_view0_show_linkbutton', 'Show Link Button', 'Show Link Button', 'on'),
-//('ht_view0_linkbutton_background_hover_color', 'Link Button Background Hover Color', 'Link Button Background Hover Color', 'df2e1b'),
-//('ht_view0_linkbutton_background_color', 'Link Button Background Color', 'Link Button Background Color', 'e74c3c'),
-//('ht_view0_linkbutton_font_hover_color', 'Link Button Font Hover Color', 'Link Button Font Hover Color', 'ffffff'),
-//('ht_view0_linkbutton_color', 'Link Button Font Color', 'Link Button Font Color', 'ffffff'),
-//('ht_view0_linkbutton_font_size', 'Link Button Font Size', 'Link Button Font Size', '14'),
-//('ht_view0_description_color', 'Description Font Color', 'Description Font Color', '5b5b5b'),
-//('ht_view0_description_font_size', 'Description Font Size', 'Description Font Size', '14'),
-//('ht_view0_show_description', 'Show Description', 'Show Description', 'on'),
-//('ht_view0_thumbs_width', 'Thumbnails Width', 'Thumbnails Width', '75'),
-//('ht_view0_thumbs_position', 'Thumbnails Position', 'Thumbnails Position', 'before'),
-//('ht_view0_show_thumbs', 'Show Thumbnails', 'Show Thumbnails', 'on'),
-//('ht_view0_title_font_size', 'Title Font Size', 'Title Font Size', '15'),
-//('ht_view0_title_font_color', 'Title Font Color', 'Title Font Color', '555555'),
-//('ht_view0_element_border_width', 'Element Border Width', 'Element Border Width', '1'),
-//('ht_view0_element_border_color', 'Element Border Color', 'Element Border Color', 'D0D0D0'),
-//('ht_view0_element_background_color', 'Element Background Color', 'Element Background Color', 'f7f7f7'),
-//('ht_view0_block_width', 'Block Width', 'Block Width', '275'),
-//('ht_view0_block_height', 'Block Height', 'Block Height', '320'),
-//
-//
-///*############################## VIEW 1 #####################################*/
-//
-//('ht_view1_show_separator_lines', 'Show Separator Lines', 'Show Separator Lines','on'),
-//('ht_view1_linkbutton_text', 'Link Button Text', 'Link Button Text', 'View Product'),
-//('ht_view1_show_linkbutton', 'Show Link Button', 'Show Link Button', 'on'),
-//('ht_view1_linkbutton_background_hover_color', 'Link Button Background Hover Color', 'Link Button Background Hover Color', 'df2e1b'),
-//('ht_view1_linkbutton_background_color', 'Link Button Background Color', 'Link Button Background Color', 'e74c3c'),
-//('ht_view1_linkbutton_font_hover_color', 'Link Button Font Hover Color', 'Link Button Font Hover Color', 'ffffff'),
-//('ht_view1_linkbutton_color', 'Link Button Font Color', 'Link Button Font Color', 'ffffff'),
-//('ht_view1_linkbutton_font_size', 'Link Button Font Size', 'Link Button Font Size', '14'),
-//('ht_view1_description_color', 'Description Font Color', 'Description Font Color', '5b5b5b'),
-//('ht_view1_description_font_size', 'Description Font Size', 'Description Font Size', '14'),
-//('ht_view1_show_description', 'Show Description', 'Show Description', 'on'),
-//('ht_view1_thumbs_width', 'Thumbnails Width', 'Thumbnails Width', '75'),
-//('ht_view1_thumbs_position', 'Thumbnails Position', 'Thumbnails Position', 'before'),
-//('ht_view1_show_thumbs', 'Show Thumbnails', 'Show Thumbnails', 'on'),
-//('ht_view1_title_font_size', 'Title Font Size', 'Title Font Size', '15'),
-//('ht_view1_title_font_color', 'Title Font Color', 'Title Font Color', '555555'),
-//('ht_view1_element_border_width', 'Element Border Width', 'Element Border Width', '1'),
-//('ht_view1_element_border_color', 'Element Border Color', 'Element Border Color', 'D0D0D0'),
-//('ht_view1_element_background_color', 'Element Background Color', 'Element Background Color', 'f7f7f7'),
-//('ht_view1_block_width', 'Block Width', 'Block Width', '275'),
-//
-//
-//
-///*############################## VIEW 2 Popup #####################################*/
-//
-//('ht_view2_element_linkbutton_text', 'Link Button Text', 'Link Button Text', 'View Product'),
-//('ht_view2_element_show_linkbutton', 'Show Link Button On Element', 'Show Link Button On Element', 'on'),
-//('ht_view2_element_linkbutton_color', 'Element Link Button Font Color', 'Element Link Button Font Color', 'ffffff'),
-//('ht_view2_element_linkbutton_font_size', 'Element Link Button Font Size', 'Element Link Button Font Size', '14'),
-//('ht_view2_element_linkbutton_background_color', 'Element Link Button Background Color', 'Element Link Button Background Color', '2ea2cd'),
-//('ht_view2_show_popup_linkbutton', 'Show Link Button On Popup', 'Show Link Button On Popup', 'on'),
-//('ht_view2_popup_linkbutton_background_hover_color', 'Link Button Background Hover Color', 'Link Button Background Hover Color', '0074a2'),
-//('ht_view2_popup_linkbutton_background_color', 'Link Button Background Color', 'Link Button Background Color', '2ea2cd'),
-//('ht_view2_popup_linkbutton_font_hover_color', 'Link Button Font Hover Color', 'Link Button Font Hover Color', 'ffffff'),
-//('ht_view2_popup_linkbutton_color', 'Element Link Button Font Color', 'Link Button Font Color', 'ffffff'),
-//('ht_view2_popup_linkbutton_font_size', 'Element Link Button Font Size', 'Link Button Font Size', '14'),
-//('ht_view2_description_color', 'Description Font Color', 'Description Font Color', '222222'),
-//('ht_view2_description_font_size', 'Description Font Size', 'Description Font Size', '14'),
-//('ht_view2_show_description', 'Show Description', 'Show Description', 'on'),
-//('ht_view2_thumbs_width', 'Thumbnails Width', 'Thumbnails Width', '75'),
-//('ht_view2_thumbs_height', 'Thumbnails Height', 'Thumbnails Height', '75'),
-//('ht_view2_thumbs_position', 'Thumbnails Position', 'Thumbnails Position', 'before'),
-//('ht_view2_show_thumbs', 'Show Thumbnails', 'Show Thumbnails', 'on'),
-//('ht_view2_popup_background_color', 'Popup Background Color', 'Popup Background Color', 'FFFFFF'),
-//('ht_view2_popup_overlay_color', 'Popup Overlay Color', 'Popup Overlay Color', '000000'),
-//('ht_view2_popup_overlay_transparency_color', 'Popup Overlay Transparency', 'Popup Overlay Transparency ', '70'),
-//('ht_view2_popup_closebutton_style', 'Popup Close Button Style', 'Popup Close Button Style', 'dark'),
-//('ht_view2_show_separator_lines', 'Show Separator Lines', 'Show Separator Lines','on'),
-//('ht_view2_show_popup_title', 'Show Popup Title', 'Show Popup Title','on'),
-//('ht_view2_element_title_font_size', 'Element Title Font Size', 'Element Title Font Size', '18'),
-//('ht_view2_element_title_font_color', 'Element Title Font Color', 'Element Title Font Color', '222222'),
-//('ht_view2_popup_title_font_size', 'Popup Title Font Size', 'Popup Title Font Size', '18'),
-//('ht_view2_popup_title_font_color', 'Popup Title Font Color', 'Popup Title Font Color', '222222'),
-//('ht_view2_element_overlay_color', 'Element Overlay Color', 'Element Overlay Color', 'FFFFFF'),
-//('ht_view2_element_overlay_transparency', 'Element Overlay Transparency', 'Element Overlay Transparency ', '70'),
-//('ht_view2_zoombutton_style', 'Zoom Button Style', 'Zoom Button Style','light'),
-//('ht_view2_element_border_width', 'Element Border Width', 'Element Border Width', '1'),
-//('ht_view2_element_border_color', 'Element Border Color', 'Element Border Color', 'dedede'),
-//('ht_view2_element_background_color', 'Element Background Color', 'Element Background Color', 'f9f9f9'),
-//('ht_view2_element_width', 'Block Width', 'Block Width', '275'),
-//('ht_view2_element_height', 'Block Height', 'Block Height', '320'),
-//
-//
-///*############################## VIEW 3 Fullwidth #####################################*/
-//
-//('ht_view3_show_separator_lines', 'Show Separator Lines', 'Show Separator Lines','on'),
-//('ht_view3_linkbutton_text', 'Link Button Text', 'Link Button Text', 'View Product'),
-//('ht_view3_show_linkbutton', 'Show Link Button', 'Show Link Button', 'on'),
-//('ht_view3_linkbutton_background_hover_color', 'Link Button Background Hover Color', 'Link Button Background Hover Color', '0074a2'),
-//('ht_view3_linkbutton_background_color', 'Link Button Background Color', 'Link Button Background Color', '2ea2cd'),
-//('ht_view3_linkbutton_font_hover_color', 'Link Button Font Hover Color', 'Link Button Font Hover Color', 'ffffff'),
-//('ht_view3_linkbutton_color', 'Link Button Font Color', 'Link Button Font Color', 'ffffff'),
-//('ht_view3_linkbutton_font_size', 'Link Button Font Size', 'Link Button Font Size', '14'),
-//('ht_view3_description_color', 'Description Font Color', 'Description Font Color', '555555'),
-//('ht_view3_description_font_size', 'Description Font Size', 'Description Font Size', '14'),
-//('ht_view3_show_description', 'Show Description', 'Show Description', 'on'),
-//('ht_view3_thumbs_width', 'Thumbnails Width', 'Thumbnails Width', '75'),
-//('ht_view3_thumbs_height', 'Thumbnails Height', 'Thumbnails Hight', '75'),
-//('ht_view3_show_thumbs', 'Show Thumbnails', 'Show Thumbnails', 'on'),
-//('ht_view3_title_font_size', 'Title Font Size', 'Title Font Size', '18'),
-//('ht_view3_title_font_color', 'Title Font Color', 'Title Font Color', '0074a2'),
-//('ht_view3_mainimage_width', 'Main Image Width', 'Main Image Width', '240'),
-//('ht_view3_element_border_width', 'Element Border Width', 'Element Border Width', '1'),
-//('ht_view3_element_border_color', 'Element Border Color', 'Element Border Color', 'dedede'),
-//('ht_view3_element_background_color', 'Element Background Color', 'Element Background Color', 'f9f9f9'),
-//
-//
-//
-//
-///*############################## VIEW 4 FAQ #####################################
-//
-//('ht_view4_togglebutton_style', 'Toggle Button Style', 'Toggle Button Style','dark'),
-//('ht_view4_show_separator_lines', 'Show Separator Lines', 'Show Separator Lines','on'),
-//('ht_view4_linkbutton_text', 'Link Button Text', 'Link Button Text', 'View Product'),
-//('ht_view4_show_linkbutton', 'Show Link Button', 'Show Link Button', 'on'),
-//('ht_view4_linkbutton_background_hover_color', 'Link Button Background Hover Color', 'Link Button Background Hover Color', 'df2e1b'),
-//('ht_view4_linkbutton_background_color', 'Link Button Background Color', 'Link Button Background Color', 'e74c3c'),
-//('ht_view4_linkbutton_font_hover_color', 'Link Button Font Hover Color', 'Link Button Font Hover Color', 'ffffff'),
-//('ht_view4_linkbutton_color', 'Link Button Font Color', 'Link Button Font Color', 'ffffff'),
-//('ht_view4_linkbutton_font_size', 'Link Button Font Size', 'Link Button Font Size', '14'),
-//('ht_view4_description_color', 'Description Font Color', 'Description Font Color', '555555'),
-//('ht_view4_description_font_size', 'Description Font Size', 'Description Font Size', '14'),
-//('ht_view4_show_description', 'Show Description', 'Show Description', 'on'),
-//('ht_view4_title_font_size', 'Title Font Size', 'Title Font Size', '18'),
-//('ht_view4_title_font_color', 'Title Font Color', 'Title Font Color', 'E74C3C'),
-//('ht_view4_element_border_width', 'Element Border Width', 'Element Border Width', '1'),
-//('ht_view4_element_border_color', 'Element Border Color', 'Element Border Color', 'dedede'),
-//('ht_view4_element_background_color', 'Element Background Color', 'Element Background Color', 'f9f9f9'),
-//('ht_view4_block_width', 'Block Width', 'Block Width', '275'),
-//*/
-///*############################## VIEW 5 SLIDER #####################################*/
-//
-//('ht_view5_icons_style', 'Icons Style', 'Icons Style','dark'),
-//('ht_view5_show_separator_lines', 'Show Separator Lines', 'Show Separator Lines','on'),
-//('ht_view5_linkbutton_text', 'Link Button Text', 'Link Button Text', 'View Product'),
-//('ht_view5_show_linkbutton', 'Show Link Button', 'Show Link Button', 'on'),
-//('ht_view5_linkbutton_background_hover_color', 'Link Button Background Hover Color', 'Link Button Background Hover Color', '0074a2'),
-//('ht_view5_linkbutton_background_color', 'Link Button Background Color', 'Link Button Background Color', '2ea2cd'),
-//('ht_view5_linkbutton_font_hover_color', 'Link Button Font Hover Color', 'Link Button Font Hover Color', 'ffffff'),
-//('ht_view5_linkbutton_color', 'Link Button Font Color', 'Link Button Font Color', 'ffffff'),
-//('ht_view5_linkbutton_font_size', 'Link Button Font Size', 'Link Button Font Size', '14'),
-//('ht_view5_description_color', 'Description Font Color', 'Description Font Color', '555555'),
-//('ht_view5_description_font_size', 'Description Font Size', 'Description Font Size', '14'),
-//('ht_view5_show_description', 'Show Description', 'Show Description', 'on'),
-//('ht_view5_thumbs_width', 'Thumbnails Width', 'Thumbnails Width', '75'),
-//('ht_view5_thumbs_height', 'Thumbnails Height', 'Thumbnails Hight', '75'),
-//('ht_view5_show_thumbs', 'Show Thumbnails', 'Show Thumbnails', 'on'),
-//('ht_view5_title_font_size', 'Title Font Size', 'Title Font Size', '16'),
-//('ht_view5_title_font_color', 'Title Font Color', 'Title Font Color', '0074a2'),
-//('ht_view5_main_image_width', 'Main Image Width', 'Main Image Width', '275'),
-//('ht_view5_slider_tabs_font_color', 'Slider Tabs Font Color', 'Slider Tabs Font Color', 'd9d99'),
-//('ht_view5_slider_tabs_background_color', 'Slider Tabs Background Color', 'Slider Tabs Background Color', '555555'),
-//('ht_view5_slider_background_color', 'Slider Background Color', 'Slider Background Color', 'f9f9f9'),
-//
-///*############################## VIEW 6 Lightbox-catalog #####################################*/
-//
-//('ht_view6_title_font_size', 'Title Font Size', 'Title Font Size', '16'),
-//('ht_view6_title_font_color', 'Title Font Color', 'Title Font Color', '0074A2'),
-//('ht_view6_title_font_hover_color', 'Title Font Hover Color', 'Title Font Hover Color', '2EA2CD'),
-//('ht_view6_title_background_color', 'Title Background Color', 'Title Background Color', '000000'),
-//('ht_view6_title_background_transparency', 'Title Background Transparency', 'Title Background Transparency', '80'),
-//('ht_view6_border_radius', 'Image Border Radius', 'Image Border Radius', '3'),
-//('ht_view6_border_width', 'Image Border Width', 'Image Border Width', '0'),
-//('ht_view6_border_color', 'Image Border Color', 'Image Border Color', 'eeeeee'),
-//('ht_view6_width', 'Image Width', 'Image Width', '275'),
-//
-///*##############################  Lightbox #####################################*/
-//            
-//('light_box_size', 'Light box size', 'Light box size', '17'),
-//('light_box_width', 'Light Box width', 'Light Box width', '500'),
-//('light_box_transition', 'Light Box Transition', 'Light Box Transition', 'elastic'),
-//('light_box_speed', 'Light box speed', 'Light box speed', '800'),
-//('light_box_href', 'Light box href', 'Light box href', 'False'),
-//('light_box_title', 'Light box Title', 'Light box Title', 'false'),
-//('light_box_scalephotos', 'Light box scalePhotos', 'Light box scalePhotos', 'true'),
-//('light_box_rel', 'Light Box rel', 'Light Box rel', 'false'),
-//('light_box_scrolling', 'Light box Scrollin', 'Light box Scrollin', 'false'),
-//('light_box_opacity', 'Light box Opacity', 'Light box Opacity', '20'),
-//('light_box_open', 'Light box Open', 'Light box Open', 'false'),
-//('light_box_overlayclose', 'Light box overlayClose', 'Light box overlayClose', 'true'),
-//('light_box_esckey', 'Light box escKey', 'Light box escKey', 'false'),
-//('light_box_arrowkey', 'Light box arrowKey', 'Light box arrowKey', 'false'),
-//('light_box_loop', 'Light box loop', 'Light box loop', 'true'),
-//('light_box_data', 'Light box data', 'Light box data', 'false'),
-//('light_box_classname', 'Light box className', 'Light box className', 'false'),
-//('light_box_fadeout', 'Light box fadeOut', 'Light box fadeOut', '300'),
-//('light_box_closebutton', 'Light box closeButton', 'Light box closeButton', 'false'),
-//('light_box_current', 'Light box current', 'Light box current', 'image'),
-//('light_box_previous', 'Light box previous', 'Light box previous', 'previous'),
-//('light_box_next', 'Light box next', 'Light box next', 'next'),
-//('light_box_close', 'Light box close', 'Light box close', 'close'),
-//('light_box_iframe', 'Light box iframe', 'Light box iframe', 'false'),
-//('light_box_inline', 'Light box inline', 'Light box inline', 'false'),
-//('light_box_html', 'Light box html', 'Light box html', 'false'),
-//('light_box_photo', 'Light box photo', 'Light box photo', 'false'),
-//('light_box_height', 'Light box height', 'Light box height', '500'),
-//('light_box_innerwidth', 'Light box innerWidth', 'Light box innerWidth', 'false'),
-//('light_box_innerheight', 'Light box innerHeight', 'Light box innerHeight', 'false'),
-//('light_box_initialwidth', 'Light box initialWidth', 'Light box initialWidth', '300'),
-//('light_box_initialheight', 'Light box initialHeight', 'Light box initialHeight', '100'),
-//('light_box_maxwidth', 'Light box maxWidth', 'Light box maxWidth', '768'),
-//('light_box_maxheight', 'Light box maxHeight', 'Light box maxHeight', '500'),
-//('light_box_slideshow', 'Light box slideshow', 'Light box slideshow', 'false'),
-//('light_box_slideshowspeed', 'Light box slideshowSpeed', 'Light box slideshowSpeed', '2500'),
-//('light_box_slideshowauto', 'Light box slideshowAuto', 'Light box slideshowAuto', 'true'),
-//('light_box_slideshowstart', 'Light box slideshowStart', 'Light box slideshowStart', 'start slideshow'),
-//('light_box_slideshowstop', 'Light box slideshowStop', 'Light box slideshowStop', 'stop slideshow'),
-//('light_box_fixed', 'Light box fixed', 'Light box fixed', 'true'),
-//('light_box_top', 'Light box top', 'Light box top', 'false'),
-//('light_box_bottom', 'Light box bottom', 'Light box bottom', 'false'),
-//('light_box_left', 'Light box left', 'Light box left', 'false'),
-//('light_box_right', 'Light box right', 'Light box right', 'false'),
-//('light_box_reposition', 'Light box reposition', 'Light box reposition', 'false'),
-//('light_box_retinaimage', 'Light box retinaImage', 'Light box retinaImage', 'true'),
-//('light_box_retinaurl', 'Light box retinaUrl', 'Light box retinaUrl', 'false'),
-//('light_box_retinasuffix', 'Light box retinaSuffix', 'Light box retinaSuffix', '@2x.$1'),
-//('light_box_returnfocus', 'Light box returnFocus', 'Light box returnFocus', 'true'),
-//('light_box_trapfocus', 'Light box trapFocus', 'Light box trapFocus', 'true'),
-//('light_box_fastiframe', 'Light box fastIframe', 'Light box fastIframe', 'true'),
-//('light_box_preloading', 'Light box preloading', 'Light box preloading', 'true'),
-//('slider_title_position', 'Slider title position', 'Slider title position', '5'),
-//('light_box_style', 'Light Box style', 'Light Box style', '1'),
-//('light_box_size_fix', 'Light Box size fix style', 'Light Box size fix style', 'false'),
-//            
-///*##############################  Isotope #####################################
-//            
-//('ht_view0_show_sorting', 'Show Sorting', 'Show Sorting', 'on'),
-//('ht_view0_sortbutton_font_size', 'Sort Button Font Size', 'Sort Button Font Size', '14'),                   
-//('ht_view0_sortbutton_font_color', 'Sort Button Font Color', 'Sort Button Font Color', '555555'),
-//('ht_view0_sortbutton_hover_font_color', 'Sort Button Hover Font Color', 'Sort Button Hover Font Color', 'ffffff'),
-//('ht_view0_sortbutton_background_color', 'Sort Button Background Color', 'Sort Button Background Color', 'F7F7F7'),
-//('ht_view0_sortbutton_hover_background_color', 'Sort Button Hover Background Color', 'Sort Button Hover Background Color', 'FF3845'),
-//('ht_view0_sortbutton_border_radius', 'Sort Button Border Radius', 'Sort Button Border Radius', '0'),
-//('ht_view0_sortbutton_border_padding', 'Sort Button Padding', 'Sort Button Padding', '3'),
-//('ht_view0_sorting_float', 'Sorting Position', 'Sorting Position', 'top'),
-//('ht_view0_show_filtering', 'Show Filtering', 'Show Filtering', 'on'),
-//('ht_view0_filterbutton_font_size', 'Filter Button Font Size', 'Filter Button Font Size', '14'),
-//('ht_view0_filterbutton_font_color', 'Filter Button Font Color', 'Filter Button Font Color', '555555'),
-//('ht_view0_filterbutton_background_color', 'Filter Button Background Color', 'Filter Button Background Color', 'F7F7F7'),
-//('ht_view0_filterbutton_hover_font_color', 'Filter Button Hover Font Color', 'Filter Button Hover Font Color', 'ffffff'),
-//('ht_view0_filterbutton_hover_background_color', 'Filter Button Hover Background Color', 'Filter Button Hover Background Color', 'FF3845'),
-//('ht_view0_filterbutton_border_radius', 'Filter Button Border Radius', 'Filter Button Border Radius', '0'),
-//('ht_view0_filterbutton_border_padding', 'Filter Button Padding', 'Filter Button Padding', '3'),
-//('ht_view0_filtering_float', 'Filtering Position', 'Filtering Position', 'left'),
-//('ht_view1_show_sorting', 'Show Sorting', 'Show Sorting', 'on'),
-//('ht_view1_sortbutton_font_size', 'Sort Button Font Size', 'Sort Button Font Size', '14'),                   
-//('ht_view1_sortbutton_font_color', 'Sort Button Font Color', 'Sort Button Font Color', '555555'),
-//('ht_view1_sortbutton_hover_font_color', 'Sort Button Hover Font Color', 'Sort Button Hover Font Color', 'ffffff'),
-//('ht_view1_sortbutton_background_color', 'Sort Button Background Color', 'Sort Button Background Color', 'F7F7F7'),
-//('ht_view1_sortbutton_hover_background_color', 'Sort Button Hover Background Color', 'Sort Button Hover Background Color', 'FF3845'),
-//('ht_view1_sortbutton_border_radius', 'Sort Button Border Radius', 'Sort Button Border Radius', '0'),
-//('ht_view1_sortbutton_border_padding', 'Sort Button Padding', 'Sort Button Padding', '3'),
-//('ht_view1_sorting_float', 'Sorting Position', 'Sorting Position', 'top'),
-//('ht_view1_show_filtering', 'Show Filtering', 'Show Filtering', 'on'),
-//('ht_view1_filterbutton_font_size', 'Filter Button Font Size', 'Filter Button Font Size', '14'),
-//('ht_view1_filterbutton_font_color', 'Filter Button Font Color', 'Filter Button Font Color', '555555'),
-//('ht_view1_filterbutton_background_color', 'Filter Button Background Color', 'Filter Button Background Color', 'F7F7F7'),
-//('ht_view1_filterbutton_hover_font_color', 'Filter Button Hover Font Color', 'Filter Button Hover Font Color', 'ffffff'),
-//('ht_view1_filterbutton_hover_background_color', 'Filter Button Hover Background Color', 'Filter Button Hover Background Color', 'FF3845'),
-//('ht_view1_filterbutton_border_radius', 'Filter Button Border Radius', 'Filter Button Border Radius', '0'),
-//('ht_view1_filterbutton_border_padding', 'Filter Button Padding', 'Filter Button Padding', '3'),
-//('ht_view1_filtering_float', 'Filtering Position', 'Filtering Position', 'left'),
-//('ht_view2_show_sorting', 'Show Sorting', 'Show Sorting', 'on'),
-//('ht_view2_sortbutton_font_size', 'Sort Button Font Size', 'Sort Button Font Size', '14'),                   
-//('ht_view2_sortbutton_font_color', 'Sort Button Font Color', 'Sort Button Font Color', '555555'),
-//('ht_view2_sortbutton_hover_font_color', 'Sort Button Hover Font Color', 'Sort Button Hover Font Color', 'ffffff'),
-//('ht_view2_sortbutton_background_color', 'Sort Button Background Color', 'Sort Button Background Color', 'F7F7F7'),
-//('ht_view2_sortbutton_hover_background_color', 'Sort Button Hover Background Color', 'Sort Button Hover Background Color', 'FF3845'),
-//('ht_view2_sortbutton_border_radius', 'Sort Button Border Radius', 'Sort Button Border Radius', '0'),
-//('ht_view2_sortbutton_border_padding', 'Sort Button Padding', 'Sort Button Padding', '3'),
-//('ht_view2_sorting_float', 'Sorting Position', 'Sorting Position', 'top'),
-//('ht_view2_show_filtering', 'Show Filtering', 'Show Filtering', 'on'),
-//('ht_view2_filterbutton_font_size', 'Filter Button Font Size', 'Filter Button Font Size', '14'),
-//('ht_view2_filterbutton_font_color', 'Filter Button Font Color', 'Filter Button Font Color', '555555'),
-//('ht_view2_filterbutton_background_color', 'Filter Button Background Color', 'Filter Button Background Color', 'F7F7F7'),
-//('ht_view2_filterbutton_hover_font_color', 'Filter Button Hover Font Color', 'Filter Button Hover Font Color', 'ffffff'),
-//('ht_view2_filterbutton_hover_background_color', 'Filter Button Hover Background Color', 'Filter Button Hover Background Color', 'FF3845'),
-//('ht_view2_filterbutton_border_radius', 'Filter Button Border Radius', 'Filter Button Border Radius', '0'),
-//('ht_view2_filterbutton_border_padding', 'Filter Button Padding', 'Filter Button Padding', '3'),
-//('ht_view2_filtering_float', 'Filtering Position', 'Filtering Position', 'left'),
-//('ht_view3_show_sorting', 'Show Sorting', 'Show Sorting', 'on'),
-//('ht_view3_sortbutton_font_size', 'Sort Button Font Size', 'Sort Button Font Size', '14'),                   
-//('ht_view3_sortbutton_font_color', 'Sort Button Font Color', 'Sort Button Font Color', '555555'),
-//('ht_view3_sortbutton_hover_font_color', 'Sort Button Hover Font Color', 'Sort Button Hover Font Color', 'ffffff'),
-//('ht_view3_sortbutton_background_color', 'Sort Button Background Color', 'Sort Button Background Color', 'F7F7F7'),
-//('ht_view3_sortbutton_hover_background_color', 'Sort Button Hover Background Color', 'Sort Button Hover Background Color', 'FF3845'),
-//('ht_view3_sortbutton_border_radius', 'Sort Button Border Radius', 'Sort Button Border Radius', '0'),
-//('ht_view3_sortbutton_border_padding', 'Sort Button Padding', 'Sort Button Padding', '3'),
-//('ht_view3_sorting_float', 'Sorting Position', 'Sorting Position', 'top'),
-//('ht_view3_show_filtering', 'Show Filtering', 'Show Filtering', 'on'),
-//('ht_view3_filterbutton_font_size', 'Filter Button Font Size', 'Filter Button Font Size', '14'),
-//('ht_view3_filterbutton_font_color', 'Filter Button Font Color', 'Filter Button Font Color', '555555'),
-//('ht_view3_filterbutton_background_color', 'Filter Button Background Color', 'Filter Button Background Color', 'F7F7F7'),
-//('ht_view3_filterbutton_hover_font_color', 'Filter Button Hover Font Color', 'Filter Button Hover Font Color', 'ffffff'),
-//('ht_view3_filterbutton_hover_background_color', 'Filter Button Hover Background Color', 'Filter Button Hover Background Color', 'FF3845'),
-//('ht_view3_filterbutton_border_radius', 'Filter Button Border Radius', 'Filter Button Border Radius', '0'),
-//('ht_view3_filterbutton_border_padding', 'Filter Button Padding', 'Filter Button Padding', '3'),
-//('ht_view3_filtering_float', 'Filtering Position', 'Filtering Position', 'left'),
-//('ht_view4_show_sorting', 'Show Sorting', 'Show Sorting', 'on'),
-//('ht_view4_sortbutton_font_size', 'Sort Button Font Size', 'Sort Button Font Size', '14'),                   
-//('ht_view4_sortbutton_font_color', 'Sort Button Font Color', 'Sort Button Font Color', '555555'),
-//('ht_view4_sortbutton_hover_font_color', 'Sort Button Hover Font Color', 'Sort Button Hover Font Color', 'ffffff'),
-//('ht_view4_sortbutton_background_color', 'Sort Button Background Color', 'Sort Button Background Color', 'F7F7F7'),
-//('ht_view4_sortbutton_hover_background_color', 'Sort Button Hover Background Color', 'Sort Button Hover Background Color', 'FF3845'),
-//('ht_view4_sortbutton_border_radius', 'Sort Button Border Radius', 'Sort Button Border Radius', '0'),
-//('ht_view4_sortbutton_border_padding', 'Sort Button Padding', 'Sort Button Padding', '3'),
-//('ht_view4_sorting_float', 'Sorting Position', 'Sorting Position', 'top'),
-//('ht_view4_show_filtering', 'Show Filtering', 'Show Filtering', 'on'),
-//('ht_view4_filterbutton_font_size', 'Filter Button Font Size', 'Filter Button Font Size', '14'),
-//('ht_view4_filterbutton_font_color', 'Filter Button Font Color', 'Filter Button Font Color', '555555'),
-//('ht_view4_filterbutton_background_color', 'Filter Button Background Color', 'Filter Button Background Color', 'F7F7F7'),
-//('ht_view4_filterbutton_hover_font_color', 'Filter Button Hover Font Color', 'Filter Button Hover Font Color', 'ffffff'),
-//('ht_view4_filterbutton_hover_background_color', 'Filter Button Hover Background Color', 'Filter Button Hover Background Color', 'FF3845'),
-//('ht_view4_filterbutton_border_radius', 'Filter Button Border Radius', 'Filter Button Border Radius', '0'),
-//('ht_view4_filterbutton_border_padding', 'Filter Button Padding', 'Filter Button Padding', '3'),
-//('ht_view4_filtering_float', 'Filtering Position', 'Filtering Position', 'left'),
-//('ht_view6_show_sorting', 'Show Sorting', 'Show Sorting', 'on'),
-//('ht_view6_sortbutton_font_size', 'Sort Button Font Size', 'Sort Button Font Size', '14'),                   
-//('ht_view6_sortbutton_font_color', 'Sort Button Font Color', 'Sort Button Font Color', '555555'),
-//('ht_view6_sortbutton_hover_font_color', 'Sort Button Hover Font Color', 'Sort Button Hover Font Color', 'ffffff'),
-//('ht_view6_sortbutton_background_color', 'Sort Button Background Color', 'Sort Button Background Color', 'F7F7F7'),
-//('ht_view6_sortbutton_hover_background_color', 'Sort Button Hover Background Color', 'Sort Button Hover Background Color', 'FF3845'),
-//('ht_view6_sortbutton_border_radius', 'Sort Button Border Radius', 'Sort Button Border Radius', '0'),
-//('ht_view6_sortbutton_border_padding', 'Sort Button Padding', 'Sort Button Padding', '3'),
-//('ht_view6_sorting_float', 'Sorting Position', 'Sorting Position', 'top'),
-//('ht_view6_show_filtering', 'Show Filtering', 'Show Filtering', 'on'),
-//('ht_view6_filterbutton_font_size', 'Filter Button Font Size', 'Filter Button Font Size', '14'),
-//('ht_view6_filterbutton_font_color', 'Filter Button Font Color', 'Filter Button Font Color', '555555'),
-//('ht_view6_filterbutton_background_color', 'Filter Button Background Color', 'Filter Button Background Color', 'F7F7F7'),
-//('ht_view6_filterbutton_hover_font_color', 'Filter Button Hover Font Color', 'Filter Button Hover Font Color', 'ffffff'),
-//('ht_view6_filterbutton_hover_background_color', 'Filter Button Hover Background Color', 'Filter Button Hover Background Color', 'FF3845'),
-//('ht_view6_filterbutton_border_radius', 'Filter Button Border Radius', 'Filter Button Border Radius', '0'),
-//('ht_view6_filterbutton_border_padding', 'Filter Button Padding', 'Filter Button Padding', '3'),
-//('ht_view6_filtering_float', 'Filtering Position', 'Filtering Position', 'left'),
-//('ht_view0_sorting_name_by_default', 'Default Sorting', 'Default Sorting', 'Default'),
-//('ht_view0_sorting_name_by_id', 'Sorting by ID', 'Default Sorting', 'Date'),
-//('ht_view0_sorting_name_by_name', 'Sorting by Name', 'Sorting by Name', 'Title'),
-//('ht_view0_sorting_name_by_random', 'Sorting by Random', 'Sorting by Random', 'Random'),
-//('ht_view0_sorting_name_by_asc', 'Asceding Sorting', 'Asceding Sorting', 'Asceding'),
-//('ht_view0_sorting_name_by_desc', 'Desceding Sorting', 'Desceding Sorting', 'Desceding'),
-//('ht_view1_sorting_name_by_default', 'Default Sorting', 'Default Sorting', 'Default'),
-//('ht_view1_sorting_name_by_id', 'Sorting by ID', 'Default Sorting', 'Date'),
-//('ht_view1_sorting_name_by_name', 'Sorting by Name', 'Sorting by Name', 'Title'),
-//('ht_view1_sorting_name_by_random', 'Sorting by Random', 'Sorting by Random', 'Random'),
-//('ht_view1_sorting_name_by_asc', 'Asceding Sorting', 'Asceding Sorting', 'Asceding'),
-//('ht_view1_sorting_name_by_desc', 'Desceding Sorting', 'Desceding Sorting', 'Desceding'),
-//('ht_view2_sorting_name_by_default', 'Default Sorting', 'Default Sorting', 'Default'),
-//('ht_view2_sorting_name_by_id', 'Sorting by ID', 'Default Sorting', 'Date'),
-//('ht_view2_sorting_name_by_name', 'Sorting by Name', 'Sorting by Name', 'Title'),
-//('ht_view2_sorting_name_by_random', 'Sorting by Random', 'Sorting by Random', 'Random'),
-//('ht_view2_sorting_name_by_asc', 'Asceding Sorting', 'Asceding Sorting', 'Asceding'),
-//('ht_view2_sorting_name_by_desc', 'Desceding Sorting', 'Desceding Sorting', 'Desceding'),
-//('ht_view3_sorting_name_by_default', 'Default Sorting', 'Default Sorting', 'Default'),
-//('ht_view3_sorting_name_by_id', 'Sorting by ID', 'Default Sorting', 'Date'),
-//('ht_view3_sorting_name_by_name', 'Sorting by Name', 'Sorting by Name', 'Title'),
-//('ht_view3_sorting_name_by_random', 'Sorting by Random', 'Sorting by Random', 'Random'),
-//('ht_view3_sorting_name_by_asc', 'Asceding Sorting', 'Asceding Sorting', 'Asceding'),
-//('ht_view3_sorting_name_by_desc', 'Desceding Sorting', 'Desceding Sorting', 'Desceding'),
-//('ht_view4_sorting_name_by_default', 'Default Sorting', 'Default Sorting', 'Default'),
-//('ht_view4_sorting_name_by_id', 'Sorting by ID', 'Default Sorting', 'Date'),
-//('ht_view4_sorting_name_by_name', 'Sorting by Name', 'Sorting by Name', 'Title'),
-//('ht_view4_sorting_name_by_random', 'Sorting by Random', 'Sorting by Random', 'Random'),
-//('ht_view4_sorting_name_by_asc', 'Asceding Sorting', 'Asceding Sorting', 'Asceding'),
-//('ht_view4_sorting_name_by_desc', 'Desceding Sorting', 'Desceding Sorting', 'Desceding'),
-//('ht_view5_sorting_name_by_default', 'Default Sorting', 'Default Sorting', 'Default'),
-//('ht_view5_sorting_name_by_id', 'Sorting by ID', 'Default Sorting', 'Date'),
-//('ht_view5_sorting_name_by_name', 'Sorting by Name', 'Sorting by Name', 'Title'),
-//('ht_view5_sorting_name_by_random', 'Sorting by Random', 'Sorting by Random', 'Random'),
-//('ht_view5_sorting_name_by_asc', 'Asceding Sorting', 'Asceding Sorting', 'Asceding'),
-//('ht_view5_sorting_name_by_desc', 'Desceding Sorting', 'Desceding Sorting', 'Desceding'),
-//('ht_view6_sorting_name_by_default', 'Default Sorting', 'Default Sorting', 'Default'),
-//('ht_view6_sorting_name_by_id', 'Sorting by date', 'date Sorting', 'Date'),
-//('ht_view6_sorting_name_by_name', 'Sorting by Name', 'Sorting by Name', 'Title'),
-//('ht_view6_sorting_name_by_random', 'Sorting by Random', 'Sorting by Random', 'Random'),
-//('ht_view6_sorting_name_by_asc', 'Asceding Sorting', 'Asceding Sorting', 'Asceding'),
-//('ht_view6_sorting_name_by_desc', 'Desceding Sorting', 'Desceding Sorting', 'Desceding'),
-//*/
-//
-//('ht_view2_popup_full_width', 'Popup Image Full Width', 'Popup Image Full Width','on'),
-//
-///* ##############################  Price And Discount(Market) Price #####################################*/
-//
-//('ht_view0_price_text', 'ht_catalog_view0_price_text', 'ht_catalog_view0_price_text', 'Price'),
-//('ht_catalog_view0_market_price_text', 'ht_catalog_view0_market_price_text', 'ht_catalog_view0_market_price_text', 'Discount Price'), 
-//('ht_view1_price_text', 'ht_catalog_view1_price_text', 'ht_catalog_view1_price_text', 'Price'),
-//('ht_catalog_view1_market_price_text', 'ht_catalog_view1_market_price_text', 'ht_catalog_view1_market_price_text', 'Discount Price'), 
-//('ht_view2_price_text', 'ht_catalog_view2_price_text', 'ht_catalog_view2_price_text', 'Price'),
-//('ht_catalog_view2_market_price_text', 'ht_catalog_view2_market_price_text', 'ht_catalog_view2_market_price_text', 'Discount Price'),
-//('ht_view3_price_text', 'ht_catalog_view3_price_text', 'ht_catalog_view3_price_text', 'Price'),
-//('ht_catalog_view3_market_price_text', 'ht_catalog_view3_market_price_text', 'ht_catalog_view3_market_price_text', 'Discount Price'),
-//('ht_view5_price_text', 'ht_catalog_view5_price_text', 'ht_catalog_view5_price_text', 'Price'),
-//('ht_catalog_view5_market_price_text', 'ht_catalog_view5_market_price_text', 'ht_catalog_view5_market_price_text', 'Discount Price'),
-//
-//('ht_catalog_view0_show_price', 'ht_catalog_view0_show_price', 'ht_catalog_view0_show_price', 'on'),
-//('ht_catalog_view0_price_font_size', 'ht_catalog_view0_price_font_size', 'ht_catalog_view0_price_font_size', '15'),
-//('ht_catalog_view0_price_font_color', 'ht_catalog_view0_price_font_color', 'ht_catalog_view0_price_font_color', 'e74c3c'),
-//('ht_catalog_view0_market_price_font_size', 'ht_catalog_view0_price_font_size', 'ht_catalog_view0_price_font_size', '15'),
-//('ht_catalog_view0_market_price_font_color', 'ht_catalog_view0_market_price_font_color', 'ht_catalog_view0_market_price_font_color', '000000'),
-//('ht_catalog_view1_show_price', 'ht_catalog_view1_show_price', 'ht_catalog_view1_show_price', 'on'),
-//('ht_catalog_view1_price_font_size', 'ht_catalog_view1_price_font_size', 'ht_catalog_view1_price_font_size', '15'),
-//('ht_catalog_view1_price_font_color', 'ht_catalog_view1_price_font_color', 'ht_catalog_view1_price_font_color', 'e74c3c'),
-//('ht_catalog_view1_market_price_font_size', 'ht_catalog_view0_price_font_size', 'ht_catalog_view0_price_font_size', '15'),
-//('ht_catalog_view1_market_price_font_color', 'ht_catalog_view1_market_price_font_color', 'ht_catalog_view1_market_price_font_color', '000000'),
-//('ht_catalog_view2_show_price', 'ht_catalog_view2_show_price', 'ht_catalog_view2_show_price', 'on'),
-//('ht_catalog_view2_price_font_size', 'ht_catalog_view2_price_font_size', 'ht_catalog_view2_price_font_size', '15'),
-//('ht_catalog_view2_price_font_color', 'ht_catalog_view2_price_font_color', 'ht_catalog_view2_price_font_color', 'e74c3c'),
-//('ht_catalog_view2_market_price_font_size', 'ht_catalog_view0_price_font_size', 'ht_catalog_view0_price_font_size', '15'),
-//('ht_catalog_view2_market_price_font_color', 'ht_catalog_view2_market_price_font_color', 'ht_catalog_view2_market_price_font_color', '000000'),
-//('ht_catalog_view3_show_price', 'ht_catalog_view3_show_price', 'ht_catalog_view3_show_price', 'on'),
-//('ht_catalog_view3_price_font_size', 'ht_catalog_view3_price_font_size', 'ht_catalog_view3_price_font_size', '15'),
-//('ht_catalog_view3_price_font_color', 'ht_catalog_view3_price_font_color', 'ht_catalog_view3_price_font_color', '0074a2'),
-//('ht_catalog_view3_market_price_font_size', 'ht_catalog_view0_price_font_size', 'ht_catalog_view0_price_font_size', '15'),
-//('ht_catalog_view3_market_price_font_color', 'ht_catalog_view3_market_price_font_color', 'ht_catalog_view3_market_price_font_color', '000000'),
-//('ht_catalog_view5_show_price', 'ht_catalog_view5_show_price', 'ht_catalog_view5_show_price', 'on'),
-//('ht_catalog_view5_price_font_size', 'ht_catalog_view5_price_font_size', 'ht_catalog_view5_price_font_size', '15'),
-//('ht_catalog_view5_price_font_color', 'ht_catalog_view5_price_font_color', 'ht_catalog_view5_price_font_color', '0074a2'),
-//('ht_catalog_view5_market_price_font_size', 'ht_catalog_view0_price_font_size', 'ht_catalog_view0_price_font_size', '15'),
-//('ht_catalog_view5_market_price_font_color', 'ht_catalog_view5_market_price_font_color', 'ht_catalog_view5_market_price_font_color', '000000'),
-//            
-//  /* ##############################  Zoom #####################################*/
-//('ht_catalog_zoom_window_type', 'Zoom Window Type', 'Zoom Window Type', 'window'),
-//('ht_catalog_zoom_window_width', 'Zoom Window Width', 'Zoom Window Width', '300'),
-//('ht_catalog_zoom_window_height', 'Zoom Window Height', 'Zoom Window Height', '200'),
-//('ht_catalog_zoom_x_asis', 'Zoom Window X asis', 'Zoom Window X asis', '0'),
-//('ht_catalog_zoom_y_asis', 'Zoom Window Y asis', 'Zoom Window Y asis', '200'),
-//('ht_catalog_zoom_window_position', 'Zoom Window position', 'Zoom Window position', '16'),
-//('ht_catalog_zoom_window_border_size', 'Zoom Window Border Size', 'Zoom Window Size', '2'),
-//('ht_catalog_zoom_window_border_color', 'Zoom Window Boreder Color', 'Zoom Window Boreder Color', '#000'),
-//('ht_catalog_zoom_window_lens_size', 'Zoom Window Lens Size', 'Zoom Window Lens Size', '200'),
-//('ht_catalog_zoom_window_fadein', 'Zoom Window Boreder Color', 'Zoom Window Boreder Color', '200'),
-//('ht_catalog_zoom_window_fadeout', 'Zoom Window Lens Size', 'Zoom Window Lens Size', '200'),
-//('ht_catalog_zoom_lens_fadein', 'Zoom Lens Fadein', 'Zoom Lens Fadein', '200'),
-//('ht_catalog_zoom_lens_fadeout', 'Zoom Lens Fadeout', 'Zoom Lens Fadeout', '200'),
-//('ht_catalog_zoom_lens_hide', 'Zoom Lens Hide', 'Zoom Lens Hide', 'false'),
-//('ht_catalog_zoom_lens_shape', 'ZoomLens Shape', 'Zoom Lens Shape', 'square'),
-//('ht_catalog_zoom_lens_color', 'Zoom Lens Color', 'Zoom Lens Color', '#fff'),
-//('ht_catalog_zoom_lens_opacity', 'Zoom Window Lens Opacity', 'Zoom Lens Opacity', '40'),
-//('ht_catalog_zoom_cursor', 'Zoom Cursor', 'Zoom Cursor', 'crosshair'),
-//('ht_catalog_zoom_scrollzoom', 'Scroll Zoom', 'Scroll Zoom', 'true'),
-//('ht_catalog_zoom_easing', 'Zoom easing', 'Zoom easing', 'true'),
-//('ht_catalog_zoom_lens_size_fix', 'Zoom easing', 'Zoom easing', 'false'),
-//('ht_catalog_zoom_lens_height', 'Zoom easing', 'Zoom easing', '100'),
-//('ht_catalog_zoom_lens_width', 'Zoom easing', 'Zoom easing', '100'),
-//('ht_catalog_zoom_tint', 'Zoom Tint', 'Zoom Tint', 'true'),
-//('ht_catalog_zoom_tint_colour', 'Zoom Tint Color', 'Zoom Tint Color', '#fff'),
-//('ht_catalog_zoom_tint_opacity', 'Zoom Tint Opacity', 'Zoom Tint Opacity', '40'),
-//('ht_catalog_zoom_tint_fadein', 'Zoom Tint Fadein Speed', 'Zoom Tint Fadein Speed', '200'),
-//('ht_catalog_zoom_tint_fadeout', 'Zoom Tint Fadeout Speed', 'Zoom Tint Fadeout Speed', '200'),
-//('ht_view3_allow_lightbox', 'View Mode', 'View Mode', 'on'),
-//('ht_catalog_zoom_thumbs_zoom', 'Allow Thumbs Zoom', 'Allow Thumbs Zoom', 'off'),
-//('ht_view3_allow_zooming', 'View Mode', 'View Mode', 'on');
-//
-//query1;
-    
-    
     $table_name = $wpdb->prefix . "huge_it_catalog_album_catalog_contact";
     $sql_7 = <<<query7
 INSERT INTO `$table_name` (`album_id`, `catalog_id`) VALUES
@@ -2337,10 +1792,6 @@ query8;
     
     
     $admin_email_default = get_option('admin_email');
-    /*$to_remove = array( 'http://wwww.', 'https://wwww.' );
-    foreach ( $to_remove as $item ) {
-        $admin_email_default = str_replace($item, '', $admin_email_default);
-    }*/
     
     $table_name = $wpdb->prefix . "huge_it_catalog_general_params";
     $sql_9 = <<<query9
@@ -2375,25 +1826,8 @@ INSERT INTO `$table_name` (`name`, `title`, `value`) VALUES
 
 query9;
     
-//$table_name = $wpdb->prefix . "huge_it_catalog_related_params";
-//$sql_10 = <<<query10
-//INSERT INTO `$table_name` (`name`, `title`, `value`) VALUES
-//
-//('ht_catalog_related_products_show', 'ht_catalog_related_products_show', 'on'),
-//('ht_catalog_related_products_easing', 'ht_catalog_related_products_easing', 'on'),
-//('ht_catalog_related_products_visible_count', 'ht_catalog_related_products_visible_count', '4'),
-//('ht_catalog_related_products_vertical', 'ht_catalog_related_products_vertical', 'off'),
-//('ht_catalog_related_products_start', 'ht_catalog_related_products_start', '0'),
-//('ht_catalog_related_products_circular', 'ht_catalog_related_products_show', 'on'),
-//('ht_catalog_related_products_step', 'ht_catalog_related_products_show', 'on'),
-//('ht_catalog_related_products_autoplay', 'ht_catalog_related_products_autoplay', 'on'),
-//('ht_catalog_related_products_autoplay_speed', 'ht_catalog_related_products_autoplay_speed', '500');
-//
-//query10;
     
     
-    
-//    $wpdb->query($sql_huge_it_catalog_params);
     $wpdb->query($sql_huge_it_catalog_products);
     $wpdb->query($sql_huge_catalogs);
     $wpdb->query($sql_huge_it_catalog_rating);
@@ -2401,14 +1835,8 @@ query9;
     $wpdb->query($sql_huge_it_catalog_asc_seller);
     $wpdb->query($sql_huge_it_catalog_albums);
     $wpdb->query($sql_huge_it_catalog_album_catalog_contact);
-//    $wpdb->query($sql_huge_it_catalog_product_params);
     $wpdb->query($sql_huge_it_catalog_general_params);
-//    $wpdb->query($sql_huge_it_catalog_related_params);
 
-
-//    if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_it_catalog_params")) {
-//        $wpdb->query($sql_1);
-//    }
     if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_it_catalog_products")) {
       $wpdb->query($sql_2);
     }
@@ -2427,137 +1855,9 @@ query9;
     if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_it_catalog_album_catalog_contact")) {
         $wpdb->query($sql_7);
     }
-//    if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_it_catalog_product_params")) {
-//        $wpdb->query($sql_8);
-//    }
     if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_it_catalog_general_params")) {
         $wpdb->query($sql_9);
     }
-//    if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_it_catalog_related_params")) {
-//        $wpdb->query($sql_10);
-//    }
-      
-
-			///////////////////////////UPDATE////////////////////////////////////   
-    
-//    $table_name = $wpdb->prefix . "huge_it_catalog_product_params";
-//    $sql_update_catalog_1 = "INSERT INTO `$table_name` (`name`, `title`, `value`) VALUES
-//    ('ht_single_product_asc_seller_button_text', 'ht_single_product_asc_seller_button_text', 'Contact Seller'),
-//    ('ht_single_product_asc_seller_button_text_size', 'ht_single_product_asc_seller_button_text_size', '18'), 
-//    ('ht_single_product_asc_seller_button_text_color', 'ht_single_product_asc_seller_button_text_color', 'ffffff'),
-//    ('ht_single_product_asc_seller_button_text_hover_color', 'ht_single_product_asc_seller_button_text_hover_color', 'ffffff'),
-//    ('ht_single_product_asc_seller_button_background_color', 'ht_single_product_asc_seller_button_background_color', 'E22828'),
-//    ('ht_single_product_asc_seller_button_background_hover_color', 'ht_single_product_asc_seller_button_background_hover_color', 'E22828'),
-//    ('ht_single_product_asc_to_seller_text', 'Submit Your Message Text', 'Submit Your Message'),
-//    ('ht_single_product_asc_seller_popup_background_1', 'ht_single_product_asc_seller_popup_background_1', 'ffffff'),
-//    ('ht_single_product_asc_seller_popup_background_2', 'ht_single_product_asc_seller_popup_background_2', '999999'),
-//    ('ht_single_product_your_mail_text', 'Your E-mail', 'Your E-mail'),
-//    ('ht_single_product_your_phone_text', 'Your Phone', 'Your Phone'),
-//    ('ht_single_product_your_message_text', 'Your Message', 'Your Message'),
-//    ('ht_single_product_asc_seller_popup_button_text', 'ht_single_product_asc_seller_popup_button_text', 'Submit'),
-//    ('ht_single_product_asc_seller_popup_button_text_size', 'ht_single_product_asc_seller_popup_button_text_size', '16'),
-//    ('ht_single_product_asc_seller_popup_button_text_color', 'ht_single_product_asc_seller_popup_button_text_color', '000000'),
-//    ('ht_single_product_asc_seller_popup_button_background_color', 'ht_single_product_asc_seller_popup_button_background_color', 'EEEEEE'),
-//    ('ht_single_product_asc_seller_popup_button_background_hover_color', 'ht_single_product_asc_seller_popup_button_background_hover_color', 'EEEEEE'),
-//    ('ht_single_product_asc_seller_popup_close_style', 'Close Button Style', 'dark')";
-//
-//    $query="SELECT name FROM ".$wpdb->prefix."huge_it_catalog_product_params";
-//    $update_catalog_1=$wpdb->get_results($query);
-//    if(end($update_catalog_1)->name=='ht_single_product_invalid_captcha_text'){
-//            $wpdb->query($sql_update_catalog_1);
-//    };
-    
-    
-//    $table_name = $wpdb->prefix . "huge_it_catalog_params";
-//    $sql_update_catalog_2 = "INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
-//    ('ht_view0_allow_lightbox', 'View Mode', 'View Mode', 'on'),
-//    ('ht_view1_allow_lightbox', 'View Mode', 'View Mode', 'on'),
-//    ('ht_view2_allow_lightbox', 'View Mode', 'View Mode', 'on'),
-//    ('ht_view5_allow_lightbox', 'View Mode', 'View Mode', 'on'),
-//    ('ht_view0_allow_zooming', 'View Mode', 'View Mode', 'off'),
-//    ('ht_view1_allow_zooming', 'View Mode', 'View Mode', 'off'),
-//    ('ht_view2_allow_zooming', 'View Mode', 'View Mode', 'on'),
-//    ('ht_view5_allow_zooming', 'View Mode', 'View Mode', 'on')";
-//
-//    $query="SELECT name FROM ".$wpdb->prefix."huge_it_catalog_params";
-//    $update_catalog_2=$wpdb->get_results($query);
-//    if(end($update_catalog_2)->name=='ht_view3_allow_zooming'){
-//            $wpdb->query($sql_update_catalog_2);
-//    };
-    
-    
-//    $table_name = $wpdb->prefix . "huge_it_catalog_product_params";
-//    $sql_update_catalog_3 = "INSERT INTO `$table_name` (`name`, `title`, `value`) VALUES
-//    ('ht_single_product_show_asc_seller_button', 'ht_single_product_show_asc_seller_button', 'off'),
-//    ('ht_single_product_message_for_user', 'ht_single_product_message_for_user', 'Dear Customer,Your Message Was Sent To Seller,Please Wait To Response')";
-//    
-//    $query="SELECT name FROM ".$wpdb->prefix."huge_it_catalog_product_params";
-//    $update_catalog_3=$wpdb->get_results($query);
-//    if(end($update_catalog_3)->name=='ht_single_product_asc_seller_popup_close_style'){
-//            $wpdb->query($sql_update_catalog_3);
-//    };
-    
-    
-//    $table_name = $wpdb->prefix . "huge_it_catalog_params";
-//    $sql_update_catalog_4 = "INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
-//    ('htc_view0_load_more_position', 'Load More Position', 'Load More Position', 'center'),
-//    ('htc_view1_load_more_position', 'Load More Position', 'Load More Position', 'center'),
-//    ('htc_view2_load_more_position', 'Load More Position', 'Load More Position', 'center'),
-//    ('htc_view3_load_more_position', 'Load More Position', 'Load More Position', 'center'),
-//    ('htc_view0_load_more_font_size', 'Load More Position', 'Load More Font Size', '18'),
-//    ('htc_view1_load_more_font_size', 'Load More Position', 'Load More Font Size', '18'),
-//    ('htc_view2_load_more_font_size', 'Load More Position', 'Load More Font Size', '22'),
-//    ('htc_view3_load_more_font_size', 'Load More Position', 'Load More Font Size', '20'),
-//    ('htc_view0_load_more_font_color', 'Load More Position', 'Load More Font Color', 'FFFFFF '),
-//    ('htc_view1_load_more_font_color', 'Load More Position', 'Load More Font Color', 'FFFFFF '),
-//    ('htc_view2_load_more_font_color', 'Load More Position', 'Load More Font Color', 'FFFFFF '),
-//    ('htc_view3_load_more_font_color', 'Load More Position', 'Load More Font Color', 'FFFFFF '),
-//    ('htc_view0_load_more_font_hover_color', 'Load More Position', 'Load More Font Hover Color', 'FFFFFF'),
-//    ('htc_view1_load_more_font_hover_color', 'Load More Position', 'Load More Font Hover Color', 'FFFFFF'),
-//    ('htc_view2_load_more_font_hover_color', 'Load More Position', 'Load More Font Hover Color', 'F2F2F2'),
-//    ('htc_view3_load_more_font_hover_color', 'Load More Position', 'Load More Font Hover Color', 'FFFFFF'),
-//    ('htc_view0_load_more_button_background_color', 'Load More Position', 'Load More Button Background Color', 'A1A1A1'),
-//    ('htc_view1_load_more_button_background_color', 'Load More Position', 'Load More Button Background Color', 'A1A1A1'),
-//    ('htc_view2_load_more_button_background_color', 'Load More Position', 'Load More Button Background Color', 'FF2C2C'),
-//    ('htc_view3_load_more_button_background_color', 'Load More Position', 'Load More Button Background Color', 'A1A1A1'),
-//    ('htc_view0_load_more_button_background_hover_color', 'Load More Position', 'Load More Background Hover Color', 'A1A1A1'),
-//    ('htc_view1_load_more_button_background_hover_color', 'Load More Position', 'Load More Background Hover Color', 'A1A1A1'),
-//    ('htc_view2_load_more_button_background_hover_color', 'Load More Position', 'Load More Background Hover Color', '991A1A'),
-//    ('htc_view3_load_more_button_background_hover_color', 'Load More Position', 'Load More Background Hover Color', 'A1A1A1'),
-//    ('htc_view0_load_more_loading_icon', 'Load More Position', 'Loading Icon', '1'),
-//    ('htc_view1_load_more_loading_icon', 'Load More Position', 'Loading Icon', '2'),
-//    ('htc_view2_load_more_loading_icon', 'Load More Position', 'Loading Icon', '3'),
-//    ('htc_view3_load_more_loading_icon', 'Load More Position', 'Loading Icon', '4'),
-//    
-//    ('htc_view0_pagination_font_size', 'Load More Position', 'Loading Icon', '22'),
-//    ('htc_view1_pagination_font_size', 'Load More Position', 'Loading Icon', '22'),
-//    ('htc_view2_pagination_font_size', 'Load More Position', 'Loading Icon', '22'),
-//    ('htc_view3_pagination_font_size', 'Load More Position', 'Loading Icon', '22'),
-//    ('htc_view0_pagination_font_color', 'Load More Position', 'Loading Icon', '000'),
-//    ('htc_view1_pagination_font_color', 'Load More Position', 'Loading Icon', '000'),
-//    ('htc_view2_pagination_font_color', 'Load More Position', 'Loading Icon', '000'),
-//    ('htc_view3_pagination_font_color', 'Load More Position', 'Loading Icon', '000'),
-//    ('htc_view0_pagination_icon_size', 'Load More Position', 'Loading Icon', '22'),
-//    ('htc_view1_pagination_icon_size', 'Load More Position', 'Loading Icon', '22'),
-//    ('htc_view2_pagination_icon_size', 'Load More Position', 'Loading Icon', '22'),
-//    ('htc_view3_pagination_icon_size', 'Load More Position', 'Loading Icon', '22'),
-//    ('htc_view0_pagination_icon_color', 'Load More Position', 'Loading Icon', '000'),
-//    ('htc_view1_pagination_icon_color', 'Load More Position', 'Loading Icon', '000'),
-//    ('htc_view2_pagination_icon_color', 'Load More Position', 'Loading Icon', '000'),
-//    ('htc_view3_pagination_icon_color', 'Load More Position', 'Loading Icon', '000'),
-//    ('htc_view0_pagination_position', 'pagination Position', 'Loading Icon', 'center'),
-//    ('htc_view1_pagination_position', 'pagination Position', 'Loading Icon', 'center'),
-//    ('htc_view2_pagination_position', 'pagination Position', 'Loading Icon', 'center'),
-//    ('htc_view3_pagination_position', 'pagination Position', 'Loading Icon', 'center')";
-//
-//    $query="SELECT name FROM ".$wpdb->prefix."huge_it_catalog_params";
-//    $update_catalog_4=$wpdb->get_results($query);
-//    if(end($update_catalog_4)->name=='ht_view5_allow_zooming'){
-//            $wpdb->query($sql_update_catalog_4);
-//    };
-    
-    
-    
     
     $table_name = $wpdb->prefix . "huge_it_catalog_general_params";
     $sql_update_catalog_5 = "INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
@@ -2568,23 +1868,7 @@ query9;
     if(end($update_catalog_5)->name=='ht_single_product_asc_seller_button_text'){
             $wpdb->query($sql_update_catalog_5);
     };
-    
-    
-     /*$table_name = $wpdb->prefix . "huge_it_catalog_general_params";
-    $seller_title = $wpdb->get_row("SELECT value FROM '$table_name' WHERE name='ht_single_product_asc_to_seller_text'");
-    if($seller_title == 'Asc Seller'){
-        $sql_update_catalog_6 = "UPDATE `$table_name` SET value = 'Contact Seller' WHERE name='ht_single_product_asc_to_seller_text'";
-        $wpdb->query($sql_update_catalog_6);}
-    
-    
-    $table_name = $wpdb->prefix . "huge_it_catalog_general_params";
-    $seller_text = $wpdb->get_row("SELECT value FROM '$table_name' WHERE name='ht_single_product_asc_seller_button_text'");
-    if($seller_text == 'Contact to Seller'){
-        $sql_update_catalog_7 = "UPDATE `$table_name` SET value = 'Contact Seller' WHERE name='ht_single_product_asc_seller_button_text'";
-        $wpdb->query($sql_update_catalog_7);}*/
-            
-    
-    
+
     $needToUpdateProductLink = 0;
     $catalogProductsAllFieldsInArray = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_it_catalog_products", ARRAY_A);
     foreach($catalogProductsAllFieldsInArray as $catalogProductsFields){
@@ -2596,8 +1880,6 @@ query9;
         $wpdb->query("ALTER TABLE ".$wpdb->prefix."huge_it_catalog_products ADD single_product_url_type text");
         $wpdb->query("UPDATE ".$wpdb->prefix."huge_it_catalog_products SET single_product_url_type = 'default'");
         
-//        $wpdb->query("ALTER TABLE ".$wpdb->prefix."huge_it_catalog_products ADD single_product_url text");
-//        $wpdb->query("UPDATE ".$wpdb->prefix."huge_it_catalog_products SET single_product_url = 'http://huge-it.com/fields/order-website-maintenance/'");
     }
     
     $needToUpdatePagination = 0;
@@ -3030,16 +2312,14 @@ h3 {
 }
 
 .editimageicon {
-	border:0px;
-	background:none;
+	border:0;
 	color:#2ea2cc;
 	outline:none;
 	display:inline;
 	height: 24px;
-	padding-top: 0px;
 	cursor:pointer;
 	text-decoration:underline;
-	padding:0px 20px 0px 0px;
+	padding:0 20px 0 0;
 	background: url(../images/edit.png) right 8px no-repeat;
 }
 
@@ -3068,7 +2348,6 @@ h3 {
                                 jQuery('#huge_it_slider_add_posts_wrap .view-type-block a').removeClass('active');
                                 jQuery(this).addClass('active');
                                 var strtype=jQuery(this).attr('href').replace('#','');
-//                                alert(strtype);
                                 jQuery(this).parent().parent().parent().find("#huge-it-posts-list").removeClass('list').removeClass('thumbs');
                                 jQuery(this).parent().parent().parent().find("#huge-it-posts-list").addClass(strtype);
                                 return false;
@@ -3093,7 +2372,6 @@ h3 {
                                     return false;
                                 }
                                 else{
-//                                    alert(ID1);
                                     ID1 = ID1.split(';')
                                     var forEach = Function.prototype.call.bind( Array.prototype.forEach );
                                     forEach( ID1, function( node ) {       //      alert( node );
@@ -3124,7 +2402,6 @@ h3 {
                                         }
                                 });
                                 jQuery('#huge-it-add-posts-params-0').val(inputval);
-//                                alert(jQuery('#huge-it-add-posts-params-0').val());
                         });
                         
                         jQuery('#check_all_checkbox').change(function(){
@@ -3156,7 +2433,6 @@ h3 {
                                     return false;
                                 }
                                 else{
-//                                    alert(ID1);
                                     ID1 = ID1.split(';')
                                     var forEach = Function.prototype.call.bind( Array.prototype.forEach );
                                     forEach( ID1, function( node ) {       //      alert( node );
@@ -3182,11 +2458,9 @@ h3 {
                                 jQuery('.huge-it-post-checked-1').each(function(){
                                         if(jQuery(this).is(':checked')){
                                                 inputval+=jQuery(this).val()+";";
-//                                                alert("cheched");
                                         }
                                 });
                                 jQuery('#huge-it-add-posts-params-1').val(inputval);
-//                                alert(jQuery('#huge-it-add-posts-params-1').val());
                         });
                         
                         jQuery('#slider-posts-tabs-content-2 .huge-it-insert-post-button').on('click', function() {
@@ -3196,7 +2470,6 @@ h3 {
                                     return false;
                                 }
                                 else{
-//                                    alert(ID1);
                                     ID1 = ID1.split(';')
                                     var forEach = Function.prototype.call.bind( Array.prototype.forEach );
                                     forEach( ID1, function( node ) {       //      alert( node );
@@ -3224,7 +2497,6 @@ h3 {
                                 jQuery('.huge-it-post-checked-2').each(function(){
                                         if(jQuery(this).is(':checked')){
                                                 inputval+=jQuery(this).val()+";";
-//                                                alert("cheched");
                                         }
                                 });
                                 jQuery('#huge-it-add-posts-params-2').val(inputval);
@@ -3241,50 +2513,10 @@ h3 {
 	<div id="huge_it_slider_add_posts" style="">
 		<div id="huge_it_slider_add_posts_wrap">
 			<ul id="slider-posts-tabs">
-				<!--<li  class="active"><a href="#slider-posts-tabs-content-0">Albums</a></li>-->
 				<li class="active" ><a href="#slider-posts-tabs-content-1"><?php echo __("Catalogs"); ?></a></li>
                                 <li><a href="#slider-posts-tabs-content-2"><?php echo __("Products","product-catalog"); ?></a></li>
 			</ul>
 			<ul id="slider-posts-tabs-contents">
-<!--				<li id="slider-posts-tabs-content-0"  class="active">
-					 STATIC POSTS 
-					<div class="control-panel">
-                                            <button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-top'>Insert Posts</button>
-					</div>
-					<div style="clear:both;"></div>
-					<ul id="huge-it-posts-list" class="list">
-						<li id="huge-it-posts-list-heading" class="hascolor">
-                                                    <div class="huge-it-posts-list-image"><input type="checkbox" id="check_all_checkbox" /></div>
-                                                    <div class="huge-it-posts-list-title">ID</div>
-                                                    <div class="huge-it-posts-list-title">Name</div>
-                                                    <div class="huge-it-posts-list-description">Catalogs</div>
-						</li>-->
-						<?php
-//                                                var_dump($albumsArray[0]);
-//                                                exit();
-//						$strx=1;
-//						foreach($albumsArray as $albumKey => $album){
-//                                                        $strx++;
-//                                                        $hascolor="";
-//                                                        if($strx%2==0){$hascolor='class="hascolor"';}
-                                                        
-						?>
-							
-<!--							<li <?php echo $hascolor; ?>>
-								<input type="checkbox" class="huge-it-post-checked-0"  value="<?php echo $album->album_id; ?>">
-                                                                <div class="huge-it-posts-list-image"><input type="checkbox" /></div>
-                                                                <div class="huge-it-posts-list-title"><?php echo $album->album_id; ?></div>
-								<div class="huge-it-posts-list-title"><?php echo $album->name;	?></div>
-								<div class="huge-it-posts-list-description"><?php if($catalogsCountsArray[$albumKey]->count == "" || $album->catalog_id == 0) echo 0;else echo $catalogsCountsArray[$albumKey]->count; ?></div>
-							</li>-->
-						<?php
-//                                                }
-                                                ?>
-<!--					</ul>
-					<input id="huge-it-add-posts-params-0" type="hidden" name="popupposts" value="" />
-					<div class="clear"></div>
-					<button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-bottom'>Insert Posts</button>
-				</li>-->
 				<li id="slider-posts-tabs-content-1"  class="active">
 					<!-- STATIC POSTS -->
 					<div class="control-panel">
@@ -3304,7 +2536,6 @@ h3 {
 							</div>
 						</li>
 						<?php 
-//                                                var_dump($shortcodecatalogs);var_dump($productCountsArray);exit;
 						  $strx=1;
 						  foreach($shortcodecatalogs as $productKey => $shortcodecatalog){
                                                       if($shortcodecatalog->id != ""){

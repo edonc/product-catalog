@@ -1,5 +1,5 @@
 /*
- jQuery Simple Slider
+ This is a fork of jQuery Simple Slider
 
  Copyright (c) 2012 James Smith (http://loopj.com)
 
