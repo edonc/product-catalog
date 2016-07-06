@@ -1,12 +1,5 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-if (function_exists('current_user_can'))
-    if (!current_user_can('manage_options')) {
-        die(__('Access Denied',"product-catalog"));
-    }
-if (!function_exists('current_user_can')) {
-    die(__('Access Denied',"product-catalog"));
-}
 
 function html_show_albums($albumsArray,$catalogsCountsArray) {  //  var_dump($albumsArray);// exit; ?>
     <div class="wrap">

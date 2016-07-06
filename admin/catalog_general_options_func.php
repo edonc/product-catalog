@@ -1,12 +1,5 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-if (function_exists('current_user_can'))
-    if (!current_user_can('manage_options')) {
-        die('Access Denied');
-    }
-if (!function_exists('current_user_can')) {
-    die('Access Denied');
-}
 function show_general_options(){
     global $wpdb;
     $query = "SELECT *  FROM " . $wpdb->prefix . "huge_it_catalog_general_params";
