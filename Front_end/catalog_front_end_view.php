@@ -488,7 +488,6 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
             }
             var view_num = <?php echo $catalogeffect; ?>;
             
-//            var catalogThumbsZoom = "<?php echo $paramssld['ht_catalog_zoom_thumbs_zoom'];?>";
             var catalogZoomType = "<?php echo $paramssld['ht_catalog_zoom_window_type'];?>";
 		var catalogWindowWidth = <?php echo $paramssld['ht_catalog_zoom_window_width'];?>;
 		var catalogWindowHeight = <?php echo $paramssld['ht_catalog_zoom_window_height'];?>;
@@ -663,8 +662,7 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
                                         for(i = 1; i <= group_count; i++){
                                             jQuery(".catalog_group" + i + "<?php echo "_".$catalogID; ?>").ccolorbox({rel:'catalog_group' + i + "<?php echo "_".$catalogID; ?>"});
                                         }
-//                                        catalog_group<?php // echo $group_key."_".$catalogID; ?>
-        				
+
                                         var catalog_slider_slides_count = 0;
                                         jQuery(".slider-content").each(function(){
                                             catalog_slider_slides_count++;
@@ -739,11 +737,9 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 							jQuery('#huge_it_catalog_content_<?php echo $catalogID; ?>').find('#search_not_results_<?php echo $catalogID; ?>').css('display','none');		
 						}							
 						else {
-						//	jQuery('#huge_it_catalog_content_<?php echo $catalogID; ?>').find('#search_block_<?php echo $catalogID; ?> form > input').val('');
 							jQuery('#huge_it_catalog_content_<?php echo $catalogID; ?>').find('#search_not_results_<?php echo $catalogID; ?>').css('display','block');
 							jQuery(".catalog_load_block_<?php echo $catalogID; ?>").css('display','none'); 
 							jQuery('#search_block_<?php echo $catalogID; ?> form > input').keyup();
-							//(paginationType == 'show_all')&&jQuery('.show_all_<?php echo $catalogID; ?>').css('display','block');
 						}
 					}
                         setTimeout(function(){
@@ -793,14 +789,11 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 				event.preventDefault();
 				jQuery('#search_block_<?php echo $catalogID; ?> form > input').keyup();
 				var searchText = jQuery(this).find('input').val();
-			/*	if(!searchText) 
-					return false;*/
 				HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,'search','<?php echo $catalog[0]->pagination_type;?>',$ob_<?php echo $catalogID; ?>);
 			});
 			
 			jQuery('#search_block_<?php echo $catalogID; ?> form > input').on('keyup',function(event){
 				event.preventDefault();
-				//(jQuery(this).val() == '' && '<?php echo $catalog[0]->pagination_type;?>' =='load_more')?jQuery(this).next().next().attr('disabled','disabled'):jQuery(this).next().next().attr('disabled','disabled');
 				(jQuery(this).val() != '')?jQuery(this).next().css('display','block'):jQuery(this).next().css('display','none');
 			});	
 			jQuery('#search_block_<?php echo $catalogID; ?> form > input+div').on('click',function(event){
@@ -857,17 +850,6 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 	?>
 
 <?php
-//    if($paramssld["ht_view0_sorting_float"] == "left" && $paramssld["ht_view0_filtering_float"] == "right" ||
-//       $paramssld["ht_view0_sorting_float"] == "right" && $paramssld["ht_view0_filtering_float"] == "left" ||
-//       $paramssld["ht_view0_sorting_float"] == $paramssld["ht_view0_filtering_float"])
-//       { $sorting_block_width ="20%"; $filtering_block_width ="20%"; $middle_with = "56%"; }
-//    else if($paramssld["ht_view0_sorting_float"] == "left" || $paramssld["ht_view0_sorting_float"] == "right" && $paramssld["ht_view0_filtering_float"] == "top")
-//       { $sorting_block_width ="30%"; $filtering_block_width ="100%"; $paramssld["ht_view0_filtering_float"] = "none"; $width_middle = "65%"; }
-//    else if($paramssld["ht_view0_filtering_float"] == "left" || $paramssld["ht_view0_filtering_float"] == "right" && $paramssld["ht_view0_sorting_float"] == "top")
-//       { $sorting_block_width ="100%"; $filtering_block_width ="30%"; $paramssld["ht_view0_sorting_float"] = "none"; $width_middle = "65%"; }
-//    if($paramssld["ht_view0_sorting_float"] == "top" && $paramssld["ht_view0_filtering_float"] == "top")
-//       { $sorting_block_width ="100%"; $filtering_block_width ="100%"; $left_to_top = "ok"; }
-
 if($catalog[0]->pagination_type == "show_all"){
     $myAllImages = count($images);
     if($myAllImages < $catalog[0]->count_into_page)            //update pagination bug
@@ -906,7 +888,6 @@ else{
                 $show_until = $page_index * $countIntoPage - 1;
                 $usefulElementsKey = 0;
                 
-//                var_dump("from ".$show_from." ".$show_until);
                 foreach($images as $galleryElements){
                     if($usefulElementsKey >= $show_from && $usefulElementsKey <= $show_until){
                         $imagesUsefulElements[] = $galleryElements;
@@ -928,7 +909,6 @@ else{
         $imagesUsefulElements = array();
         for($usefulKeys = 0; $usefulKeys < $countIntoPage; $usefulKeys++){
             $imagesUsefulElements[] = $images[$usefulKeys];
-//                    var_dump($usefulKeys);
         }
         $images = $imagesUsefulElements;
     }
