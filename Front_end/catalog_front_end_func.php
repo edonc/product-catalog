@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function showPublishedcatalogs_1($id)
 {
  global $wpdb;

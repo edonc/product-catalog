@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function html_show_general_options($param_values){  //  var_dump($param_values); ?>
 
 
