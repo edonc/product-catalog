@@ -1,10 +1,10 @@
 === Catalog Product ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/product-catalog/
-Tags: catalog, product reviews, catalogs, blog catalog, online store, catalogue, products, wp catalog, WP Catalogue, directory, product portfolio, product catalog, shopping cart, product catalogue, store, product feed, collection, product, attributes, inventory, list products, product gallery, products catalog, catalog of goods, e-commerce, commerce, ecommerce, shop, shopping, wordpress ecommerce, product review, online shop, wp e-commerce, e-shop, WordPress shopping cart, wordpress store, shipping, selling, sales, sell, product management, review, discount, digital downloads, vote,
+Tags: catalog, catalogs, products, product catalog, shopping cart, store, product, product gallery, ecommerce, shop, wordpress ecommerce, wordpress store,
 Requires at least: 3.0.1
 Tested up to: 4.5.3
-Stable tag: 1.4.7
+Stable tag: 1.4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,11 +22,27 @@ Catalog Product by Huge-IT introduces incomparable Product Catalog demonstration
 https://www.youtube.com/watch?v=OapAJ5lHUcU
 
 Let us introduce our Huge-IT Product Catalog incomparable plugin. To begin with, why do we need this plugin and what are the advantages.
-The plugin is made for demonstration, sale, advertisements for your products.In fact its gives you ability to create own online store for your wordpress website. Imagine a stand with a variety of catalogs with a specific product category. To imagine is not difficult, to use is even easier. The zooming options, price,discount price parameters and comment blocks with many other features will make your online store look like professional and advanced e-commerce website.
 
-You have the possibility to add an unlimited number of products, every product can be customized in detail to your preference. Collect all products in certain categories, which is catalogs. Catalog may also be customized according to your taste, to allow a detailed understanding of the product in the catalog. In addition, each product may be associated with the images as single and multiple. Customers are provided with the ability of rate the products, and writing feedback about products shown in the catalog, as well as writing reviews which will show up for each product.
 
-Huge-IT Product Catalog license provides you with a high level of customization in relation to almost all aspects of the catalog: from the background color and size of the text inside the cell of the product to the number of products in the series and the number of comments on the product page. Order of the products can be changed with easy drug&drop function. In admin page you can find custom fields containing certain product characteristics, such as price or color, moreover,  you can add more fields. The whole catalog where all your products are collected, can be demonstrated with 5 beautiful views, they are:
+The plugin is made for demonstration, sale, advertisements for your products.In fact its gives you ability to create own online store for your wordpress website.
+
+Imagine a stand with a variety of catalogs with a specific product category.
+
+To imagine is not difficult, to use is even easier. The zooming options, price,discount price parameters and comment blocks with many other features will make your online store look like professional and advanced e-commerce website.
+
+You have the possibility to add an unlimited number of products, every product can be customized in detail to your preference. Collect all products in certain categories, which is catalogs.
+
+Catalog may also be customized according to your taste, to allow a detailed understanding of the product in the catalog. In addition, each product may be associated with the images as single and multiple.
+
+Customers are provided with the ability of rate the products, and writing feedback about products shown in the catalog, as well as writing reviews which will show up for each product.
+
+Huge-IT Product Catalog license provides you with a high level of customization in relation to almost all aspects of the catalog: from the background color and size of the text inside the cell of the product to the number of products in the series and the number of comments on the product page.
+
+Order of the products can be changed with easy drug&drop function.
+
+In admin page you can find custom fields containing certain product characteristics, such as price or color, moreover, you can add more fields.
+
+The whole catalog where all your products are collected, can be demonstrated with 5 beautiful views, they are:
 
 *   Block Toggle Up-Down
 *   Full-Height Blocks
@@ -81,15 +97,15 @@ Plugin includes two kind of shortcodes. The short one is for posts&pages, the lo
 
 ### 5 View Options
 
-Block Toggle Up-Down. The compact solution for your shop page. The view will demonstrate the product catalog main image in similar boxes with title, and little arrow next to it, as you press the arrow opens vertical tape, which consists of additional images, description and other parameters about product, and “View Product” button. Pressing on that button you will get to product catalog main page. All images open with Lightbox.
+*  Block Toggle Up-Down. The compact solution for your shop page. The view will demonstrate the product catalog main image in similar boxes with title, and little arrow next to it, as you press the arrow opens vertical tape, which consists of additional images, description and other parameters about product, and “View Product” button. Pressing on that button you will get to product catalog main page. All images open with Lightbox.
 
-Full-Height Blocks. You definitely have seen e-commerce websites with such design. Its opened vertical tape, with large main image, additional images, text, information about product catalog and “View Product” button. Pressing on that button you will get to product catalog main page.  All images can be opened with Lightbox.
+*  Full-Height Blocks. You definitely have seen e-commerce websites with such design. Its opened vertical tape, with large main image, additional images, text, information about product catalog and “View Product” button. Pressing on that button you will get to product catalog main page.  All images can be opened with Lightbox.
 
-Catalog / Content Popup. In closed position it is fixed boxes with cover/mail image and title, as you click on image, opens popup with larger main and additional images in it, title, description and other information about the product next to it, so its gives fastness for your store as shop will not open new page but big popup with main information, also popup has “View Product” button. Pressing on that button you will get to product catalog main page.
+*  Catalog / Content Popup. In closed position it is fixed boxes with cover/mail image and title, as you click on image, opens popup with larger main and additional images in it, title, description and other information about the product next to it, so its gives fastness for your store as shop will not open new page but big popup with main information, also popup has “View Product” button. Pressing on that button you will get to product catalog main page.
 
-Full-With Blocks. Main image with tiny additional images under it, all of them can be opened with Lightbox. Next to the images you can find title, description, product information and  “View Product” button. Pressing on that button you will get to product catalog main page.
+*  Full-With Blocks. Main image with tiny additional images under it, all of them can be opened with Lightbox. Next to the images you can find title, description, product information and  “View Product” button. Pressing on that button you will get to product catalog main page.
 
-Content Slider.Slider with main image with tiny additional images under it, all of them can be opened with Lightbox. Next to the images you can find title, description, product information and  “View Product” button. Pressing on that button you will get to product catalog main page. Slide the content manually by pressing on arrows. You also may use it in your shop with another view as widget or advertisement for another category of store.
+*  Content Slider.Slider with main image with tiny additional images under it, all of them can be opened with Lightbox. Next to the images you can find title, description, product information and  “View Product” button. Pressing on that button you will get to product catalog main page. Slide the content manually by pressing on arrows. You also may use it in your shop with another view as widget or advertisement for another category of store.
 
 **Unlimited Amount Of Catalogs and Products**
 
@@ -127,25 +143,6 @@ Product Page has Share and Rating features, which allows your customers rate the
 
 Admin panel is full of user-friendly features, from there you can choose catalog styles, add millions of parameters, change the order of the products and many-many other things that will make creating catalog process easy and enjoyable.
 
-**[Demo 1 Block Toggle Up/Down](http://huge-it.com/wordpress-plugins-product-catalog-demo/#plugin_demo_wrapper)**
-
-The compact solution for your shop page. The view will demonstrate the product catalog main image in similar boxes with title, and little arrow next to it, as you press the arrow opens vertical tape, which consists of additional images, description and other parameters about product, and “View Product” button. Pressing on that button you will get to product catalog main page. All images open with Lightbox.
-
-**[Demo 2 Full-Width Block](http://huge-it.com/wordpress-product-catalog-demo-2-full-width-block/#plugin_demo_wrapper)**
-
-You definitely have seen e-commerce websites with such design. Its opened vertical tape, with large main image, additional images, text, information about product catalog and “View Product” button. Pressing on that button you will get to product catalog main page. All images can be opened with Lightbox.
-
-**[Demo 3 Content Popup](http://huge-it.com/wordpress-product-catalog-demo-3-content-popup/#plugin_demo_wrapper)**
-
-In closed position it is fixed boxes with cover/mail image and title, as you click on image, opens popup with larger main and additional images in it, title, description and other information about the product next to it, so its gives fastness for your store as shop will not open new page but big popup with main information, also popup has “View Product” button that will bring to will get to product catalog main page.
-
-**[Demo 4 Full-Height Blocks](http://huge-it.com/wordpress-product-catalog-demo-4-full-height-blocks/#plugin_demo_wrapper)**
-
-Main image with tiny additional images under it, all of them can be opened with Lightbox. Next to the images you can find title, description, product information and “View Product” button. Pressing on that button you will get to product catalog main page
-
-**[Demo 5 Content Slider](http://huge-it.com/wordpress-product-catalog-demo-5-content-slider/#plugin_demo_wrapper)**
-
-Slider with main image with tiny additional images under it, all of them can be opened with Lightbox. Next to the images you can find title, description, product information and “View Product” button. Pressing on that button you will get to product catalog main page. Slide the content manually by pressing on arrows. You also may use it in your shop with another view as widget or advertisement for another category of store.
 
 Upgrade to [WordPress Product Catalog Pro](http://huge-it.com/product-catalog) to Customizable Styles and Colors.
 
@@ -250,37 +247,37 @@ In order to install pro version of the plugin, simply follow these steps:
 
 = How to get a copy of most recent version catalog? =
 
-Pro users can get update versions contacting us by info@huge-it.com. Free version users will find update notification in their wordpress admin panel.
+* Pro users can get update versions contacting us by info@huge-it.com. Free version users will find update notification in their wordpress admin panel.
 
 
 = I’ve bought the commercial license of the catalog plugin installed the file but the Plugin seems to be still in free version, what to do? =
 
-After installation of pro version, in General Options all your changes will be saved! If you still see “free version” notification after installation of pro version
+* After installation of pro version, in General Options all your changes will be saved! If you still see “free version” notification after installation of pro version
 
 
 = I want to click on catalog image main image and be directed to my product page, is it possible? =
 
-If something is not provided in Product Catalog plugin, this is additional customization, for that just contact info@huge-it.com, ask for the conditions and our developers will help you with it.
+* If something is not provided in Product Catalog plugin, this is additional customization, for that just contact info@huge-it.com, ask for the conditions and our developers will help you with it.
 
 
 = I have paid for pro version and didn’t get the link or file to update. =
 
-If you made purchase and didn’t get the plugin pro license file, or file was corrupt, contact us by info@huge-it.com and send order number, we will check and send you the file as soon as possible.
+* If you made purchase and didn’t get the plugin pro license file, or file was corrupt, contact us by info@huge-it.com and send order number, we will check and send you the file as soon as possible.
 
 
 = Have purchased pro version of Product Catalog plugin but still get the announcement to buy the commercial version to change settings. What to do? =
 
-This can happen because of your browser’s cache files. Press ctrl+f5 (Chrome, FF) in order to clean them, if you use safari, etc., clean from browser settings. If nothing helps, just reinstall the plugin again
+* This can happen because of your browser’s cache files. Press ctrl+f5 (Chrome, FF) in order to clean them, if you use safari, etc., clean from browser settings. If nothing helps, just reinstall the plugin again
 
 
 = Will I lose all my changes that I made in free version, if I update to pro version of product catalog? =
 
-Menu > Main Menu > page > Select > choose our Slider > Save.
+* Menu > Main Menu > page > Select > choose our Slider > Save.
 
 
 = How to have more columns in catalog? =
 
-The number of columns in product catalog depends on the size of your theme container. In order to fit one more column you should make element size of catalog view a bit smaller. If you are free user and can not make element size smaller, you need to buy the pro version of product catalog plugin or ask the developers for help info@huge-it.com
+* The number of columns in product catalog depends on the size of your theme container. In order to fit one more column you should make element size of catalog view a bit smaller. If you are free user and can not make element size smaller, you need to buy the pro version of product catalog plugin or ask the developers for help info@huge-it.com
 
 
 = I have bought the commercial license product catalog, installed the file but the Plugin seems to be still in free version, what to do? =
@@ -292,14 +289,17 @@ After installation of pro version, in pro options all your changes will be saved
 
 = I have already purchased product catalog Multi Site version, how do I upgrade it to Developer version, without buying it again? =
 
-If you have any pro version catalog of our products and want to upgrade it, you do not need to buy the new one again, you only need to pay the difference price. For example, if you have personal version product catalog and need to upgrade to Multi Site, just buy one more personal, and contact us by info@huge-it.com, send the receipt and we will send Multi Site version, from Multi Site to Developer, just buy one personal, and ask us for Developer version product catalog.
+* If you have any pro version catalog of our products and want to upgrade it, you do not need to buy the new one again, you only need to pay the difference price. For example, if you have personal version product catalog and need to upgrade to Multi Site, just buy one more personal, and contact us by info@huge-it.com, send the receipt and we will send Multi Site version, from Multi Site to Developer, just buy one personal, and ask us for Developer version product catalog.
 
 
 = My I Add PayPpal or other payment button on product page? =
 
-Unfortunately  the plugin is demonstration catalog and not a shopping plugin, so it doesn't have the payment button ability, but you always may add some external link made with HTML into the description of the product, or order additional button customization to our support team.
+* Unfortunately  the plugin is demonstration catalog and not a shopping plugin, so it doesn't have the payment button ability, but you always may add some external link made with HTML into the description of the product, or order additional button customization to our support team.
 
 == Changelog ==
+
+= 1.4.8 =
+*  Added credits and attribution in the source code refering the original authors.
 
 = 1.4.7 =
 *  Bug fixed.
@@ -461,7 +461,7 @@ Parameters. This area is made to add or change the additional parameters
 Catalog Thumbnail. You can upload cover image for catalog. 
 Usage. This section includes two kind of shortcodes, First one need to be inserted into post/page, the second one is for template.
 
-### Stage 2 User manual For Free Version in catalog
+### Stage 2 User manual For Free Version
 
 **2.1 General Options (Free)**
 
@@ -574,8 +574,8 @@ From this section you can make design customization on catalog view. Catalog con
 
 **Main Image**
 
-* Main Image Width. Set width level for main images of the products within catalog. 
-* Main Image Height. Set height level for main image of the products within catalog 
+* Main Image Width. Set width level for main images of the product.
+* Main Image Height. Set height level for main image of the products.
 
 **Title**
 
@@ -633,8 +633,8 @@ View Types
 
 **Main Image**
 
-* Main Image Width. Choose width level for main images of the products within catalog 
-* Main Image Height. Choose height level for main image of the products within catalog 
+* Main Image Width. Choose width level for main images of the products.
+* Main Image Height. Choose height level for main image of the products.
 
 **Title**
 
