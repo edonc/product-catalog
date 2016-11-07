@@ -31,175 +31,23 @@ function html_showcatalogs( $rows,  $pageNav,$sort,$cat_row){
 			function doNothing() {  
 			var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 			if( keyCode == 13 ) {
-
-
 				if(!e) var e = window.event;
-
 				e.cancelBubble = true;
 				e.returnValue = false;
-
 				if (e.stopPropagation) {
 						e.stopPropagation();
 						e.preventDefault();
 				}
 			}
-                    }
-                }
+            }
+        }
 	</script>
 
 
-<div class="">
-    <?php $path_site2 = plugins_url("../images", __FILE__); 
+<div class="wrap">
+    <?php $path_site2 = plugins_url("../images", __FILE__);
+    require "product-catalog-admin-free-banner.php";
 	?>
-	<style>
-		/* banner */
-.free_version_banner {
-    position:relative;
-    display:block;
-    background-image:url(<?php echo $path_site2; ?>/wp_banner_bg.jpg);
-    background-position:top left;
-    background-repeat:repeat;
-    overflow:hidden;
-}
-
-.free_version_banner .manual_icon {
-    position:absolute;
-    display:block;
-    top:15px;
-    left:15px;
-}
-
-.free_version_banner .usermanual_text {
-    font-weight: bold !important;
-    display:block;
-    float:left;
-    width:270px;
-    margin-left:75px;
-    font-family:'Open Sans',sans-serif;
-    font-size:12px;
-    font-weight:300;
-    font-style:italic;
-    color:#ffffff;
-    line-height:10px;
-    margin-top: 0;
-    padding-top: 15px;
-}
-
-.free_version_banner .usermanual_text a,
-.free_version_banner .usermanual_text a:link,
-.free_version_banner .usermanual_text a:visited {
-    display:inline-block;
-    font-family:'Open Sans',sans-serif;
-    font-size:17px;
-    font-weight:600;
-    font-style:italic;
-    color:#ffffff;
-    line-height:30.5px;
-    text-decoration:underline;
-}
-
-.free_version_banner .usermanual_text a:hover,
-.free_version_banner .usermanual_text a:focus,
-.free_version_banner .usermanual_text a:active {
-    text-decoration:underline;
-}
-
-.free_version_banner .get_full_version,
-.free_version_banner .get_full_version:link,
-.free_version_banner .get_full_version:visited {
-    padding-left: 60px;
-    padding-right: 4px;
-    display: inline-block;
-    position: absolute;
-    top: 15px;
-    right: calc(50% - 167px);
-    height: 38px;
-    width: 268px;
-    border: 1px solid rgba(255,255,255,.6);
-    font-family: 'Open Sans',sans-serif;
-    font-size: 23px;
-    color: #ffffff;
-    line-height: 43px;
-    text-decoration: none;
-    border-radius: 2px;
-    transition:background .15s linear,color .15s linear;
-}
-
-.free_version_banner .get_full_version:hover {
-    background:#ffffff;
-    color:#bf1e2e;
-    text-decoration:none;
-    outline:none;
-}
-
-.free_version_banner .get_full_version:focus,
-.free_version_banner .get_full_version:active {
-
-}
-
-.free_version_banner .get_full_version:before {
-    content:'';
-    display:block;
-    position:absolute;
-    width:33px;
-    height:23px;
-    left:25px;
-    top:9px;
-    background-image:url(<?php echo $path_site2; ?>/wp_shop.png);
-    background-position:0px 0px;
-    background-repeat;
-}
-
-.free_version_banner .get_full_version:hover:before {
-    background-position:0px -27px;
-}
-
-.free_version_banner .gotohuge {
-    float:right;
-    margin:15px 15px;
-}
-
-.free_version_banner .description_text {
-    padding:0 0 13px 0;
-    position:relative;
-    display:block;
-    width:100%;
-    text-align:center;
-    float:left;
-    font-family:'Open Sans',sans-serif;
-    color:#fffefe;
-    line-height:inherit;
-}
-.free_version_banner .description_text p{
-    margin:0;
-    padding:0;
-    font-size: 14px;
-}
-
-@media screen and (max-width: 1300px){
-    .free_version_banner .usermanual_text {
-        width: calc(100% - 210px);
-    }
-
-    .free_version_banner .get_full_version,
-    .free_version_banner .get_full_version:link,
-    .free_version_banner .get_full_version:visited {
-        top: 60px;
-    }
-
-    .free_version_banner .description_text {
-        margin-top: 40px;
-    }
-}
-		</style>
-	<div class="free_version_banner">
-		<img class="manual_icon" src="<?php echo $path_site2; ?>/icon-user-manual.png" alt="user manual" />
-		<p class="usermanual_text">If you have any difficulties in using the options, Follow the link to <a href="http://huge-it.com/wordpress-product-catalog-user-manual/" target="_blank">User Manual</a></p>
-		<a class="get_full_version" href="http://huge-it.com/product-catalog/" target="_blank">GET THE FULL VERSION</a>
-		<a href="http://huge-it.com" class="gotohuge" target="_blank"><img class="huge_it_logo" src="<?php echo $path_site2; ?>/Huge-It-logo.png"/></a>
-		<div style="clear: both;"></div>
-		<div  class="description_text"><p>This is the LITE version of the plugin. Click "GET THE FULL VERSION" for more advanced options.   We appreciate every customer.</p></div>
-	</div>
         <div style="clear:both;"></div>
 	<div id="poststuff">
 		<div id="catalogs-list-page">
@@ -332,13 +180,9 @@ function html_showcatalogs( $rows,  $pageNav,$sort,$cat_row){
     <?php
 
 }
-function Html_edit_catalog($catalogsInAlbumArray,$allAlbumsArray,$catalogAlbumIdesArray,$ord_elem, $count_ord, $images, $row, $cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat)
-
+function Html_edit_catalog($catalogsInAlbumArray,$allAlbumsArray,$catalogAlbumIdesArray,$ord_elem, $count_ord, $images, $row, $cat_row, $rowim, $rowsld)
 {
-//    var_dump($catalogAlbumIdesArray);
-
  global $wpdb;
-	
 	if(isset($_GET["addslide"])){
             if($_GET["addslide"] == 1){
                 header('Location: admin.php?page=catalogs_huge_it_catalog&id='.$row->id.'&task=apply');
@@ -351,12 +195,11 @@ function submitbutton(pressbutton)
 	if(!document.getElementById('name').value){
 	alert("Name is required.");
 	return;
-	
 	}
         jQuery("#images-list > li").each(function(){
             jQuery(this).find('.order_by').val(jQuery(this).index());
         });
-	filterInputs();//return;
+	filterInputs();
 	document.getElementById("adminForm").action=document.getElementById("adminForm").action+"&task="+pressbutton;
 	document.getElementById("adminForm").submit();
 }
@@ -366,7 +209,6 @@ var  name_changeRight = function(e) {
 }
 var  name_changeTop = function(e) {
 		document.getElementById("huge_it_catalog_name").value = e.value;
-		//alert(e);
 };
 
 function change_select()
@@ -435,41 +277,27 @@ jQuery(function() {
                       jQuery(this).find('.order_by').val(jQuery(this).index());
               });
 	  },
-	  /*change: function(event, ui) {
-            var start_pos = ui.item.data('start_pos');
-            var index = ui.placeholder.index();
-            if (start_pos < index + 2) {
-                jQuery('#images-list > li:nth-child(' + index + ')').addClass('highlights');
-            } else {
-                jQuery('#images-list > li:eq(' + (index + 1) + ')').addClass('highlights');
-            }
-      },
-      update: function(event, ui) {
-            jQuery('#sortable li').removeClass('highlights');
-      },   */       
 	  revert: true
 	});
         
         /*********************OPTIONS SAVE optimization************************/
-        jQuery( "#images-list > li input" ).on('keyup',function(){
+	jQuery( "#images-list > li input" ).on('keyup',function(){
 		jQuery(this).parents("#images-list > li").addClass('submit-post');
-		//filterInputs();
-});
+	});
 	jQuery( "#images-list > li textarea" ).on('keyup',function(){
 		jQuery(this).parents("#images-list > li").addClass('submit-post');
-	//	filterInputs();
 	});
 	jQuery( "#images-list > li input" ).on('change',function(){
 		jQuery(this).parents("#images-list > li").addClass('submit-post');
-	//	filterInputs();
 	});
 	jQuery( "#images-list > li select" ).on('change',function(){
 		jQuery(this).parents("#images-list > li").addClass('submit-post');
-	//	filterInputs();
 	});
 	jQuery('.add-image').on('hover',function(){
 		jQuery(this).parent().parents("li").addClass('submit-post');
-	//	filterInputs();		
+	});
+	jQuery('.editthisimage').on('click',function(){
+		jQuery(this).parent().parents("li").addClass('submit-post');
 	});
 });
 </script>
@@ -478,138 +306,9 @@ jQuery(function() {
 
 	
 <div class="wrap">
-<?php $path_site2 = plugins_url("../images", __FILE__); ?>
-    <style>
-		.free_version_banner {
-			position:relative;
-			display:block;
-			background-image:url(<?php echo $path_site2; ?>/wp_banner_bg.jpg);
-			background-position:top left;
-			backround-repeat:repeat;
-			overflow:hidden;
-		}
-		
-		.free_version_banner .manual_icon {
-			position:absolute;
-			display:block;
-			top:15px;
-			left:15px;
-		}
-		
-		.free_version_banner .usermanual_text {
-                        font-weight: bold !important;
-			display:block;
-			float:left;
-			width:270px;
-			margin-left:75px;
-			font-family:'Open Sans',sans-serif;
-			font-size:12px;
-			font-weight:300;
-			font-style:italic;
-			color:#ffffff;
-			line-height:10px;
-                        margin-top: 0;
-                        padding-top: 15px;
-		}
-		
-		.free_version_banner .usermanual_text a,
-		.free_version_banner .usermanual_text a:link,
-		.free_version_banner .usermanual_text a:visited {
-			display:inline-block;
-			font-family:'Open Sans',sans-serif;
-			font-size:17px;
-			font-weight:600;
-			font-style:italic;
-			color:#ffffff;
-			line-height:30.5px;
-			text-decoration:underline;
-		}
-		
-		.free_version_banner .usermanual_text a:hover,
-		.free_version_banner .usermanual_text a:focus,
-		.free_version_banner .usermanual_text a:active {
-			text-decoration:underline;
-		}
-		
-		.free_version_banner .get_full_version,
-		.free_version_banner .get_full_version:link,
-		.free_version_banner .get_full_version:visited {
-                        padding-left: 60px;
-                        padding-right: 4px;
-			display: inline-block;
-                        position: absolute;
-                        top: 15px;
-                        right: calc(50% - 167px);
-                        height: 38px;
-                        width: 268px;
-                        border: 1px solid rgba(255,255,255,.6);
-                        font-family: 'Open Sans',sans-serif;
-                        font-size: 23px;
-                        color: #ffffff;
-                        line-height: 43px;
-                        text-decoration: none;
-                        border-radius: 2px;
-		}
-		
-		.free_version_banner .get_full_version:hover {
-			background:#ffffff;
-			color:#bf1e2e;
-			text-decoration:none;
-			outline:none;
-		}
-		
-		.free_version_banner .get_full_version:focus,
-		.free_version_banner .get_full_version:active {
-			
-		}
-		
-		.free_version_banner .get_full_version:before {
-			content:'';
-			display:block;
-			position:absolute;
-			width:33px;
-			height:23px;
-			left:25px;
-			top:9px;
-			background-image:url(<?php echo $path_site2; ?>/wp_shop.png);
-			background-position:0px 0px;
-			background-repeat:repeat;
-		}
-		
-		.free_version_banner .get_full_version:hover:before {
-			background-position:0px -27px;
-		}
-		
-		.free_version_banner .huge_it_logo {
-			float:right;
-			margin:15px 15px;
-		}
-		
-		.free_version_banner .description_text {
-                        padding:0 0 13px 0;
-			position:relative;
-			display:block;
-			width:100%;
-			text-align:center;
-			float:left;
-			font-family:'Open Sans',sans-serif;
-			color:#fffefe;
-			line-height:inherit;
-		}
-                .free_version_banner .description_text p{
-                        margin:0;
-                        padding:0;
-                        font-size: 14px;
-                }
-		</style>
-	<div class="free_version_banner">
-		<img class="manual_icon" src="<?php echo $path_site2; ?>/icon-user-manual.png" alt="user manual" />
-		<p class="usermanual_text">If you have any difficulties in using the options, Follow the link to <a href="http://huge-it.com/wordpress-product-catalog-user-manual/" target="_blank">User Manual</a></p>
-		<a class="get_full_version" href="http://huge-it.com/product-catalog/" target="_blank">GET THE FULL VERSION</a>
-                <a href="http://huge-it.com" target="_blank"><img class="huge_it_logo" src="<?php echo $path_site2; ?>/Huge-It-logo.png"/></a>
-                <div style="clear: both;"></div>
-		<div  class="description_text"><p>This is the free version of the plugin. Click "GET THE FULL VERSION" for more advanced options.   We appreciate every customer.</p></div>
-	</div>
+<?php $path_site2 = plugins_url("../images", __FILE__);
+	require "product-catalog-admin-free-banner.php";
+		?>
     <div style="clear:both;"></div>
 <form action="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $row->id; ?>" method="post" name="adminForm" id="adminForm">
     <input type="hidden" class="changedvalues" value="" name="changedvalues" size="80">	
@@ -710,13 +409,11 @@ jQuery(document).ready(function($){
 							<div class="image-container">
 								<ul class="widget-images-list">
 									<?php $imgurl=explode(";",$rowimages->image_url);
-//                                                                        var_dump(array_pop($imgurl));
 									array_pop($imgurl);
 									$i=0;
-									//$imgurl = array_reverse($imgurl);
 									foreach($imgurl as $key1=>$img)
 									{	?>
-										<li class="editthisimage<?php echo $key; ?> <?php if($i==0){echo 'first';} ?>">
+										<li class="editthisimage editthisimage<?php echo $key; ?> <?php if($i==0){echo 'first';} ?>">
 											<img src="<?php echo esc_attr($img); ?>" />
 											<input type="button" class="edit-image"  id="" value="Edit" />
 											<a href="#remove" class="remove-image"><?php echo __("remove","product-catalog");?></a>	
@@ -807,7 +504,7 @@ jQuery(document).ready(function($){
 
 											wp.media.editor.send.attachment = function(props, attachment){
 											  if ( _custom_media ) {
-													jQuery("#"+id).parent().before('<li class="editthisimage1 "><img src="'+attachment.url+'" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
+													jQuery("#"+id).parent().before('<li class="editthisimage editthisimage1 "><img src="'+attachment.url+'" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
 													//alert(jQuery("#"+id).val());
 													jQuery("#"+id).val(jQuery("#"+id).val()+attachment.url+';');
 													
@@ -827,11 +524,8 @@ jQuery(document).ready(function($){
 										/*#####REMOVE IMAGE######*/  
 										jQuery("ul.widget-images-list").on('click','.remove-image',function () {
 											jQuery(this).parent().find('img').remove();
-											
 											var allUrls="";
-											
 											jQuery(this).parents('ul.widget-images-list').find('img').not('.plus').each(function(){
-//                                                                                                alert("ok");
 												allUrls=allUrls+jQuery(this).attr('src')+';';
 												jQuery(this).parent().parent().parent().find('input.all-urls').val(allUrls);
 												secondimageslistlisize();
@@ -850,8 +544,8 @@ jQuery(document).ready(function($){
 											jQuery(".attachment-filters").css("display","none");
 										});
                                                                                 
-                                                                                var parameters_width = jQuery(".options-container").height();    //   alert(parameters_width)
-                                                                                jQuery(".category-container").height(parameters_width);
+										var parameters_width = jQuery(".options-container").height();
+										jQuery(".category-container").height(parameters_width);
 									});
                                                                         
 								</script>
@@ -933,7 +627,6 @@ jQuery(document).ready(function($){
                                     <?php }
                             }
                         } ?>
-                                        <!--<li style=""><input type="text" size="" class="firstParam" value=""></li>-->
                                     </ul>
     <?php           }
                else {
@@ -952,15 +645,14 @@ jQuery(document).ready(function($){
             } ?>
 </div>
                                                                 
-								<div class="remove-image-container">
-                                                                        <!--<a class="button remove-image" href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $row->id; ?>&task=apply&removeslide=<?php echo $rowimages->id; ?>">-->
-                                                                    <a class="button remove-image" href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $row->id; ?>&task=apply&removeslide=<?php echo $rowimages->id; ?>"><?php echo __("Remove Product","product-catalog");?></a>
-                                                                    <a href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $row->id; ?>&task=ratings&prod_id=<?php echo $rowimages->id; ?>&TB_iframe=1" class="remove-image button thickbox"><?php echo __("View Ratings","product-catalog");?></a>
-                                                                    <a href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $row->id; ?>&task=reviews&prod_id=<?php echo $rowimages->id; ?>&TB_iframe=1" class="remove-image button thickbox"><?php echo __("View Comments","product-catalog");?></a>
-								</div>
+							<div class="remove-image-container">
+                                <a class="button remove-image" href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $row->id; ?>&task=apply&removeslide=<?php echo $rowimages->id; ?>"><?php echo __("Remove Product","product-catalog");?></a>
+                                <a href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $row->id; ?>&task=ratings&prod_id=<?php echo $rowimages->id; ?>&TB_iframe=1" class="remove-image button thickbox"><?php echo __("View Ratings","product-catalog");?></a>
+                                <a href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $row->id; ?>&task=reviews&prod_id=<?php echo $rowimages->id; ?>&TB_iframe=1" class="remove-image button thickbox"><?php echo __("View Comments","product-catalog");?></a>
 							</div>
-                                                        <input type="hidden" name="parameter<?php echo $rowimages->id; ?>" class="parameters" value="<?php echo esc_attr($rowimages->parameters); ?>">
-                                                        <input type="hidden" name="changing_param" class="changing_param" value="">
+							</div>
+                                <input type="hidden" name="parameter<?php echo $rowimages->id; ?>" class="parameters" value="<?php echo esc_attr($rowimages->parameters); ?>">
+                                <input type="hidden" name="changing_param" class="changing_param" value="">
 							<div class="clear"></div>
 						</li>
 					<?php } ?>
@@ -1005,9 +697,6 @@ jQuery(document).ready(function($){
                                               jQuery(this).append("<ul class='full_param'><li class='new_parameter' ><span>"+newCatVal+"  </span>\n\
                                                                        <input type='text' size='' class='firstParam' />\n\
                                                                        </li></ul>");
-//                                              jQuery('.category-container ul li input').each(function(){
-//                                                  alert(jQuery(this).html());
-//                                              });
                                           });
                                        }
                                        else { alert("Please fill the line"); }
@@ -1086,20 +775,12 @@ jQuery(document).ready(function($){
                                                 }
                                                 foreach_key++;
                                             });
-                                        //alert(newValue);
                                         jQuery('.inside #allCategories').val(newValue);
                                         jQuery(this).parent().parent().find('.hndle').parent().remove();
-                                        
-                                        
-//                                        ###########   >>>>     allCategories hidden input changing       ###########  
-                                                        
+
                                         jQuery('.category-container').each(function(){
-                                            //jQuery(this).eq(index_new_val).length);
                                             jQuery(this).find('ul').eq(del_val_index).remove();
                                         });
-//                                        return false;
-                                        
-                                        
                                         var need_to_much_index = 0;
                                         jQuery('.parameters').each(function(){
                                                                                                                                      //  alert(del_val_index);
@@ -1119,47 +800,32 @@ jQuery(document).ready(function($){
                                                     if(all_params_new_val != "")
                                                         all_params_new_val = all_params_new_val + "*()*" +node;              //      alert(param_for_editing);
                                                     else all_params_new_val = all_params_new_val + node;
-//                                                    alert( node );
                                                 }
-                                                
                                                 foreach_key++;
                                             });
-                                            
-//                                            alert(all_params_old_val);
-//                                            alert(all_params_new_val);
-//                                            return false;
                                             jQuery(this).val(all_params_new_val);   //    alert(all_params_new_val);
                                             
                                         });
                                     });
-                                     //ok a
-
                                     jQuery(document).on('click', '#edit_cat', function (){
                                         jQuery(this).parent().find('.del_val').focus();
                                         var changing_val = jQuery(this).parent().find('.del_val').val().replace(/ /g, '_');
-//                                        alert(changing_val);
                                         jQuery('#changing_val').removeAttr('value').attr('value',changing_val);
-                                        //console.log(changing_val);
                                     });
-                                    //ok a
 
                                     jQuery(document).on('click', '#catalogs-list .active', function (){
                                         jQuery(this).find('input').focus();
                                     });
 
-                                    //getting category old name
-                                    jQuery(document).on('focus', '.del_val', function (){ // Know which category we want to change 
+                                    jQuery(document).on('focus', '.del_val', function (){ // Know which category we want to change
                                             var changing_val = jQuery(this).parent().parent().index();  //console.log(changing_val);
                                             jQuery('#changing_val').removeAttr('value').attr('value',changing_val);
-//                                            alert(jQuery(this).parent().parent().index());
                                     });
 
                                     jQuery(document).on('change', '.del_val', function (){
-                                        //alert("ok")
                                             var input_old_val   = jQuery("#allCategories").val();
                                             var old_param_index = jQuery('#changing_val').val();
                                             var param_new_name  = jQuery(this).val();
-//                                            alert(param_new_name);
                                             var input_old_val_in_array = input_old_val.split(",");
                                                 input_old_val_in_array[old_param_index] = param_new_name;
                                                 
@@ -1177,8 +843,7 @@ jQuery(document).ready(function($){
                                             
                                             jQuery('.parameters').each(function(){
                                                 var hidden_input_old_val = jQuery(this).val();    //    all params and values in string
-//                                                 alert(hidden_input_old_val);
-                                                 
+
                                                 var hidden_input_old_val_in_array = hidden_input_old_val.split("*()*");
                                                 if(hidden_input_old_val_in_array[0] == ""){
                                                       var new_old_param_index = parseInt(old_param_index) + parseInt(1); }
@@ -1187,15 +852,11 @@ jQuery(document).ready(function($){
                                                 var old_param_and_child_in_array = hidden_input_old_val_in_array[new_old_param_index].split("_()_");
                                                 var param_old_name = old_param_and_child_in_array[0];
                                                 var child_name = old_param_and_child_in_array[1];
-//                                                    alert(param_old_name);
-//                                                    alert(param_new_name);
-//                                                    alert(child_name);
                                                     if(typeof child_name != 'undefined')
                                                     {    var new_param_and_child = param_new_name + "_()_" + child_name; }
                                                     else
                                                     {    var new_param_and_child = param_new_name; }
-//                                                    alert(new_param_and_child);
-                                                    
+
                                                 hidden_input_old_val_in_array[new_old_param_index] = new_param_and_child;
                                                 var params_input_new_val = "";
                                                 var forEach = Function.prototype.call.bind( Array.prototype.forEach );
@@ -1207,7 +868,6 @@ jQuery(document).ready(function($){
                                                             params_input_new_val = params_input_new_val + node;
                                                     }
                                                 });
-//                                                    alert(params_input_new_val);
                                                 jQuery(this).val(params_input_new_val);
                                                 
                                             });
@@ -1217,7 +877,6 @@ jQuery(document).ready(function($){
                                                     jQuery(this).find("span").text(param_new_name);
                                                 }
                                             });
-//                                           
                                     });
                                     
                                     jQuery(document).ready(function(){
@@ -1366,17 +1025,17 @@ jQuery(document).ready(function($){
 							<input type="hidden" name="catalog_search" value="off">
 							<input type="checkbox"  value="on" name="catalog_search" id="catalog_search"  <?php if($row->catalog_search  == 'on'){ echo 'checked="checked"'; } ?> />
 						</li>	
-                                                <li class="multicheck">
-                                                    <span><?php echo __( 'Search By', 'product-catalog' );?></span>
-                                                    <div>
-                                                        <span><input type="checkbox" name="" value="0" id="by_desc"  disabled="disabled" />
-                                                        <label for="by_desc"><?php echo __( 'Description', 'product-catalog' );?></label></span>
-                                                        <a class="probuttonlink" href="http://huge-it.com/product-catalog/" target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
-                                                        <span><input type="checkbox" name="" value="1" id="by_parameter"  disabled="disabled" />
-                                                        <label for="by_parameter"><?php echo __( 'Parameter', 'product-catalog' );?></label></span>
-                                                        <a class="probuttonlink" href="http://huge-it.com/product-catalog/" target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
-                                                    <div>
-                                                </li>
+	                    <li class="multicheck">
+	                        <span><?php echo __( 'Search By', 'product-catalog' );?></span>
+	                        <div>
+	                            <span><input type="checkbox" name="" value="0" id="by_desc"  disabled="disabled" />
+	                            <label for="by_desc"><?php echo __( 'Description', 'product-catalog' );?></label></span>
+	                            <a class="probuttonlink" href="http://huge-it.com/product-catalog/" target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
+	                            <span><input type="checkbox" name="" value="1" id="by_parameter"  disabled="disabled" />
+	                            <label for="by_parameter"><?php echo __( 'Parameter', 'product-catalog' );?></label></span>
+	                            <a class="probuttonlink" href="http://huge-it.com/product-catalog/" target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
+	                        <div>
+	                    </li>
 
 					</ul>
 						<div id="major-publishing-actions">
@@ -1384,7 +1043,6 @@ jQuery(document).ready(function($){
                                                             <input type="button" onclick="submitbutton('apply')" value="<?php echo __("Save Catalog","product-catalog");?>" id="save-buttom" class="button button-primary button-large">
 							</div>
 							<div class="clear"></div>
-							<!--<input type="button" onclick="window.location.href='admin.php?page=catalogs_huge_it_catalog'" value="Cancel" class="button-secondary action">-->
 						</div>
 					</div>
                                     
@@ -1502,31 +1160,6 @@ jQuery(document).ready(function($){
 
 }
 
-
-function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat){
-
-?>
-			<style>
-				html.wp-toolbar {
-					padding:0px !important;
-				}
-				#wpadminbar,#adminmenuback,#screen-meta, .update-nag,#dolly {
-					display:none;
-				}
-				#wpbody-content {
-					padding-bottom:30px;
-				}
-				#adminmenuwrap {display:none !important;}
-				.auto-fold #wpcontent, .auto-fold #wpfooter {
-					margin-left: 0px;
-				}
-				#wpfooter {display:none;}
-			</style>
-    <?php
-        }
-    ?>
-<?php
-
 function html_catalog_reviews(){
         $getReviews = getComments()
 ?>
@@ -1579,9 +1212,7 @@ function html_catalog_reviews(){
                             if(jQuery(this).is(':checked')) {
                                 reviews_for_delete.push(jQuery(this).val());
                             }
-    //                                alert(jQuery(this).val());
                         });
-    //                                alert(reviews_for_delete);
                         var data = {
                             action: 'my_action',
                             post: 'delanyreviews',
@@ -1735,11 +1366,11 @@ function Html_catalog_ratings(){
                 ratings_for_delete: ratings_for_delete
             };
             
-            jQuery.post(ajaxurl, data, function(response) {    //      alert(response);
-                if(response == 1) {                            //      alert(reviews_for_delete);
+            jQuery.post(ajaxurl, data, function(response) {
+                if(response == 1) {
                     var forEach = Function.prototype.call.bind( Array.prototype.forEach );
-                    forEach( ratings_for_delete, function( node ) {       //      alert( node );
-                          var class_for_delete = "." + node;              //      alert(jQuery(class_for_delete).val());
+                    forEach( ratings_for_delete, function( node ) {
+                          var class_for_delete = "." + node;
                           jQuery(class_for_delete).parent().parent().remove();
                     });
                 }
@@ -1748,7 +1379,7 @@ function Html_catalog_ratings(){
         
         jQuery('.edit_rating_ip').on('change',function(){
             var rating_new_id = jQuery(this).parent().siblings(':first-child').find("input[name='rating_values_for_delete']").val();  //  alert(rating_new_id);
-            var rating_new_ip = jQuery(this).val();  //  alert(com_new_name);
+            var rating_new_ip = jQuery(this).val();
 
             var data = {
                 action: 'my_action',
@@ -1757,65 +1388,70 @@ function Html_catalog_ratings(){
                 rating_new_id: rating_new_id
         };
 
-                    jQuery.post(ajaxurl, data, function(response) {     //    alert(response);
-                            if(response == 1) {                            //      alert(reviews_for_delete);
-                                jQuery('input').blur();    //    alert("ay des vor uzum es karum es.");
-                            }
-                        });
+        jQuery.post(ajaxurl, data, function(response) {
+            if(response == 1) {
+                jQuery('input').blur();
+            }
+        });
        });
                     
         jQuery('.edit_rating_value').on('change',function(){
-            var rating_new_id = jQuery(this).parent().siblings(':first-child').find("input[name='rating_values_for_delete']").val();  //  alert(com_new_id);
-            var rating_new_value = jQuery(this).val();  //  alert(rating_new_value);
-
+            var rating_new_id = jQuery(this).parent().siblings(':first-child').find("input[name='rating_values_for_delete']").val();
+            var rating_new_value = jQuery(this).val();
             var data = {
                 action: 'my_action',
                 post: 'editratingvalue',
                 rating_new_value: rating_new_value,
                 rating_new_id: rating_new_id
             };
-
-            jQuery.post(ajaxurl, data, function(response) {     //    alert(response);
-                if(response == 1) {                            //      alert(reviews_for_delete);
-                    jQuery('input').blur();    //      alert("ay des vor uzum es karum es.");
+            jQuery.post(ajaxurl, data, function(response) {
+                if(response == 1) {
+                    jQuery('input').blur();
                 }
                 else {
-//                                alert("Ajax Error.");
                 }
             });
         });
-        
         jQuery("#huge_it_view_ratings_wrap .manager-link").click(function(){
             self.parent.tb_remove();
             self.parent.location.assign('admin.php?page=huge_it_catalog_ratings_page');
         });
-        
     });
 </script>
-	 <div id="huge_it_view_ratings">
+	<div id="huge_it_view_ratings">
 		<div id="huge_it_view_ratings_wrap">
-			<h2><?php echo __("Product Ratings","product-catalog");?></h2>
-                        <a class="manager-link button"><?php echo __("All Ratings Manager","product-catalog");?></a>
-                            <div class="huge_it_prod_ratings_container">
-                                <table>
-                                    <tr><th><input type="checkbox" id="check_all_ratings"/></th><th>IP <?php echo __("Adress","product-catalog");?></th><th><?php echo __("Value","product-catalog");?></th><th class="del_few_ratings"><a class=""><?php echo __("Delete","product-catalog");?></a></th></tr>
-                                </table>
-                                <table style="border-collapse: collapse;">
-                                        <?php
-                                            foreach ($getRatings as $rating) {
-                                        ?>
-                                                <tr style="border-bottom: 1pt solid #eee;">
-                                                    <td><input type="checkbox" class="del_one_rating <?php echo $rating->id; ?>" value="<?php echo $rating->id; ?>" name="rating_values_for_delete" /></td>
-                                                    <td><input type="text" value="<?php echo $rating->ip; ?>" style="text-align: center; border: none;" class="edit_rating_ip" /></td>
-                                                    <td><input type="text" value="<?php echo esc_html(stripslashes($rating->value)); ?>" style="text-align: center; border: none;" class="edit_rating_value" /></td>
-                                                    <td class="del_rating"><a href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $_GET['id']; ?>&task=ratings&prod_id=<?php echo $rating->prod_id; ?>&del_id=<?php echo $rating->id; ?>"><?php echo __("Delete","product-catalog");?></a></td>
-                                                </tr>
-                                        <?php } ?>
-                                        
-                                                
-                                </table>
-                            </div>
-		</div>	
+			<h2><?php echo __( "Product Ratings", "product-catalog" ); ?></h2>
+		</div>
+		<a class="manager-link button"><?php echo __( "All Ratings Manager", "product-catalog" ); ?></a>
+		<div class="huge_it_prod_ratings_container">
+			<table>
+				<tr>
+					<th><input type="checkbox" id="check_all_ratings"/></th>
+					<th>IP <?php echo __( "Adress", "product-catalog" ); ?></th>
+					<th><?php echo __( "Value", "product-catalog" ); ?></th>
+					<th class="del_few_ratings"><a class=""><?php echo __( "Delete", "product-catalog" ); ?></a></th>
+				</tr>
+			</table>
+			<table style="border-collapse: collapse;">
+				<?php
+				foreach ( $getRatings as $rating ) {
+					?>
+					<tr style="border-bottom: 1pt solid #eee;">
+						<td><input type="checkbox" class="del_one_rating <?php echo $rating->id; ?>"
+						           value="<?php echo $rating->id; ?>" name="rating_values_for_delete"/></td>
+						<td><input type="text" value="<?php echo $rating->ip; ?>"
+						           style="text-align: center; border: none;" class="edit_rating_ip"/></td>
+						<td><input type="text" value="<?php echo esc_html( stripslashes( $rating->value ) ); ?>"
+						           style="text-align: center; border: none;" class="edit_rating_value"/></td>
+						<td class="del_rating"><a
+								href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $_GET['id']; ?>&task=ratings&prod_id=<?php echo $rating->prod_id; ?>&del_id=<?php echo $rating->id; ?>"><?php echo __( "Delete", "product-catalog" ); ?></a>
+						</td>
+					</tr>
+				<?php } ?>
+
+
+			</table>
+		</div>
 	</div> 
 <?php
 }

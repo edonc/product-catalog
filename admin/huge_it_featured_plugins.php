@@ -105,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	padding:6px 12px;
 	background:#2EA2CD;
 	color:#FFFFFF;
-	font-size:14;
+	font-size:14px;
 	text-decoration:none;
 }
 .element div.right-block .button-block a:hover,.pupup-elemen.element div.right-block .button-block a:focus,.element div.right-block .button-block a:active {
@@ -176,6 +176,44 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 <div class="element hugeitmicro-item">
 	<div class="left-block">
 		<div class="main-image-block">
+			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><img
+					src="<?php echo plugins_url( '../images/responsive-slider-logo.png', __FILE__ ); ?>"></a>
+		</div>
+	</div>
+	<div class="right-block">
+		<div class="title-block"><a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><h3><?php echo __("WordPress
+					Responsive Slider","product-catalog");?></h3></a></div>
+		<div class="description-block">
+			<p><?php echo __("The newly launched Responsive Slider from Huge-IT is the fastest loading slider for WordPress. Besides
+				being fully responsive, allowing to post unlimited slides in free version, Professional version of this
+				plugin will allow changing every corner of sliders, including buttons, arrows, bullets and more. Check
+				out the link for more details","product-catalog");?>.</p>
+		</div>
+		<div class="button-block">
+			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank">View Plugin</a>
+		</div>
+	</div>
+</div>
+<div class="element hugeitmicro-item">
+	<div class="left-block">
+		<div class="main-image-block">
+			<a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><img
+					src="<?php echo plugins_url( '../images/pricing-table-icon.png', __FILE__ ); ?>"></a>
+		</div>
+	</div>
+	<div class="right-block">
+		<div class="title-block"><a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><h3><?php echo __("Pricing Table");?></h3></a></div>
+		<div class="description-block">
+			<p><?php echo __("Make awesome sales with beautiful and responsive Pricing Table plugin for WordPress. This plugin includes more than 120 default themes to choose from, has variety of options and is free to download.","product-catalog");?>.</p>
+		</div>
+		<div class="button-block">
+			<a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank">View Plugin</a>
+		</div>
+	</div>
+</div>
+<div class="element hugeitmicro-item">
+	<div class="left-block">
+		<div class="main-image-block">
 			<a href="http://huge-it.com/wordpress-gallery/" target="_blank"><img src="<?php echo plugins_url( '../images/Gallery.png' , __FILE__ ); ?>"></a>
 		</div>
 	</div>
@@ -208,7 +246,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 <div class="element hugeitmicro-item">
 	<div class="left-block">
 		<div class="main-image-block">
-			<a href="http://huge-it.com/wordpress-video-gallery/" target="_blank"><img src="<?php echo plugins_url( '../images/player.png' , __FILE__ ); ?>"></a>
+			<a href="http://huge-it.com/wordpress-video-gallery/" target="_blank"><img src="<?php echo plugins_url( '../images/video-gallery-logo.png' , __FILE__ ); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
