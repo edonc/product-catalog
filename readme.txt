@@ -1,10 +1,10 @@
-=== Catalog Product ===
+=== Catalog ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/product-catalog/
 Tags: catalog, catalogs, products, product catalog, shopping cart, store, product, product gallery, ecommerce, shop, wordpress ecommerce, wordpress store,
 Requires at least: 3.0.1
-Tested up to: 4.5.3
-Stable tag: 1.4.8
+Tested up to: 4.6.1
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,9 +15,11 @@ Catalog Product by Huge-IT introduces incomparable Product Catalog demonstration
 ### Wordpress Product Catalog
 
 * [Wordpress Product Catalog](http://huge-it.com/product-catalog/)
-* [Demo](http://huge-it.com/wordpress-plugins-product-catalog-demo/)
-* [FAQ](http://huge-it.com/wordpress-product-catalog-faq/)
-* [User Manual](http://huge-it.com/wordpress-product-catalog-user-manual/)
+* [Product Catalog Demo](http://huge-it.com/wordpress-plugins-product-catalog-demo/)
+* [Product Catalog FAQ](http://huge-it.com/wordpress-product-catalog-faq/)
+* [Product Catalog User Manual](http://huge-it.com/wordpress-product-catalog-user-manual/)
+* [Product Catalog Support](http://huge-it.com/contact-us/)
+* [Product Catalog GitHub Project](https://github.com/Huge-IT/product-catalog)
 
 https://www.youtube.com/watch?v=OapAJ5lHUcU
 
@@ -297,6 +299,14 @@ After installation of pro version, in pro options all your changes will be saved
 * Unfortunately  the plugin is demonstration catalog and not a shopping plugin, so it doesn't have the payment button ability, but you always may add some external link made with HTML into the description of the product, or order additional button customization to our support team.
 
 == Changelog ==
+
+= 1.5.0 =
+**We make additional bug fixes,  edited code structure of Catalog plugin in order to meet all WordPress standards fully. There are still points we will fix during the next weeks, as the plugin is rather big and the code is pretty much messed up, so please, let us know if you catch a bug or any issue after the update at info@huge-it.com**
+
+* 1) Reported major bug is fixed. Contact seller mail now works and sends emails smoothly.
+* 2) We've sanitized the user data and validated post/get calls of the plugin.
+* 3) Updated banner, with the links to social media.
+* 4) Updated featured plugin list with the new plugin called Pricing Tables.
 
 = 1.4.8 =
 *  Added credits and attribution in the source code refering the original authors.
