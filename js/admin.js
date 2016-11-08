@@ -32,7 +32,38 @@ jQuery(document).ready(function () {
 		lisaze=lisaze*0.06;
 		jQuery('#images-list .widget-images-list li').not('.add-image-box').not('.first').height(lisaze);
 	}
+
+	jQuery(".close_free_banner").on("click",function(){
+		jQuery(".free_version_banner").css("display","none");
+		hgSliderSetCookie( 'productCatalogFreeBannerShow', 'no', {expires:86400} );
+	});
 });
+
+function hgSliderSetCookie(name, value, options) {
+	options = options || {};
+	var expires = options.expires;
+	if (typeof expires == "number" && expires) {
+		var d = new Date();
+		d.setTime(d.getTime() + expires * 1000);
+		expires = options.expires = d;
+	}
+	if (expires && expires.toUTCString) {
+		options.expires = expires.toUTCString();
+	}
+	if(typeof value == "object"){
+		value = JSON.stringify(value);
+	}
+	value = encodeURIComponent(value);
+	var updatedCookie = name + "=" + value;
+	for (var propName in options) {
+		updatedCookie += "; " + propName;
+		var propValue = options[propName];
+		if (propValue !== true) {
+			updatedCookie += "=" + propValue;
+		}
+	}
+	document.cookie = updatedCookie;
+}
 	
 
 	

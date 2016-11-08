@@ -715,7 +715,6 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 				}
                 
 				jQuery.post("<?php echo admin_url('admin-ajax.php'); ?>", data, function(response) {
-                    console.log(data);
 					response = JSON.parse(response);
 					 query = response.query;
 					 var morePopups = response.morePopups;
@@ -858,7 +857,7 @@ if($catalog[0]->pagination_type == "show_all"){
     $countIntoPage = $catalog[0]->count_into_page;
     if($countIntoPage == "" || $countIntoPage < 1){ $countIntoPage = 1; }
     $pages = ceil($myAllImages / $countIntoPage);
-    if(isset($_GET["catalog_page_".$catalogID])){ $page_index = $_GET["catalog_page_".$catalogID]; }
+    if(isset($_GET["catalog_page_".$catalogID])){ $page_index = absint($_GET["catalog_page_".$catalogID]); }
     else{ $page_index = 1; }
     $maxCount = $page_index * $countIntoPage;
     $morePaste = $maxCount - $myAllImages;
@@ -871,7 +870,7 @@ else{
             else
                 $countIntoPage = $catalog[0]->count_into_page;    echo 'aaa'.$countIntoPage;       
             $pages = ceil($myAllImages / $countIntoPage);
-            $page_index = $_GET["catalog_page_".$catalogID];
+            $page_index = absint($_GET["catalog_page_".$catalogID]);
             $maxCount = $page_index * $countIntoPage;
             $morePaste = $maxCount - $myAllImages;
             
@@ -2007,7 +2006,7 @@ if($catalog[0]->pagination_type == "show_all"){
     $countIntoPage = $catalog[0]->count_into_page;
     if($countIntoPage == "" || $countIntoPage < 1){ $countIntoPage = 1; }
     $pages = ceil($myAllImages / $countIntoPage);
-    if(isset($_GET["catalog_page_".$catalogID])){ $page_index = $_GET["catalog_page_".$catalogID]; }
+    if(isset($_GET["catalog_page_".$catalogID])){ $page_index = absint($_GET["catalog_page_".$catalogID]); }
     else{ $page_index = 1; }
     $maxCount = $page_index * $countIntoPage;
     $morePaste = $maxCount - $myAllImages;
@@ -2021,7 +2020,7 @@ else{
             $countIntoPage = $catalog[0]->count_into_page;
             if($countIntoPage == "" || $countIntoPage < 1){ $countIntoPage = 1; }
             $pages = ceil($myAllImages / $countIntoPage);
-            $page_index = $_GET["catalog_page_".$catalogID];
+            $page_index = absint($_GET["catalog_page_".$catalogID]);
             $maxCount = $page_index * $countIntoPage;
             $morePaste = $maxCount - $myAllImages;
             
@@ -3098,7 +3097,7 @@ if($catalog[0]->pagination_type == "show_all"){
     $countIntoPage = $catalog[0]->count_into_page;
     if($countIntoPage == "" || $countIntoPage < 1){ $countIntoPage = 1; }
     $pages = ceil($myAllImages / $countIntoPage);
-    if(isset($_GET["catalog_page_".$catalogID])){ $page_index = $_GET["catalog_page_".$catalogID]; }
+    if(isset($_GET["catalog_page_".$catalogID])){ $page_index = absint($_GET["catalog_page_".$catalogID]); }
     else{ $page_index = 1; }
     $maxCount = $page_index * $countIntoPage;
     $morePaste = $maxCount - $myAllImages;
@@ -3112,7 +3111,7 @@ else{
             $countIntoPage = $catalog[0]->count_into_page;
             if($countIntoPage == "" || $countIntoPage < 1){ $countIntoPage = 1; }
             $pages = ceil($myAllImages / $countIntoPage);
-            $page_index = $_GET["catalog_page_".$catalogID];
+            $page_index = absint($_GET["catalog_page_".$catalogID]);
             $maxCount = $page_index * $countIntoPage;
             $morePaste = $maxCount - $myAllImages;
             
@@ -4593,7 +4592,7 @@ if($catalog[0]->pagination_type == "show_all"){
     $countIntoPage = $catalog[0]->count_into_page;
     if($countIntoPage == "" || $countIntoPage < 1){ $countIntoPage = 1; }
     $pages = ceil($myAllImages / $countIntoPage);
-    if(isset($_GET["catalog_page_".$catalogID])){ $page_index = $_GET["catalog_page_".$catalogID]; }
+    if(isset($_GET["catalog_page_".$catalogID])){ $page_index = absint($_GET["catalog_page_".$catalogID]); }
     else{ $page_index = 1; }
     $maxCount = $page_index * $countIntoPage;
     $morePaste = $maxCount - $myAllImages;
@@ -4607,7 +4606,7 @@ else{
                 $countIntoPage = $catalog[0]->count_into_page;
             if($countIntoPage == "" || $countIntoPage < 1){ $countIntoPage = 1; }
             $pages = ceil($myAllImages / $countIntoPage);
-            $page_index = $_GET["catalog_page_".$catalogID];
+            $page_index = absint($_GET["catalog_page_".$catalogID]);
             $maxCount = $page_index * $countIntoPage;
             $morePaste = $maxCount - $myAllImages;
             
@@ -6105,10 +6104,10 @@ jQuery(function(){
             }
             $rating = intval($rating / count($ratingsArray));
         };
-        if(isset($_GET['single_prod_id'])) $prod_id = $_GET['single_prod_id'];
+        if(isset($_GET['single_prod_id'])) $prod_id = absint($_GET['single_prod_id']);
         else $prod_id = 1;
-        
-        get_currentuserinfo() ;
+
+        wp_get_current_user() ;
         global $user_level;$user_info = get_userdata(1);
         
         
@@ -7286,6 +7285,7 @@ jQuery(function(){
     font-size: <?php echo $paramssld["ht_single_product_asc_to_seller_text_font_size"]; ?>px !important;
     margin: 10px 0px;
     color: #<?php echo $paramssld["ht_single_product_asc_to_seller_text_font_color"]; ?>;
+    display: inline-block;
 }
 
 .zoomContainer {
@@ -7908,6 +7908,7 @@ jQuery(function(){
                                                     <input type="hidden" name="asc_seller_product_id" class="asc_seller_product_id" value="<?php echo $productArray->id; ?>" />
                                                     <input type="hidden" name="asc_seller_spam" class="asc_seller_spam" value="<?php echo esc_attr($spam); ?>" />
                                                     <input type="hidden" name="asc_seller_ip" class="huge_it_catalog_product_ip" value="<?php echo $_SERVER['SERVER_ADDR']; ?>" />
+                                                    <input type="hidden" name="captcha_sum" id="captcha_sum" value="<?php echo $captcha_val; ?>">
                                                     <a href="#1" title="Close" class="order_popup_submit_close">
                                                         <input type="submit" name="order_popup_submit" id="order_popup_submit" value="<?php echo esc_attr($paramssld3["ht_single_product_asc_seller_popup_button_text"]);?>" />
                                                     </a>
@@ -8735,6 +8736,7 @@ jQuery(document).ready(function () {
                 var captcha_val     = jQuery("#catalog-order-popup-1 .captchaInputValue").val();
                 var product_name    = jQuery(".right-block .title-block h2").text(); 
                 var user_ip         = jQuery("#catalog-order-popup-1 .huge_it_catalog_product_ip").val();
+                var captchaSum      = jQuery("#catalog-order-popup-1 #captcha_sum").val();
                 var emailCheck=/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i;
                     if(user_name == "" || user_mail == ""  || user_phone == ""  || user_massage == ""  || user_product_id == "" || captcha_val == "" || captcha_val != <?php echo $captcha_val; ?>){
                         jQuery("#catalog-order-popup-1 input[type=text], #catalog-order-popup-1 textarea").each(function(){
@@ -8756,7 +8758,6 @@ jQuery(document).ready(function () {
                         }
                         else{
                             jQuery(email_path).removeClass("empty").attr("placeholder", "<?php echo $paramssld3["ht_single_product_your_mail_text"]; ?>");
-    //                   alert(user_name + " " + user_mail+ " " + user_phone + " " + user_massage + " " + user_product_id + " " + captcha_val + " " + user_spam + " " + user_ip);
                         var data = {
                             action: 'my_action',
                             post: 'applyproductascsellerfromuser',
@@ -8768,7 +8769,8 @@ jQuery(document).ready(function () {
                             user_spam: user_spam,
                             user_ip: user_ip,
                             captcha_val: captcha_val,
-                            product_name:   product_name
+                            product_name:   product_name,
+                            captcha_sum: captchaSum
                         };
 
                         jQuery.post("<?php echo admin_url('admin-ajax.php'); ?>", data, function(response) {    //    alert(response);

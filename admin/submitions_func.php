@@ -29,7 +29,6 @@ function show_submitions() {
                      . $wpdb->prefix . "huge_it_catalog_products.name LIKE '" .$search_value . "%') AND "
                 . "" . $wpdb->prefix . "huge_it_catalog_asc_seller.product_id=" . $wpdb->prefix . ""
                 . "huge_it_catalog_products.id) GROUP BY " . $wpdb->prefix . "huge_it_catalog_asc_seller.id ORDER BY " . $wpdb->prefix . "huge_it_catalog_asc_seller.id DESC LIMIT 50 $offset";
-//        var_dump($_POST["search_events_by_title"]);
     }
     else{
         $query = "SELECT " . $wpdb->prefix . "huge_it_catalog_asc_seller.id," . $wpdb->prefix . "huge_it_catalog_asc_seller.read_or_not,"
@@ -42,15 +41,11 @@ function show_submitions() {
     }
     $submitionsArray = $wpdb->get_results($query);
     $submitionsCount = $wpdb->get_results("SELECT count(read_or_not) AS all_count FROM " . $wpdb->prefix . "huge_it_catalog_asc_seller");
-//    echo "SELECT " . $wpdb->prefix . "huge_it_catalog_asc_seller.id," . $wpdb->prefix . "huge_it_catalog_products.name AS product_name," . $wpdb->prefix . "huge_it_catalog_asc_seller.user_name," . $wpdb->prefix . "huge_it_catalog_asc_seller.product_id," . $wpdb->prefix . "huge_it_catalog_asc_seller.user_phone," . $wpdb->prefix . "huge_it_catalog_asc_seller.user_email," . $wpdb->prefix . "huge_it_catalog_asc_seller.user_massage FROM " . $wpdb->prefix . "huge_it_catalog_asc_seller," . $wpdb->prefix . "huge_it_catalog_products WHERE " . $wpdb->prefix . "huge_it_catalog_asc_seller.product_id= " . $wpdb->prefix . "huge_it_catalog_products.id";
-//    var_dump($submitionsCount[0]->all_count);
     html_show_submitions($submitionsArray, $submitionsCount);
 }
 function huge_it_catalog_show_message($id) {
     global $wpdb;
-    
     $sqlForUpdateUnredMessageToRead = $wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_it_catalog_asc_seller SET read_or_not = '%d'  WHERE id = '%d' ", 1, $id));
-    
     $query = "SELECT " . $wpdb->prefix . "huge_it_catalog_asc_seller.user_name," . $wpdb->prefix . "huge_it_catalog_asc_seller.user_email,"
                   . "" . $wpdb->prefix . "huge_it_catalog_asc_seller.id," . $wpdb->prefix . "huge_it_catalog_asc_seller.user_phone,"
                   . "" . $wpdb->prefix . "huge_it_catalog_asc_seller.user_massage," . $wpdb->prefix . "huge_it_catalog_asc_seller.spam ,"
@@ -59,12 +54,8 @@ function huge_it_catalog_show_message($id) {
                   . "" . $wpdb->prefix . "huge_it_catalog_asc_seller.id= ".$id." AND "
                   . "" . $wpdb->prefix . "huge_it_catalog_products.id=" . $wpdb->prefix."huge_it_catalog_asc_seller.product_id";
     $messageInArray = $wpdb->get_results($query);
-    
-    $submitionsCount = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "huge_it_catalog_asc_seller ORDER BY id ASC");    
-    
+    $submitionsCount = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "huge_it_catalog_asc_seller ORDER BY id ASC");
     html_huge_it_catalog_show_message($messageInArray, $submitionsCount);
 }
-
-
 
 ?>
