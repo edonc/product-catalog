@@ -7815,16 +7815,10 @@ jQuery(function(){
 					<li><input type="radio" name="" value="5"></li>
 				</ul>
 				<?php 
-                                        $path_site = plugins_url("/../images", __FILE__);
-                                        $pageTitle = get_the_title();
-                                        if($productArray->image_url != ';'){ $pintimage[0] = $productArray->image_url; }
-                                        else { $pintimage[0] = $path_site.'/noimage.jpg'; }
-//                                        if (has_post_thumbnail( $post->ID ) ){ ?>
-                                            <?php // $pintimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
-                                            <?php // } else {
-//                                            $pintimage[0] = $path_site.'/noimage.png';
-//                                        }
-                                        
+                    $path_site = plugins_url("/../images", __FILE__);
+                    $pageTitle = get_the_title();
+                    if($productArray->image_url != ';'){ $pintimage[0] = $productArray->image_url; }
+                    else { $pintimage[0] = $path_site.'/noimage.jpg'; }
 					$spam = 0;
                                         
 					foreach($spamReviewsArray as $spamReviews) {

@@ -470,9 +470,6 @@ function Options_product_Catalog_styles()
     require_once("admin/catalog_Options_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
-    if (isset($_GET['task']))
-        if ($_GET['task'] == 'save')
-            save_styles_options();
     showStyles();
 }
 function Options_catalog_lightbox_styles()

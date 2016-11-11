@@ -1295,7 +1295,8 @@ function html_catalog_reviews(){
                                                     <td><input type="checkbox" class="del_one_review <?php echo $reviews->id; ?>" value="<?php echo $reviews->id; ?>" name="values_for_delete" /></td>
                                                     <td><input type="text" value="<?php echo esc_html(stripslashes($reviews->name)); ?>" style="text-align: center; border: none;" class="edit_com_name" /></td>
                                                     <td><input type="text" value="<?php echo esc_html(stripslashes($reviews->content)); ?>" style="text-align: center; border: none;" class="edit_com_content" /></td>
-                                                    <td class="del_review"><a href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $_GET['id']; ?>&task=reviews&prod_id=<?php echo $reviews->product_id; ?>&del_id=<?php echo $reviews->id; ?>"><?php echo __("Delete","product-catalog");?></a></td>
+	                                                <?php  $catalog_id = absint($_GET['id']);?>
+                                                    <td class="del_review"><a href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $catalog_id; ?>&task=reviews&prod_id=<?php echo $reviews->product_id; ?>&del_id=<?php echo $reviews->id; ?>"><?php echo __("Delete","product-catalog");?></a></td>
                                                 </tr>
                                         <?php } ?>
                                 </table>
@@ -1443,8 +1444,9 @@ function Html_catalog_ratings(){
 						           style="text-align: center; border: none;" class="edit_rating_ip"/></td>
 						<td><input type="text" value="<?php echo esc_html( stripslashes( $rating->value ) ); ?>"
 						           style="text-align: center; border: none;" class="edit_rating_value"/></td>
+						<?php  $catalog_id = absint($_GET['id']);?>
 						<td class="del_rating"><a
-								href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $_GET['id']; ?>&task=ratings&prod_id=<?php echo $rating->prod_id; ?>&del_id=<?php echo $rating->id; ?>"><?php echo __( "Delete", "product-catalog" ); ?></a>
+								href="admin.php?page=catalogs_huge_it_catalog&id=<?php echo $catalog_id; ?>&task=ratings&prod_id=<?php echo $rating->prod_id; ?>&del_id=<?php echo $rating->id; ?>"><?php echo __( "Delete", "product-catalog" ); ?></a>
 						</td>
 					</tr>
 				<?php } ?>
