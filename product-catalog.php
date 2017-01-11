@@ -37,20 +37,7 @@ function meta_tags_for_share_butons(){
     global $wpdb;
     $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
     $actual_link = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."";
-    $pattern="/\?p=/";
-    $pattern2="/&page-img[0-9]+=[0-9]+/";
-    $pattern3="/\?page-img[0-9]+=[0-9]+/";
-    if(preg_match($pattern, $actual_link)){
-        if(preg_match($pattern2, $actual_link)){
-            $actual_link=preg_replace($pattern2, '', $actual_link);
-            header("Location:".$actual_link."");
-            exit;
-        }
-    }elseif(preg_match($pattern3, $actual_link)){
-        $actual_link=preg_replace($pattern3, '', $actual_link);
-        header("Location:".$actual_link."");
-        exit;
-    }
+
     if(strpos( $actual_link,"single_prod_id" ) != FALSE){
         $singl_id = explode("=",$actual_link);
         $singl_id = end($singl_id);
@@ -58,8 +45,15 @@ function meta_tags_for_share_butons(){
         $sql_share = $wpdb->prepare("SELECT * FROM ".$table_name." WHERE id=%s",$singl_id);
         $images_share = $wpdb->get_row($sql_share);
 
-        $page_link = $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-        if (strpos(get_permalink(),'/?') !== false) { $product_page_link = get_permalink()."&single_prod_id=$images_share->id"; } else { if (strpos(get_permalink(),'/') !== false) { $product_page_link = get_permalink()."?single_prod_id=$images_share->id"; } else { $product_page_link = get_permalink()."/?single_prod_id=$images_share->id"; } }
+        if (strpos(get_permalink(),'/?') !== false) {
+            $product_page_link = get_permalink()."&single_prod_id=$images_share->id";
+        } else {
+            if (strpos(get_permalink(),'/') !== false) {
+                $product_page_link = get_permalink()."?single_prod_id=$images_share->id";
+            } else {
+                $product_page_link = get_permalink()."/?single_prod_id=$images_share->id";
+            }
+        }
 
         $title_share = $images_share->name;
         $description_share = htmlspecialchars($images_share->description);
@@ -98,6 +92,42 @@ function product_catalog_lang_load()
 
 function huge_it_catalog_products_list_shotrcode($atts)
 {
+    wp_register_script( 'catalog-all-js', plugins_url('/js/catalog-all.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'catalog-all-js' );
+
+    wp_register_style( 'catalog-all-css', plugins_url('/style/catalog-all.css', __FILE__) );
+    wp_enqueue_style( 'catalog-all-css' );
+
+    wp_register_script( 'jquery.ccolorbox-js', plugins_url('/js/jquery.colorbox.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'jquery.ccolorbox-js' );
+
+    wp_register_script( 'hugeitmicro-min-js', plugins_url('/js/jquery.hugeitmicro.min.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'hugeitmicro-min-js' );
+
+    wp_register_script( 'elevateZoom-3.0.8', plugins_url('/js/jquery.elevateZoom-3.0.8.min.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'elevateZoom-3.0.8' );
+
+    wp_register_script( 'elevateZoomParams', plugins_url('/js/elevateZoomParams.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'elevateZoomParams' );
+
+    wp_register_script('catalog-carousel', (plugins_url('/js/jquery.cycle2.js', __FILE__)), false);
+    wp_enqueue_script('catalog-carousel');
+
+    wp_register_script('catalog-carousel-2', (plugins_url('/js/jquery.cycle2.carousel.js', __FILE__)), false);
+    wp_enqueue_script('catalog-carousel-2');
+
+    wp_register_style( 'catalog-carousel-style',plugins_url('/style/catalog-carousel-style.css', __FILE__) );
+    wp_enqueue_style( 'catalog-carousel-style' );
+
+    wp_register_style( 'style2-os-css', plugins_url('/style/style2-os.css', __FILE__) );
+    wp_enqueue_style( 'style2-os-css' );
+
+    wp_register_style( 'lightbox-css', plugins_url('/style/lightbox.css', __FILE__) );
+    wp_enqueue_style( 'lightbox-css' );
+
+    wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
+    wp_enqueue_style( 'fontawesome-css' );
+
     extract(shortcode_atts(array(
         'id' => 'no huge_it catalog',
 
@@ -148,6 +178,42 @@ function   huge_it_catalog_album($id)
 
 function huge_it_catalog_single_product_shotrcode($atts)
 {
+    wp_register_script( 'catalog-all-js', plugins_url('/js/catalog-all.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'catalog-all-js' );
+
+    wp_register_style( 'catalog-all-css', plugins_url('/style/catalog-all.css', __FILE__) );
+    wp_enqueue_style( 'catalog-all-css' );
+
+    wp_register_script( 'jquery.ccolorbox-js', plugins_url('/js/jquery.colorbox.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'jquery.ccolorbox-js' );
+
+    wp_register_script( 'hugeitmicro-min-js', plugins_url('/js/jquery.hugeitmicro.min.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'hugeitmicro-min-js' );
+
+    wp_register_script( 'elevateZoom-3.0.8', plugins_url('/js/jquery.elevateZoom-3.0.8.min.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'elevateZoom-3.0.8' );
+
+    wp_register_script( 'elevateZoomParams', plugins_url('/js/elevateZoomParams.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'elevateZoomParams' );
+
+    wp_register_script('catalog-carousel', (plugins_url('/js/jquery.cycle2.js', __FILE__)), false);
+    wp_enqueue_script('catalog-carousel');
+
+    wp_register_script('catalog-carousel-2', (plugins_url('/js/jquery.cycle2.carousel.js', __FILE__)), false);
+    wp_enqueue_script('catalog-carousel-2');
+
+    wp_register_style( 'catalog-carousel-style',plugins_url('/style/catalog-carousel-style.css', __FILE__) );
+    wp_enqueue_style( 'catalog-carousel-style' );
+
+    wp_register_style( 'style2-os-css', plugins_url('/style/style2-os.css', __FILE__) );
+    wp_enqueue_style( 'style2-os-css' );
+
+    wp_register_style( 'lightbox-css', plugins_url('/style/lightbox.css', __FILE__) );
+    wp_enqueue_style( 'lightbox-css' );
+
+    wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
+    wp_enqueue_style( 'fontawesome-css' );
+
     extract(shortcode_atts(array(
         'id' => 'no huge_it catalog',
 
@@ -241,42 +307,6 @@ function catalog_frontend_scripts_and_styles() {
         wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', __FILE__ );
         wp_enqueue_script('jquery');
     }
-
-    wp_register_script( 'catalog-all-js', plugins_url('/js/catalog-all.js', __FILE__), array('jquery'),'1.0.0',true  );
-    wp_enqueue_script( 'catalog-all-js' );
-
-    wp_register_style( 'catalog-all-css', plugins_url('/style/catalog-all.css', __FILE__) );
-    wp_enqueue_style( 'catalog-all-css' );
-
-    wp_register_script( 'jquery.ccolorbox-js', plugins_url('/js/jquery.colorbox.js', __FILE__), array('jquery'),'1.0.0',true  );
-    wp_enqueue_script( 'jquery.ccolorbox-js' );
-
-    wp_register_script( 'hugeitmicro-min-js', plugins_url('/js/jquery.hugeitmicro.min.js', __FILE__), array('jquery'),'1.0.0',true  );
-    wp_enqueue_script( 'hugeitmicro-min-js' );
-
-    wp_register_script( 'elevateZoom-3.0.8', plugins_url('/js/jquery.elevateZoom-3.0.8.min.js', __FILE__), array('jquery'),'1.0.0',true  );
-    wp_enqueue_script( 'elevateZoom-3.0.8' );
-
-    wp_register_script( 'elevateZoomParams', plugins_url('/js/elevateZoomParams.js', __FILE__), array('jquery'),'1.0.0',true  );
-    wp_enqueue_script( 'elevateZoomParams' );
-
-    wp_register_script('catalog-carousel', (plugins_url('/js/jquery.cycle2.js', __FILE__)), false);
-    wp_enqueue_script('catalog-carousel');
-
-    wp_register_script('catalog-carousel-2', (plugins_url('/js/jquery.cycle2.carousel.js', __FILE__)), false);
-    wp_enqueue_script('catalog-carousel-2');
-
-    wp_register_style( 'catalog-carousel-style',plugins_url('/style/catalog-carousel-style.css', __FILE__) );
-    wp_enqueue_style( 'catalog-carousel-style' );
-
-    wp_register_style( 'style2-os-css', plugins_url('/style/style2-os.css', __FILE__) );
-    wp_enqueue_style( 'style2-os-css' );
-
-    wp_register_style( 'lightbox-css', plugins_url('/style/lightbox.css', __FILE__) );
-    wp_enqueue_style( 'lightbox-css' );
-
-    wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
-    wp_enqueue_style( 'fontawesome-css' );
 }
 add_action('wp_enqueue_scripts', 'catalog_frontend_scripts_and_styles');
 
@@ -302,13 +332,15 @@ function huge_it_catalog_options_panel()
     }
 
     $lightbox_options = add_submenu_page('catalogs_huge_it_catalog', 'Image View Options', 'Image View Options', 'manage_options', 'Options_catalog_lightbox_styles', 'Options_catalog_lightbox_styles');
-    $Featured = add_submenu_page('catalogs_huge_it_catalog', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'huge_it__catalog_featured_plugins', 'huge_it__catalog_featured_plugins');
-    add_submenu_page( 'catalogs_huge_it_catalog', 'Licensing', 'Licensing', 'manage_options', 'huge_it_catalog_Licensing', 'huge_it_catalog_Licensing');
+    $featured = add_submenu_page('catalogs_huge_it_catalog', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'huge_it__catalog_featured_plugins', 'huge_it__catalog_featured_plugins');
+    $licensing = add_submenu_page( 'catalogs_huge_it_catalog', 'Licensing', 'Licensing', 'manage_options', 'huge_it_catalog_Licensing', 'huge_it_catalog_Licensing');
 
     add_action('admin_print_styles-' . $page_cat, 'huge_it_catalog_admin_script');
     add_action('admin_print_styles-' . $page_option, 'huge_it_catalog_option_admin_script');
     add_action('admin_print_styles-' . $Submitions, 'huge_it_catalog_admin_script');
     add_action('admin_print_styles-' . $lightbox_options, 'huge_it_catalog_option_admin_script');
+    add_action('admin_print_styles-' . $featured, 'huge_it_catalog_featured_styles');
+    add_action('admin_print_styles-' . $licensing, 'huge_it_catalog_licensing_styles');
 }
 
 function huge_it__catalog_featured_plugins()
@@ -316,22 +348,22 @@ function huge_it__catalog_featured_plugins()
     include_once("admin/huge_it_featured_plugins.php");
 }
 
-function huge_it_catalog_Licensing(){ ?>
+function huge_it_catalog_featured_styles() {
+    wp_register_style( 'huge_it_catalog_featured', plugins_url( 'style/featured.css', __FILE__  ) );
+    wp_enqueue_style( 'huge_it_catalog_featured' );
+}
 
-    <div style="width:95%">
-        <p><?php echo __("This plugin is the non-commercial version of the Huge IT Product Catalog plugin. If you want to customize to the styles and colors of your website,than you need to buy a license.
-            Purchasing a license will add possibility to customize Catalog Options, Products Options and Image View Options of the plugin.");?></p>
-        <br /><br />
-        <a href="http://huge-it.com/product-catalog/" class="button-primary" target="_blank"><?php echo __("Purchase a License","product-catalog");?></a>
-        <br /><br /><br />
-        <p><?php echo __("After the purchasing the commercial version follow this steps:");?></p>
-        <ol>
-            <li><?php echo __("Deactivate Huge IT Product Catalog Plugin","product-catalog");?></li>
-            <li><?php echo __("Delete Huge IT Product Catalog Plugin","product-catalog");?></li>
-            <li><?php echo __("Install the downloaded commercial version of the plugin","product-catalog");?></li>
-        </ol>
-    </div>
+function huge_it_catalog_Licensing(){
+
+    require_once("admin/licensing.php");?>
+    
     <?php
+
+}
+
+function huge_it_catalog_licensing_styles() {
+    wp_register_style( 'huge_it_catalog_licensing', plugins_url( 'style/licensing.css', __FILE__  ) );
+    wp_enqueue_style( 'huge_it_catalog_licensing' );
 }
 
 
@@ -470,9 +502,6 @@ function Options_product_Catalog_styles()
     require_once("admin/catalog_Options_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
-    if (isset($_GET['task']))
-        if ($_GET['task'] == 'save')
-            save_styles_options();
     showStyles();
 }
 function Options_catalog_lightbox_styles()
