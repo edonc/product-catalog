@@ -1887,40 +1887,38 @@ var defaultBlockWidth=<?php echo $paramssld['ht_view0_block_width']; ?>;
           $container.hugeitmicro( options );
         }
       }
-    
 
-      $container.delegate( '.title-block_<?php echo $catalogID; ?>', 'click', function(){
-          var strheight=0;
-          jQuery(this).parents('.element_<?php echo $catalogID; ?>').find('.wd-catalog-panel_<?php echo $catalogID; ?> > div').each(function(){
-                strheight+=jQuery(this).outerHeight()+10;
-                //alert(strheight);
-          })
-          strheight+=<?php echo $paramssld['ht_view0_block_height']+45; ?>;
-	  			if(jQuery(this).parents('.element_<?php echo $catalogID; ?>').hasClass("large")){
-			jQuery(this).parents('.element_<?php echo $catalogID; ?>').animate({
-				height: "<?php echo $paramssld['ht_view0_block_height']+47; ?>px"
-			}, 300, function() {
-				jQuery(this).removeClass('large');
-				$container.hugeitmicro('reLayout');
-			});
-			
-			jQuery(this).parents('.element_<?php echo $catalogID; ?>').removeClass("active");
-			return false;
-		}
-		
-	
-		jQuery(this).parents('.element_<?php echo $catalogID; ?>').css({height:strheight});
-		jQuery(this).parents('.element_<?php echo $catalogID; ?>').addClass('large');
 
-		$container.hugeitmicro('reLayout');
-		jQuery(this).parents('.element_<?php echo $catalogID; ?>').css({height:"<?php echo $paramssld['ht_view0_block_height']+45; ?>px"});		 
-		 
-		//alert(strheight);
-		 
-		 jQuery(this).parents('.element_<?php echo $catalogID; ?>').animate({
-			height:strheight+"px",
-		  }, 300,function(){	$container.hugeitmicro('reLayout');});
-	});
+       $container.delegate('.title-block_<?php echo $catalogID; ?>', 'click', function () {
+              var strheight = 0;
+              jQuery(this).parents('.element_<?php echo $catalogID; ?>').find('.wd-catalog-panel_<?php echo $catalogID; ?> > div').each(function () {
+                     strheight += jQuery(this).outerHeight() + 10;
+              });
+              strheight +=<?php echo $paramssld['ht_view0_block_height'] + 45; ?>;
+              if (jQuery(this).parents('.element_<?php echo $catalogID; ?>').hasClass("large")) {
+                     jQuery(this).parents('.element_<?php echo $catalogID; ?>').animate({
+                            height: "<?php echo $paramssld['ht_view0_block_height'] + 45; ?>px"
+                     }, 300, function () {
+                            jQuery(this).removeClass('large');
+                            $container.hugeitmicro('reLayout');
+                     });
+                     jQuery(this).parents('.element_<?php echo $catalogID; ?>').removeClass("active");
+                     return false;
+              }
+
+
+              jQuery(this).parents('.element_<?php echo $catalogID; ?>').css({height: strheight});
+              jQuery(this).parents('.element_<?php echo $catalogID; ?>').addClass('large');
+
+              $container.hugeitmicro('reLayout');
+              jQuery(this).parents('.element_<?php echo $catalogID; ?>').css({height: "<?php echo $paramssld['ht_view0_block_height'] + 45; ?>px"});
+
+              jQuery(this).parents('.element_<?php echo $catalogID; ?>').animate({
+                     height: strheight + "px",
+              }, 300, function () {
+                     $container.hugeitmicro('reLayout');
+              });
+       });
 
     var $sortBy =  jQuery('#huge_it_catalog_content_<?php echo $catalogID; ?> #sort-by');
     jQuery('#huge_it_catalog_content_<?php echo $catalogID; ?> #shuffle a').click(function(){
@@ -1931,46 +1929,26 @@ var defaultBlockWidth=<?php echo $paramssld['ht_view0_block_width']; ?>;
     });
     
         // bind filter on select change
-        jQuery(document).ready(function(){
-            jQuery('#huge_it_catalog_filters_<?php echo $catalogID; ?> ul li').click(function() {
-              // get filter value from option value
-              var filterValue = jQuery(this).attr('rel');
-              // use filterFn if matches value
-              filterValue = filterValue;//filterFns[ filterValue ] || 
-              $container.hugeitmicro({ filter: filterValue });
-            });
-            <?php // if(($paramssld["ht_view0_sorting_float"] == "left" || $paramssld["ht_view0_sorting_float"] == "right") && $paramssld["ht_view0_filtering_float"] == "none")
-//                  { ?>
-//                        var topmargin = jQuery("#huge_it_catalog_filters_<?php echo $catalogID; ?> ul").height();
-//                        jQuery("#huge_it_catalog_options_<?php echo $catalogID; ?>").css({'margin-top':parseInt(topmargin) + 5});
-            <?php // }
-//            else  {
-//                    if(($paramssld["ht_view0_filtering_float"] == "left" || $paramssld["ht_view0_filtering_float"] == "right") && $paramssld["ht_view0_sorting_float"] == "none")
-//                      { ?>
-//                         var topmargin = jQuery("#huge_it_catalog_options_<?php echo $catalogID; ?>").height();
-//                         jQuery("#huge_it_catalog_filters_<?php echo $catalogID; ?>").css({'margin-top':'5px'});
-                <?php // }
-//                  } ?>
-            
-            /*    <--   VIEW 0 ELEMENTS THUMBS CLICK    */
-            
-            jQuery(".element_<?php echo $catalogID; ?> .thumbs-block ul li a img").click(function(e){
-                var lightbox_is = "<?php echo $paramssld['ht_view0_allow_lightbox']; ?>";
-                    if(lightbox_is != "on"){
-                        e.preventDefault();
-//                        alert(lightbox_is);
-                        var new_src = jQuery(this).attr("src");    //    alert(new_src);
-                        var image = jQuery(this).closest(".element_<?php echo $catalogID; ?>").find(".default-block_<?php echo $catalogID; ?> .image-block_<?php echo $catalogID; ?> img");
+       jQuery(document).ready(function () {
+              jQuery('#huge_it_catalog_filters_<?php echo $catalogID; ?> ul li').click(function () {
+                     // get filter value from option value
+                     var filterValue = jQuery(this).attr('rel');
+                     // use filterFn if matches value
+                     filterValue = filterValue;//filterFns[ filterValue ] ||
+                     $container.hugeitmicro({filter: filterValue});
+              });
+
+              jQuery(".element_<?php echo $catalogID; ?> .thumbs-block ul li a img").click(function (e) {
+                     var lightbox_is = "<?php echo $paramssld['ht_view0_allow_lightbox']; ?>";
+                     if (lightbox_is != "on") {
+                            e.preventDefault();
+                            var new_src = jQuery(this).attr("src");    //    alert(new_src);
+                            var image = jQuery(this).closest(".element_<?php echo $catalogID; ?>").find(".default-block_<?php echo $catalogID; ?> .image-block_<?php echo $catalogID; ?> img");
                             image.attr("src", new_src);
                             zoom_start();
-                    }
-            });
-            
-            /*          VIEW 0 LOAD MORE CLICK    -->   */
-				
-            /*        <!--     VIEW 0 LOAD MORE CLICK          */
-            
-        });
+                     }
+              });
+       });
         
         jQuery(window).load(function(){
 
@@ -1987,17 +1965,6 @@ var defaultBlockWidth=<?php echo $paramssld['ht_view0_block_width']; ?>;
 	case 1;
  ?>
 <?php
-//    if($paramssld["ht_view1_sorting_float"] == "left" && $paramssld["ht_view1_filtering_float"] == "right" ||
-//       $paramssld["ht_view1_sorting_float"] == "right" && $paramssld["ht_view1_filtering_float"] == "left" ||
-//       $paramssld["ht_view1_sorting_float"] == $paramssld["ht_view1_filtering_float"])
-//       { $sorting_block_width ="20%"; $filtering_block_width ="20%"; $middle_with = "56%"; }
-//    else if($paramssld["ht_view1_sorting_float"] == "left" || $paramssld["ht_view1_sorting_float"] == "right" && $paramssld["ht_view1_filtering_float"] == "top")
-//       { $sorting_block_width ="30%"; $filtering_block_width ="100%"; $paramssld["ht_view1_filtering_float"] = "none"; $width_middle = "65%"; }
-//    else if($paramssld["ht_view1_filtering_float"] == "left" || $paramssld["ht_view1_filtering_float"] == "right" && $paramssld["ht_view1_sorting_float"] == "top")
-//       { $sorting_block_width ="100%"; $filtering_block_width ="30%"; $paramssld["ht_view1_sorting_float"] = "none"; $width_middle = "65%"; }
-//    if($paramssld["ht_view1_sorting_float"] == "top" && $paramssld["ht_view1_filtering_float"] == "top")
-//       { $sorting_block_width ="100%"; $filtering_block_width ="100%"; $left_to_top = "ok"; }
-//var_dump($catalog[0]->count_into_page);
 if($catalog[0]->pagination_type == "show_all"){
     $myAllImages = count($images);
     if($myAllImages < $catalog[0]->count_into_page)            //update pagination bug
