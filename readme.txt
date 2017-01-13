@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: http://huge-it.com/product-catalog/
 Tags: catalog, catalogs, products, product catalog, shopping cart, store, product, product gallery, ecommerce, shop, wordpress ecommerce, wordpress store,
 Requires at least: 3.0.1
-Tested up to: 4.6.1
-Stable tag: 1.5.0
+Tested up to: 4.7.1
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -299,6 +299,11 @@ After installation of pro version, in pro options all your changes will be saved
 * Unfortunately  the plugin is demonstration catalog and not a shopping plugin, so it doesn't have the payment button ability, but you always may add some external link made with HTML into the description of the product, or order additional button customization to our support team.
 
 == Changelog ==
+
+= 1.5.1 =
+* 1) Added licensing page.
+* 2) Added featured pugins list.
+* 3) Fixed reported in the forum bug on front end.
 
 = 1.5.0 =
 **We make additional bug fixes,  edited code structure of Catalog plugin in order to meet all WordPress standards fully. There are still points we will fix during the next weeks, as the plugin is rather big and the code is pretty much messed up, so please, let us know if you catch a bug or any issue after the update at info@huge-it.com**
