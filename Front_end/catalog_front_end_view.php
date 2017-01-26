@@ -21,6 +21,8 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
         global $wpdb;
         
         ///////////////////Catalog sorting and floatinf not existing variables////////////////
+        if ($paramssld==null) $paramssld=array();
+
         $paramssld["ht_view0_sorting_float"] = "left";
         $paramssld["ht_view1_sorting_float"] = "left";
         $paramssld["ht_view2_sorting_float"] = "left";
@@ -823,11 +825,8 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 /****</calling events for loading elements> ***/
 </script>
 	<!--Huge IT catalog START-->
-	<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-		if ( !(is_plugin_active( 'lightbox/lightbox.php' ) )) { 
-		?>
+	<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' );?>
 	<link href="<?php echo plugins_url('../style/colorbox-'.$paramssld['light_box_style'].'.css', __FILE__);?>" rel="stylesheet" type="text/css" />
-	<?php } ?>
 		
 	<?php
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -4816,16 +4815,18 @@ else{
 		width:100%; 
 	}
 
-	.element_<?php echo $catalogID; ?> div.left-block_<?php echo $catalogID; ?> .main-image-block_<?php echo $catalogID; ?> img {
-		margin:0px !important;
-		padding:0px !important;
-		width:100% !important;  
-		height:auto;
-	}
-
 	.element_<?php echo $catalogID; ?> div.left-block_<?php echo $catalogID; ?> .thumbs-block ul {
 		width:100%; 
 	}
+}
+
+@media only screen and (max-width: 600px) {
+       .element_<?php echo $catalogID; ?> div.left-block_<?php echo $catalogID; ?> .main-image-block_<?php echo $catalogID; ?> img {
+              margin: 0px !important;
+              padding: 0px !important;
+              width: 100% !important;
+              height: auto;
+       }
 }
 
 #huge_it_catalog_content_<?php echo $catalogID; ?> #huge_it_catalog_options_<?php echo $catalogID; ?> {
@@ -5013,76 +5014,32 @@ else{
 .catalog_pagination_<?php echo $catalogID; ?> a i{
     font-size: <?php echo $paramssld["htc_view3_pagination_icon_size"]; ?>px;
     color: #<?php echo $paramssld["htc_view3_pagination_icon_color"]; ?>;
-/*    position: absolute;
-    top: -moz-calc(50% - 8px) !important;
-    top: -webkit-calc(50% - 8px)  !important;
-    top: calc(50% - 8px) !important;
-    top: -o-calc(50% - 8px) !important;
-    top: -ms-calc(50% - 8px) !important;
-    
-    left: -moz-calc(50% - 8px) !important;
-    left: -webkit-calc(50% - 8px)  !important;
-    left: calc(50% - 8px) !important;
-    left: -o-calc(50% - 8px) !important;
-    left: -ms-calc(50% - 8px) !important;*/
 }
 .catalog_pagination_<?php echo $catalogID; ?> .go-to-first{
     font-size: 10px !important;
-    /*background-color: #F0F0F0 !important;*/
-    /*background:url('<?php echo  plugins_url( '../images/first-active.png' , __FILE__ ); ?>') center center no-repeat;*/
-/*    border-right: 1px solid #D0D0D0;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 10px;*/
 }
 .catalog_pagination_<?php echo $catalogID; ?> .go-to-first-passive{
     font-size: 10px !important;
-    /*background-color: #F0F0F0 !important;*/
-    /*background:url('<?php echo  plugins_url( '../images/first-passive.png' , __FILE__ ); ?>') center center no-repeat;*/
-/*    border-right: 1px solid #D0D0D0;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;*/
 }
 
 .catalog_pagination_<?php echo $catalogID; ?> .go-to-previous{
     font-size: 10px !important;
-    /*background-color: #F0F0F0 !important;*/
-    /*background:url('<?php echo  plugins_url( '../images/left-active.png' , __FILE__ ); ?>') center center no-repeat;*/
-    /*border-right: 1px solid #D0D0D0;*/
 }
 .catalog_pagination_<?php echo $catalogID; ?> .go-to-previous-passive{
-    /*background-color: #F0F0F0 !important;*/
-    /*background:url('<?php echo  plugins_url( '../images/left-passive.png' , __FILE__ ); ?>') center center no-repeat;*/
-    /*border-right: 1px solid #D0D0D0;*/
 }
 
 .catalog_pagination_<?php echo $catalogID; ?> .go-to-last{
     font-size: 10px !important;
-    /*background-color: #F0F0F0 !important;*/
-    /*background:url('<?php echo  plugins_url( '../images/last-active.png' , __FILE__ ); ?>') center center no-repeat;*/
-/*    border-left: 1px solid #D0D0D0;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;*/
 }
 .catalog_pagination_<?php echo $catalogID; ?> .go-to-last-passive{
     font-size: 10px !important;
-    /*background-color: #F0F0F0 !important;*/
-    /*background:url('<?php echo  plugins_url( '../images/last-passive.png' , __FILE__ ); ?>') center center no-repeat;*/
-/*    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-left: 1px solid #D0D0D0;*/
 }
 
 .catalog_pagination_<?php echo $catalogID; ?> .go-to-next{
     font-size: 10px !important;
-    /*background-color: #F0F0F0 !important;*/
-    /*background:url('<?php echo  plugins_url( '../images/right-active.png' , __FILE__ ); ?>') center center no-repeat;*/
-    /*border-left: 1px solid #D0D0D0;*/
 }
 .catalog_pagination_<?php echo $catalogID; ?> .go-to-next-passive{
     font-size: 10px !important;
-    /*background-color: #F0F0F0 !important;*/
-    /*background:url('<?php echo  plugins_url( '../images/right-passive.png' , __FILE__ ); ?>') center center no-repeat;*/
-    /*border-left: 1px solid #D0D0D0;*/
 }
 
 .zoomContainer {
@@ -5248,7 +5205,7 @@ else{
                       ?>
                       <div class="element_<?php echo $catalogID; ?> <?php if($paramssld['ht_view3_allow_lightbox'] == "on"){ echo "catalog_ccolorbox_grouping_".$catalogID;} ?> " data-element-id="<?php echo $row->id; ?>" data-symbol="<?php echo esc_attr($row->name); ?>" data-category="alkaline-earth">
                               <div class="left-block_<?php echo $catalogID; ?>">
-                                      <div class="main-image-block_<?php echo $catalogID; ?> for_zoom">
+                                      <div class="main-image-block_<?php echo $catalogID; ?> main-image-block for_zoom">
                                            <?php
                                                $imgurl=explode(";",$row->image_url);
                                                if($row->image_url != ';'){
@@ -5265,6 +5222,23 @@ else{
                                                       <a href="<?php echo esc_attr($imgurl[0]); ?>"><img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.png"></a>
                                           <?php } ?>
                                       </div>
+                                     <div class="main-image-block_<?php echo $catalogID; ?> main-image-block not_for_zoom">
+                                            <?php
+                                            $imgurl=explode(";",$row->image_url);
+                                            if($row->image_url != ';'){
+                                                   if($paramssld['ht_view3_allow_zooming'] == "off" && $paramssld['ht_view3_allow_lightbox'] == "on"){ ?>
+                                                          <a href="<?php echo esc_attr($imgurl[0]); ?>" class="catalog_group<?php echo $group_key."_".$catalogID; ?>" >
+                                                                 <img id="wd-cl-img<?php echo $key; ?>" src="<?php echo esc_attr($imgurl[0]); ?>" />
+                                                          </a>
+                                                   <?php   }else{ ?>
+                                                          <a href="<?php echo esc_attr($imgurl[0]); ?>" class="catalog_group<?php echo $group_key."_".$catalogID; ?>"  <?php if($paramssld['ht_view3_allow_lightbox'] == "off"){ echo "onclick='return false;'"; } ?>>
+                                                                 <img id="wd-cl-img<?php echo $key; ?>" src="<?php echo esc_attr($imgurl[0]); ?>" />
+                                                          </a>
+                                                   <?php     } ?>
+                                            <?php } else{ ?>
+                                                   <a href="<?php echo esc_attr($imgurl[0]); ?>"><img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.png"></a>
+                                            <?php } ?>
+                                     </div>
                                       <div class="thumbs-block">
                                           <?php
                                           if($paramssld["ht_view3_show_thumbs"] == 'on')
@@ -6766,11 +6740,8 @@ jQuery(function(){
     else { $paramssld4['ht_catalog_related_products_vertical'] = "false"; $carousel_vertical = "responsive"; $fullWithProducts = "true"; }
 ?>
 
-	<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-		if ( !(is_plugin_active( 'lightbox/lightbox.php' ) )) {
-        ?>
+	<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?>
 	<link href="<?php echo plugins_url('../style/colorbox-'.$paramssld2['light_box_style'].'.css', __FILE__);?>" rel="stylesheet" type="text/css" />
-	<?php } ?>
 		
 	<?php
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -7789,12 +7760,12 @@ jQuery(function(){
 					$spam = 0;
                                         
 					foreach($spamReviewsArray as $spamReviews) {
-                                            if($spamReviewsz == $_SERVER['SERVER_ADDR']){ $spam = 1; }
+                                            if($spamReviews == $_SERVER['REMOTE_ADDR']){ $spam = 1; }
                                         }
 				?>
 				<input type="hidden" name="spam" class="huge_it_catalog_spam" value="<?php echo esc_attr($spam); ?>" />
 				<input type="hidden" name="product_id" class="huge_it_catalog_product_id" value="<?php echo $productArray->id; ?>" />
-				<input type="hidden" name="ip" class="huge_it_catalog_product_ip" value="<?php echo $_SERVER['SERVER_ADDR']; ?>" />
+				<input type="hidden" name="ip" class="huge_it_catalog_product_ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>" />
                             </div>
                             
                         <?php }
@@ -7868,7 +7839,7 @@ jQuery(function(){
                                                     </label>
                                                     <input type="hidden" name="asc_seller_product_id" class="asc_seller_product_id" value="<?php echo $productArray->id; ?>" />
                                                     <input type="hidden" name="asc_seller_spam" class="asc_seller_spam" value="<?php echo esc_attr($spam); ?>" />
-                                                    <input type="hidden" name="asc_seller_ip" class="huge_it_catalog_product_ip" value="<?php echo $_SERVER['SERVER_ADDR']; ?>" />
+                                                    <input type="hidden" name="asc_seller_ip" class="huge_it_catalog_product_ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>" />
                                                     <input type="hidden" name="captcha_sum" id="captcha_sum" value="<?php echo $captcha_val; ?>">
                                                     <a href="#1" title="Close" class="order_popup_submit_close">
                                                         <input type="submit" name="order_popup_submit" id="order_popup_submit" value="<?php echo esc_attr($paramssld3["ht_single_product_asc_seller_popup_button_text"]);?>" />

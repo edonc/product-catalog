@@ -21,6 +21,8 @@ if(typeof allowZooming != 'undefined') {
 jQuery(window).resize(function () {
     if(typeof allowZooming != 'undefined') {
         if( jQuery(window).width() >= 600) {
+            jQuery('.main-image-block.not_for_zoom').hide();
+            jQuery('.main-image-block.for_zoom').show();
             if (view_num == 5) {
                 jQuery(for_zoom).hover(function () {
                     for_zoom = jQuery(this);
@@ -32,14 +34,14 @@ jQuery(window).resize(function () {
             else {
                 zoom_start();
             }
-
-            jQuery(window).resize(function () {
-                zoom_resize();
-            });
+        }
+        else{
+            jQuery('.main-image-block.for_zoom').hide();
+            jQuery('.main-image-block.not_for_zoom').show();
         }
     }
 });
-
+jQuery(window).resize();
 function zoom_resize(){
         jQuery('img.zoomed').removeData('elevateZoom');//remove zoom instance from image
         jQuery('.zoomWrapper img.zoomed').unwrap();
