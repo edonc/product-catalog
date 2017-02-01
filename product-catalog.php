@@ -1053,7 +1053,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                     $pagetype = sanitize_text_field($_POST["pagetype"]);
                 if($type == 'search') {
                     $query = ($pagetype == 'load_more')?"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%') order by ordering ASC LIMIT ".$count_into_page
-                        :"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%')";
+                        :"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%') order by ordering ASC";
                 }
                 else if($type == 'load') {
                     $query = ($test == '')?$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_it_catalog_products WHERE catalog_id = '%d' ".$elements." order by ordering ASC LIMIT %d ",$catalog_id,$count_into_page)
@@ -1109,7 +1109,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                             $moreImages .= "<div class='default-block_".$catalog_id."'>";
                             $moreImages .= "<div class='image-block_".$catalog_id." for_zoom'>";
                             if($row->image_url != ';'){
-                                $moreImages .= "<img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
+                                $moreImages .= "<a href='".$imgurl[0]."' class='catalog_group".$catalog_id."_".$group_key." '><img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
                             }else{
                                 $moreImages .= "<img id='wd-cl-img".$key."' src='images/noimage.png' />";
                             }
