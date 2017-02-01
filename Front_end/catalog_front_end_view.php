@@ -7679,7 +7679,7 @@ jQuery(function(){
 			<div class="main-image-block for_zoom">
 				<?php $imgurl=explode(";",$productArray->image_url); ?>
 				<?php 	if($productArray->image_url != ';'){ ?>
-					<a href="<?php echo esc_attr($imgurl[0]); ?>" <?php if($paramssld['ht_single_product_allow_lightbox'] == "on"){ echo "class='catalog_single_product_group_".$productArray->id."'"; }else{ echo "onclick='return false'"; } ?> ><img id="wd-cl-img<?php echo $productArray->id; ?>"src="<?php echo esc_attr($imgurl[0]); ?>"></a>
+					<a href="<?php echo esc_attr($imgurl[0]); ?>" <?php if($paramssld['ht_single_product_allow_lightbox'] == "on"){ echo "class='catalog_single_product_group_".$productArray->id."'"; }else{ echo "onclick='return false'"; } ?> ><img id="wd-cl-img<?php echo $productArray->id; ?>" src="<?php echo esc_attr($imgurl[0]); ?>"></a>
 				<?php } else { ?>
 					  <a href="<?php echo esc_attr($imgurl[0]); ?>"><img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg"></a>
 				<?php
