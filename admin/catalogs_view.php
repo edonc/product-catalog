@@ -1036,6 +1036,21 @@ jQuery(document).ready(function($){
 	                            <a class="probuttonlink" href="http://huge-it.com/product-catalog/" target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
 	                        <div>
 	                    </li>
+						<li>
+							<label
+								for="disable_right_click"><?php echo __( 'Disable Image Right Click', 'product-catalog' ); ?></label>
+							<select name="disable_right_click" id="disable_right_click">
+								<option <?php if ( get_option( 'product_catalog_disable_right_click' ) == 'off' ) {
+									echo 'selected';
+								} ?> value="off">Off
+								</option>
+								<option <?php if ( get_option( 'product_catalog_disable_right_click' ) == 'on' ) {
+									echo 'selected';
+								} ?> value="on">On
+								</option>
+
+							</select>
+						</li>
 
 					</ul>
 						<div id="major-publishing-actions">

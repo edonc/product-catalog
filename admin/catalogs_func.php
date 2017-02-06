@@ -314,6 +314,7 @@ function apply_cat($id)
     $wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_it_catalogs SET  cat_thumb               = '%s'  WHERE id = '%s' ", $_POST["cat_thumb"], $id ) );
     $wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_it_catalogs SET  pagination_type         = '%s'  WHERE id = '%s' ", $_POST["pagination_type"], $id ) );
     $wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_it_catalogs SET  count_into_page         = '%s'  WHERE id = '%s' ", $_POST["count_into_page"], $id ) );
+    update_option('product_catalog_disable_right_click', sanitize_text_field($_POST['disable_right_click']));
 
 
     $query = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_it_catalogs WHERE id = %d", $id );

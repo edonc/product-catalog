@@ -79,7 +79,12 @@ jQuery(function(){
 });
 
 jQuery(document).ready(function () {
-	jQuery('section[id^="huge_it_catalog_content_"] img, ul[id^="huge_it_catalog_popup_list_"] img, div[id^="main-slider_"] img').bind('contextmenu',function () {
-		return false;
-	});
+	if(catalog_disable_right_click == 'on') {
+		jQuery('section[id^="huge_it_catalog_content_"] img, ul[id^="huge_it_catalog_popup_list_"] img, div[id^="main-slider_"] img').bind('contextmenu', function () {
+			return false;
+		});
+		jQuery('#ccolorbox').bind('contextmenu', '#pcboxLoadedContent img', function () {
+			return false;
+		});
+	}
 });
