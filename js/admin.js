@@ -1,4 +1,8 @@
 jQuery(document).ready(function () {
+	jQuery('a.remove_gallery').click(function () {
+		if (!confirm("Are you sure you want to delete this item?"))
+			return false;
+	});
 	jQuery('#arrows-type input[name="params[catalog_navigation_type]"]').change(function(){
 		jQuery(this).parents('ul').find('li.active').removeClass('active');
 		jQuery(this).parents('li').addClass('active');

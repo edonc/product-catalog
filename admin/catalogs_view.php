@@ -158,7 +158,7 @@ function html_showcatalogs( $rows,  $pageNav,$sort,$cat_row){
 						<td><?php echo $rows[$i]->id; ?></td>
 						<td><a  href="admin.php?page=catalogs_huge_it_catalog&task=edit_cat&id=<?php echo $rows[$i]->id?>"><?php echo esc_html(stripslashes($rows[$i]->name)); ?></a></td>
 						<td>(<?php if(!($pr_count)){echo '0';} else{ echo $rows[$i]->prod_count;} ?>)</td>
-						<td><a  href="admin.php?page=catalogs_huge_it_catalog&task=remove_cat&id=<?php echo $rows[$i]->id?>">Delete</a></td>
+						<td><a  href="admin.php?page=catalogs_huge_it_catalog&task=remove_cat&id=<?php echo $rows[$i]->id?>" class="remove_gallery">Delete</a></td>
 					</tr> 
 				 <?php } ?>
 				</tbody>
