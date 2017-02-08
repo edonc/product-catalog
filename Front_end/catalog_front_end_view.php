@@ -698,7 +698,8 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
 <script>
 function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationType,view_obj) {
 			var existElements,data,query,group_count,i,max_count;
-				
+
+                max_count = <?php echo $myAllImages; ?>;
 				data = {};
 				data.type = type;
 				data.pagetype = paginationType;
@@ -730,7 +731,12 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 							 jQuery('#search_block_<?php echo $catalogID; ?> form > input').keyup();
 						 }
 						 jQuery("#huge_it_catalog_container_<?php echo $catalogID; ?>").append(response);
-				 
+                          jQuery("#huge_it_catalog_container_<?php echo $catalogID; ?> img").load(function () {
+                                 if( getCurrentElementsId_<?php echo $catalogID; ?>().length >=  max_count){
+                                        jQuery(".catalog_load_block_<?php echo $catalogID; ?>").css('display','none');
+                                 }
+                                 else jQuery(".catalog_load_block_<?php echo $catalogID; ?>").css('display','block');
+                          });
 					}
 					else {
 						if(response != '') {
@@ -759,11 +765,6 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
                         zoom_resize();               //      CALLING ELEVATEZOOM 
 						
                 });
-                max_count = <?php echo $myAllImages; ?>;
-                if( getCurrentElementsId_<?php echo $catalogID; ?>().length >=  max_count){ 
-					jQuery(".catalog_load_block_<?php echo $catalogID; ?>").css('display','none'); 
-				}
-				else jQuery(".catalog_load_block_<?php echo $catalogID; ?>").css('display','block');
  };
   function getCurrentElementsId_<?php echo $catalogID; ?>() {
 	 var ExistElementsArray = [];
