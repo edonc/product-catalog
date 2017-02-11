@@ -737,6 +737,12 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
                                  }
                                  else jQuery(".catalog_load_block_<?php echo $catalogID; ?>").css('display','block');
                           });
+                           setTimeout(function () {
+                                  if( jQuery(window).width() >= 600) {
+                                         jQuery('.main-image-block.not_for_zoom').hide();
+                                         jQuery('.main-image-block.for_zoom').show();
+                                  }
+                           },100);
 					}
 					else {
 						if(response != '') {
@@ -750,17 +756,20 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 						}
 					}
                         setTimeout(function(){
-                            jQuery("#huge_it_catalog_container_<?php echo $catalogID; ?>").hugeitmicro('reloadItems' ).hugeitmicro({ sortBy: 'original-order' }).hugeitmicro( 'reLayout' );
-                            jQuery(".load_more_elements_<?php echo $catalogID; ?>").css({ "display" : "" });
-                            jQuery(".load_more_elements_<?php echo $catalogID; ?>").parent().find(".load_more_loading_icon").css({ "display" : "none" });
-                        }, 100);
+                              jQuery("#huge_it_catalog_container_<?php echo $catalogID; ?>").hugeitmicro('reloadItems' ).hugeitmicro({ sortBy: 'original-order' }).hugeitmicro( 'reLayout' );
+                              jQuery(".load_more_elements_<?php echo $catalogID; ?>").css({ "display" : "" });
+                              jQuery(".load_more_elements_<?php echo $catalogID; ?>").parent().find(".load_more_loading_icon").css({ "display" : "none" });
+                       }, 100);
 						if(data.allow_lightbox == "on") {
-							setccolorboxGrouping();
-							group_count = getCurrentElementsId_<?php echo $catalogID; ?>().length;
-							
-							for(i = 0; i <= group_count; i++){
-								jQuery(".catalog_group" + i + "<?php echo "_".$catalogID; ?>").ccolorbox({rel:'catalog_group' + i + "<?php echo "_".$catalogID; ?>"});
-							}
+                               setccolorboxGrouping();
+                               group_count = getCurrentElementsId_<?php echo $catalogID; ?>().length;
+
+                               for(i = 0; i <= group_count; i++){
+                                      jQuery(".catalog_group" + i + "<?php echo "_".$catalogID; ?>").ccolorbox({rel:'catalog_group' + i + "<?php echo "_".$catalogID; ?>"});
+                               }
+                               for(i = 0; i <= group_count; i++){
+                                      jQuery(".catalog_group_not_for_zoom" + i + "<?php echo "_".$catalogID; ?>").ccolorbox({rel:'catalog_group_not_for_zoom' + i + "<?php echo "_".$catalogID; ?>"});
+                               }
 						}
                         zoom_resize();               //      CALLING ELEVATEZOOM 
 						
@@ -777,7 +786,7 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
  function setccolorboxGrouping() {
 	 var i = 0;
 	 jQuery('#huge_it_catalog_container_<?php echo $catalogID; ?> .element_<?php echo $catalogID; ?>').each(function(){
-		 jQuery(this).find('img').parent('a').removeClass().addClass('catalog_group'+i+'_'+<?php echo $catalogID; ?>);
+		 jQuery(this).find('img').parent('a').not('.not_for_zoom_class').removeClass().addClass('catalog_group'+i+'_'+<?php echo $catalogID; ?>);
 		 i++;
 	 });
  }
@@ -5228,11 +5237,11 @@ else{
                                             $imgurl=explode(";",$row->image_url);
                                             if($row->image_url != ';'){
                                                    if($paramssld['ht_view3_allow_zooming'] == "off" && $paramssld['ht_view3_allow_lightbox'] == "on"){ ?>
-                                                          <a href="<?php echo esc_attr($imgurl[0]); ?>" class="catalog_group<?php echo $group_key."_".$catalogID; ?>" >
+                                                          <a href="<?php echo esc_attr($imgurl[0]); ?>" class="not_for_zoom_class catalog_group_not_for_zoom<?php echo $group_key."_".$catalogID; ?>" >
                                                                  <img id="wd-cl-img<?php echo $key; ?>" src="<?php echo esc_attr($imgurl[0]); ?>" />
                                                           </a>
                                                    <?php   }else{ ?>
-                                                          <a href="<?php echo esc_attr($imgurl[0]); ?>" class="catalog_group<?php echo $group_key."_".$catalogID; ?>"  <?php if($paramssld['ht_view3_allow_lightbox'] == "off"){ echo "onclick='return false;'"; } ?>>
+                                                          <a href="<?php echo esc_attr($imgurl[0]); ?>" class="not_for_zoom_class catalog_group_not_for_zoom<?php echo $group_key."_".$catalogID; ?>"  <?php if($paramssld['ht_view3_allow_lightbox'] == "off"){ echo "onclick='return false;'"; } ?>>
                                                                  <img id="wd-cl-img<?php echo $key; ?>" src="<?php echo esc_attr($imgurl[0]); ?>" />
                                                           </a>
                                                    <?php     } ?>

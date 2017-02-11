@@ -1419,14 +1419,19 @@ function huge_it_catalog_my_action_callback_frontend() {
                         die();
                         break;
                     case 3:
-
+                        $group_key = 0;
                         $moreImages = "";
                         foreach($moreImagesInArray as $key=>$row)
                         {
                             $link = $row->sl_url;
                             $imgurl = explode(";",$row->image_url);
+                            $thumbs_imgurl = $imgurl;
+                            array_pop($thumbs_imgurl);
+                            if($_POST["allow_lightbox"] == 'on'){
+                                array_shift($thumbs_imgurl);
+                            }
                             $thumbs_li = '';
-                            foreach($imgurl as $key=>$img)
+                            foreach($thumbs_imgurl as $key=>$img)
                             {
                                 if($img != "" && $img != ";"){
                                     $thumbs_li .="<li><a href='".$img."'><img src='".$img."'></a></li>";
@@ -1441,8 +1446,17 @@ function huge_it_catalog_my_action_callback_frontend() {
                             }else{
                                 $moreImages .= "<a href='".$imgurl[0]."'><img id='wd-cl-img".$key."' src='images/noimage.png'></a>";
                             }
-                            $moreImages .= "</div>
-                                                                    <div class='thumbs-block'>";
+                            $moreImages .= "</div>";
+
+                            $moreImages .="<div class='main-image-block main-image-block_".$catalog_id." not_for_zoom'>";
+                            if($row->image_url != ';'){
+                                $moreImages .= "<a href='".$imgurl[0]."' class='not_for_zoom_class catalog_group_not_for_zoom".$group_key."_".$catalog_id."'><img id='wd-cl-img".$key."'src='".$imgurl[0]."'></a>";
+                            }else{
+                                $moreImages .= "<a href='".$imgurl[0]."'><img id='wd-cl-img".$key."' src='images/noimage.png'></a>";
+                            }
+                            $moreImages .= "</div>";
+
+                            $moreImages .= "<div class='thumbs-block'>";
                             if($show_thumbs == "on"){
                                 $moreImages .= "<div>
                                                                            <ul class='thumbs-list_".$catalog_id."'>
@@ -1478,6 +1492,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                                                    </div>";
                             $moreImages .= "</div>
                                 </div>";
+                            $group_key++;
                         }
                         $response = array('moreImages' => $moreImages, 'query' => $query);
                         echo json_encode($response);
