@@ -13,6 +13,8 @@ Text Domain: product-catalog
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 add_action('media_buttons_context', 'add_my_custom_button_for_catalog');
 
 function add_my_custom_button_for_catalog($context) {
@@ -128,8 +130,6 @@ function huge_it_catalog_products_list_shotrcode($atts)
     wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
     wp_enqueue_style( 'fontawesome-css' );
 
-    wp_localize_script('catalog-all-js', 'catalog_disable_right_click', get_option('product_catalog_disable_right_click'));
-
     extract(shortcode_atts(array(
         'id' => 'no huge_it catalog',
 
@@ -215,8 +215,6 @@ function huge_it_catalog_single_product_shotrcode($atts)
 
     wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
     wp_enqueue_style( 'fontawesome-css' );
-
-    wp_localize_script('catalog-all-js', 'catalog_disable_right_click', get_option('product_catalog_disable_right_click'));
 
     extract(shortcode_atts(array(
         'id' => 'no huge_it catalog',
@@ -360,7 +358,7 @@ function huge_it_catalog_featured_styles() {
 function huge_it_catalog_Licensing(){
 
     require_once("admin/licensing.php");?>
-    
+
     <?php
 
 }
@@ -394,7 +392,6 @@ function huge_it_catalog_option_admin_script()
 
 function catalogs_huge_it_catalog()
 {
-
     require_once("admin/catalogs_func.php");
     require_once("admin/catalogs_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
@@ -1057,7 +1054,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                     $pagetype = sanitize_text_field($_POST["pagetype"]);
                 if($type == 'search') {
                     $query = ($pagetype == 'load_more')?"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%') order by ordering ASC LIMIT ".$count_into_page
-                        :"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%') order by ordering ASC";
+                        :"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%')";
                 }
                 else if($type == 'load') {
                     $query = ($test == '')?$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_it_catalog_products WHERE catalog_id = '%d' ".$elements." order by ordering ASC LIMIT %d ",$catalog_id,$count_into_page)
@@ -1113,7 +1110,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                             $moreImages .= "<div class='default-block_".$catalog_id."'>";
                             $moreImages .= "<div class='image-block_".$catalog_id." for_zoom'>";
                             if($row->image_url != ';'){
-                                $moreImages .= "<a href='".$imgurl[0]."' class='catalog_group".$catalog_id."_".$group_key." '><img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
+                                $moreImages .= "<img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
                             }else{
                                 $moreImages .= "<img id='wd-cl-img".$key."' src='images/noimage.png' />";
                             }
@@ -1125,7 +1122,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                                 </div>
                                         </div>
                                         <div class='wd-catalog-panel_".$catalog_id."' id='panel".$key."'>";
-//                             
+//
                             if($show_thumbs == "on" && $thumbs_position == "before"){
                                 $moreImages .= "<div>
                                                     <ul class='thumbs-list_".$catalog_id."'>
@@ -1217,7 +1214,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                                 </div>
                                         </div>
                                         <div class='wd-catalog-panel_".$catalog_id."' id='panel".$key."'>";
-//                             
+//
                             if($show_thumbs == "on" && $thumbs_position == "before"){
                                 $moreImages .= "<div>
                                                     <ul class='thumbs-list_".$catalog_id."'>
@@ -1419,19 +1416,14 @@ function huge_it_catalog_my_action_callback_frontend() {
                         die();
                         break;
                     case 3:
-                        $group_key = 0;
+
                         $moreImages = "";
                         foreach($moreImagesInArray as $key=>$row)
                         {
                             $link = $row->sl_url;
                             $imgurl = explode(";",$row->image_url);
-                            $thumbs_imgurl = $imgurl;
-                            array_pop($thumbs_imgurl);
-                            if($_POST["allow_lightbox"] == 'on'){
-                                array_shift($thumbs_imgurl);
-                            }
                             $thumbs_li = '';
-                            foreach($thumbs_imgurl as $key=>$img)
+                            foreach($imgurl as $key=>$img)
                             {
                                 if($img != "" && $img != ";"){
                                     $thumbs_li .="<li><a href='".$img."'><img src='".$img."'></a></li>";
@@ -1446,17 +1438,8 @@ function huge_it_catalog_my_action_callback_frontend() {
                             }else{
                                 $moreImages .= "<a href='".$imgurl[0]."'><img id='wd-cl-img".$key."' src='images/noimage.png'></a>";
                             }
-                            $moreImages .= "</div>";
-
-                            $moreImages .="<div class='main-image-block main-image-block_".$catalog_id." not_for_zoom'>";
-                            if($row->image_url != ';'){
-                                $moreImages .= "<a href='".$imgurl[0]."' class='not_for_zoom_class catalog_group_not_for_zoom".$group_key."_".$catalog_id."'><img id='wd-cl-img".$key."'src='".$imgurl[0]."'></a>";
-                            }else{
-                                $moreImages .= "<a href='".$imgurl[0]."'><img id='wd-cl-img".$key."' src='images/noimage.png'></a>";
-                            }
-                            $moreImages .= "</div>";
-
-                            $moreImages .= "<div class='thumbs-block'>";
+                            $moreImages .= "</div>
+                                                                    <div class='thumbs-block'>";
                             if($show_thumbs == "on"){
                                 $moreImages .= "<div>
                                                                            <ul class='thumbs-list_".$catalog_id."'>
@@ -1492,7 +1475,6 @@ function huge_it_catalog_my_action_callback_frontend() {
                                                                    </div>";
                             $moreImages .= "</div>
                                 </div>";
-                            $group_key++;
                         }
                         $response = array('moreImages' => $moreImages, 'query' => $query);
                         echo json_encode($response);
@@ -1906,7 +1888,7 @@ query9;
 
 
     //#############PARAMETERS NEW VERSION UPDATE#####################//
-    $plugin_data = get_plugin_data( __FILE__ );
+    $plugin_data = get_plugin_data( __FILE__, false, false );
     $plugin_version = $plugin_data['Version'];
     if($plugin_version > '1.3.3') {
         $catalogsParamsUpdateQuery = "SELECT * FROM ".$wpdb->prefix."huge_it_catalogs";
@@ -1957,17 +1939,12 @@ query9;
         $wpdb->query($sql_update_catalog_6);
     };
 
-    if ( ! get_option( 'product_catalog_disable_right_click' ) ) {
-        update_option( 'product_catalog_disable_right_click', 'off' );
-    }
-
 
 }
 
 
 register_activation_hook(__FILE__, 'huge_it_catalog_activate');
-require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-$plugin_info = get_plugin_data( ABSPATH . 'wp-content/plugins/product-catalog/product-catalog.php' );
+$plugin_info = get_plugin_data( __FILE__, false, false );
 if($plugin_info['Version'] > '1.2.1'){
     huge_it_catalog_activate();
 }
