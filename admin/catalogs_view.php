@@ -158,7 +158,7 @@ function html_showcatalogs( $rows,  $pageNav,$sort,$cat_row){
 						<td><?php echo $rows[$i]->id; ?></td>
 						<td><a  href="admin.php?page=catalogs_huge_it_catalog&task=edit_cat&id=<?php echo $rows[$i]->id?>"><?php echo esc_html(stripslashes($rows[$i]->name)); ?></a></td>
 						<td>(<?php if(!($pr_count)){echo '0';} else{ echo $rows[$i]->prod_count;} ?>)</td>
-						<td><a  href="admin.php?page=catalogs_huge_it_catalog&task=remove_cat&id=<?php echo $rows[$i]->id?>">Delete</a></td>
+						<td><a  href="admin.php?page=catalogs_huge_it_catalog&task=remove_cat&id=<?php echo $rows[$i]->id?>" class="remove_gallery">Delete</a></td>
 					</tr> 
 				 <?php } ?>
 				</tbody>
@@ -1036,6 +1036,21 @@ jQuery(document).ready(function($){
 	                            <a class="probuttonlink" href="http://huge-it.com/product-catalog/" target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
 	                        <div>
 	                    </li>
+						<li>
+							<label
+								for="disable_right_click"><?php echo __( 'Disable Image Right Click', 'product-catalog' ); ?></label>
+							<select name="disable_right_click" id="disable_right_click">
+								<option <?php if ( get_option( 'product_catalog_disable_right_click' ) == 'off' ) {
+									echo 'selected';
+								} ?> value="off">Off
+								</option>
+								<option <?php if ( get_option( 'product_catalog_disable_right_click' ) == 'on' ) {
+									echo 'selected';
+								} ?> value="on">On
+								</option>
+
+							</select>
+						</li>
 
 					</ul>
 						<div id="major-publishing-actions">

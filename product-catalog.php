@@ -13,6 +13,8 @@ Text Domain: product-catalog
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 add_action('media_buttons_context', 'add_my_custom_button_for_catalog');
 
 function add_my_custom_button_for_catalog($context) {
@@ -356,7 +358,7 @@ function huge_it_catalog_featured_styles() {
 function huge_it_catalog_Licensing(){
 
     require_once("admin/licensing.php");?>
-    
+
     <?php
 
 }
@@ -390,7 +392,6 @@ function huge_it_catalog_option_admin_script()
 
 function catalogs_huge_it_catalog()
 {
-
     require_once("admin/catalogs_func.php");
     require_once("admin/catalogs_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
@@ -1121,7 +1122,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                                 </div>
                                         </div>
                                         <div class='wd-catalog-panel_".$catalog_id."' id='panel".$key."'>";
-//                             
+//
                             if($show_thumbs == "on" && $thumbs_position == "before"){
                                 $moreImages .= "<div>
                                                     <ul class='thumbs-list_".$catalog_id."'>
@@ -1213,7 +1214,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                                 </div>
                                         </div>
                                         <div class='wd-catalog-panel_".$catalog_id."' id='panel".$key."'>";
-//                             
+//
                             if($show_thumbs == "on" && $thumbs_position == "before"){
                                 $moreImages .= "<div>
                                                     <ul class='thumbs-list_".$catalog_id."'>
@@ -1887,7 +1888,7 @@ query9;
 
 
     //#############PARAMETERS NEW VERSION UPDATE#####################//
-    $plugin_data = get_plugin_data( __FILE__ );
+    $plugin_data = get_plugin_data( __FILE__, false, false );
     $plugin_version = $plugin_data['Version'];
     if($plugin_version > '1.3.3') {
         $catalogsParamsUpdateQuery = "SELECT * FROM ".$wpdb->prefix."huge_it_catalogs";
@@ -1943,8 +1944,7 @@ query9;
 
 
 register_activation_hook(__FILE__, 'huge_it_catalog_activate');
-require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-$plugin_info = get_plugin_data( ABSPATH . 'wp-content/plugins/product-catalog/product-catalog.php' );
+$plugin_info = get_plugin_data( __FILE__, false, false );
 if($plugin_info['Version'] > '1.2.1'){
     huge_it_catalog_activate();
 }
