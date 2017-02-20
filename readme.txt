@@ -1,12 +1,12 @@
 === Catalog ===
 Contributors: Huge-IT
-Donate link: http://huge-it.com/product-catalog/
+Donate link: https://huge-it.com/product-catalog/
 Tags: catalog, catalogs, products, product catalog, shopping cart, store, product, product gallery, ecommerce, shop, wordpress ecommerce, wordpress store,
 Requires at least: 3.0.1
-Tested up to: 4.7.1
-Stable tag: 1.5.2
+Tested up to: 4.7.2
+Stable tag: 1.5.3
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Catalog Product by Huge-IT introduces incomparable Product Catalog demonstration. Just use it to better lean about all advantages of Product Catalog.
 
@@ -14,11 +14,12 @@ Catalog Product by Huge-IT introduces incomparable Product Catalog demonstration
 
 ### Wordpress Product Catalog
 
-* [Wordpress Product Catalog](http://huge-it.com/product-catalog/)
-* [Product Catalog Demo](http://huge-it.com/wordpress-plugins-product-catalog-demo/)
-* [Product Catalog FAQ](http://huge-it.com/wordpress-product-catalog-faq/)
-* [Product Catalog User Manual](http://huge-it.com/wordpress-product-catalog-user-manual/)
-* [Product Catalog Support](http://huge-it.com/contact-us/)
+* [Wordpress Product Catalog](https://huge-it.com/product-catalog/)
+* [Product Catalog Demo](https://huge-it.com/wordpress-plugins-product-catalog-demo/)
+* [Product Catalog FAQ](https://huge-it.com/wordpress-product-catalog-faq/)
+* [Product Catalog User Manual](https://huge-it.com/wordpress-product-catalog-user-manual/)
+* [Product Catalog Support](https://huge-it.com/contact-us/)
+* [Product Catalog Forum](https://huge-it.com/contact-us/)
 * [Product Catalog GitHub Project](https://github.com/Huge-IT/product-catalog)
 
 https://www.youtube.com/watch?v=OapAJ5lHUcU
@@ -146,28 +147,28 @@ Product Page has Share and Rating features, which allows your customers rate the
 Admin panel is full of user-friendly features, from there you can choose catalog styles, add millions of parameters, change the order of the products and many-many other things that will make creating catalog process easy and enjoyable.
 
 
-Upgrade to [WordPress Product Catalog Pro](http://huge-it.com/product-catalog) to Customizable Styles and Colors.
+Upgrade to [WordPress Product Catalog Pro](https://huge-it.com/product-catalog) to Customizable Styles and Colors.
 
 > #### Product Catalog Demos 
 >
->[Blocks Toggle Up/Down Demo](http://huge-it.com/wordpress-plugins-product-catalog-demo/#plugin_demo_wrapper)
+>[Blocks Toggle Up/Down Demo](https://huge-it.com/wordpress-plugins-product-catalog-demo/#plugin_demo_wrapper)
 >
->[Full-Width Blocks Demo](http://huge-it.com/wordpress-product-catalog-demo-2-full-width-block/#plugin_demo_wrapper)
+>[Full-Width Blocks Demo](https://huge-it.com/wordpress-product-catalog-demo-2-full-width-block/#plugin_demo_wrapper)
 >
->[Catalog Content Popup Demo](http://huge-it.com/wordpress-product-catalog-demo-3-content-popup/#plugin_demo_wrapper)
+>[Catalog Content Popup Demo](https://huge-it.com/wordpress-product-catalog-demo-3-content-popup/#plugin_demo_wrapper)
 >
->[Full-Height Blocks Demo](http://huge-it.com/wordpress-product-catalog-demo-4-full-height-blocks/#plugin_demo_wrapper)
+>[Full-Height Blocks Demo](https://huge-it.com/wordpress-product-catalog-demo-4-full-height-blocks/#plugin_demo_wrapper)
 >
->[Catalog Content Slider Demo](http://huge-it.com/wordpress-product-catalog-demo-5-content-slider/#plugin_demo_wrapper)
+>[Catalog Content Slider Demo](https://huge-it.com/wordpress-product-catalog-demo-5-content-slider/#plugin_demo_wrapper)
 
 > #### FAQ & User Manual
 >
->[FAQ Product Catalog](http://huge-it.com/wordpress-product-catalog-faq/)
+>[FAQ Product Catalog](https://huge-it.com/wordpress-product-catalog-faq/)
 >
->[User Manual Product Catalog](http://huge-it.com/wordpress-product-catalog-user-manual/)
+>[User Manual Product Catalog](https://huge-it.com/wordpress-product-catalog-user-manual/)
 
 
-If you think, that you found a bug in our [WordPress Product Catalog](http://huge-it.com/product-catalog) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
+If you think, that you found a bug in our [WordPress Product Catalog](https://huge-it.com/product-catalog) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Installation ==
 
@@ -183,7 +184,7 @@ MySQL 5.x
 1. First download the ZIP file from Wordpress website
 2. Log in to your website administrator panel
 3. Go to the 'Add New' in the plugins dashboard, click “Upload Plugin”
-4. Upload [WordPress Product Catalog](http://wordpress.org/plugins/product-catalog) ZIP file by choosing it from your computer
+4. Upload [WordPress Product Catalog](https://wordpress.org/plugins/product-catalog) ZIP file by choosing it from your computer
 5. Click **Install** Now button
 6. Then click **Activate Plugin** button
 7. You can see the plugin installed on Wordpress left menu
@@ -206,29 +207,29 @@ MySQL 5.x
 
 Now you can set your Product Catalog options, images and use our Product Catalog.
 
-If you think, that you found a bug in our [WordPress Product Catalog](http://huge-it.com/product-catalog) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
+If you think, that you found a bug in our [WordPress Product Catalog](https://huge-it.com/product-catalog) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Screenshots ==
 
-1.  [WordPress Product Catalog](http://huge-it.com/wordpress-plugins-product-catalog-demo/#plugin_demo_wrapper) - Blocks Toggle Up/Down
-12.  [WordPress Product Catalog](http://huge-it.com/wordpress-product-catalog-demo-3-content-popup/#plugin_demo_wrapper) - Catalog / Content Popup
-13.  [WordPress Product Catalog](http://huge-it.com/wordpress-product-catalog-demo-2-full-width-block/#plugin_demo_wrapper) - Full-Width Block
-13.  [WordPress Product Catalog](http://huge-it.com/wordpress-product-catalog-demo-5-content-slider/#plugin_demo_wrapper) - Content Slider
-14.  [WordPress Product Catalog](http://huge-it.com/wordpress-plugins-product-catalog-demo/#plugin_demo_wrapper) - Blocks Toggle Up/Down
-15.  [WordPress Product Catalog](http://huge-it.com/wordpress-product-catalog-demo-3-content-popup/#plugin_demo_wrapper) - Content Popup
-16.  [WordPress Product Catalog](http://huge-it.com/wordpress-product-catalog-demo-4-full-height-blocks/#plugin_demo_wrapper) - Full-Height Blocks
-2.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Single page 
-22.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Single page 
-23.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Single page 
-5.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-52.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-53.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-54.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-55.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-56.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-57.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-58.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-59.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
+1.  [WordPress Product Catalog](https://huge-it.com/wordpress-plugins-product-catalog-demo/#plugin_demo_wrapper) - Blocks Toggle Up/Down
+12.  [WordPress Product Catalog](https://huge-it.com/wordpress-product-catalog-demo-3-content-popup/#plugin_demo_wrapper) - Catalog / Content Popup
+13.  [WordPress Product Catalog](https://huge-it.com/wordpress-product-catalog-demo-2-full-width-block/#plugin_demo_wrapper) - Full-Width Block
+13.  [WordPress Product Catalog](https://huge-it.com/wordpress-product-catalog-demo-5-content-slider/#plugin_demo_wrapper) - Content Slider
+14.  [WordPress Product Catalog](https://huge-it.com/wordpress-plugins-product-catalog-demo/#plugin_demo_wrapper) - Blocks Toggle Up/Down
+15.  [WordPress Product Catalog](https://huge-it.com/wordpress-product-catalog-demo-3-content-popup/#plugin_demo_wrapper) - Content Popup
+16.  [WordPress Product Catalog](https://huge-it.com/wordpress-product-catalog-demo-4-full-height-blocks/#plugin_demo_wrapper) - Full-Height Blocks
+2.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Single page 
+22.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Single page 
+23.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Single page 
+5.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Product Catalog admin page 
+52.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Product Catalog admin page 
+53.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Product Catalog admin page 
+54.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Product Catalog admin page 
+55.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Product Catalog admin page 
+56.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Product Catalog admin page 
+57.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Product Catalog admin page 
+58.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Product Catalog admin page 
+59.  [WordPress Product Catalog](https://huge-it.com/product-catalog/) - Product Catalog admin page 
 
 == Frequently Asked Questions ==
 
@@ -300,12 +301,15 @@ After installation of pro version, in pro options all your changes will be saved
 
 == Changelog ==
 
+= 1.5.3 =
+* 1) Added image behaviour option in Toogle-Updown View.
+* 2) We have added the right click protection option.
+
 = 1.5.2 =
 * 1) Optimized image size of the plugin, so the zip comes more light.
 * 2) Fixed reported issue with plugin responsiveness on front end.
 * 3) Fixed PHP 7 compatibility problem on front end.
 * 4) Fixed the bad user remote IP address issue.
-
 
 = 1.5.1 =
 * 1) Added licensing page.
