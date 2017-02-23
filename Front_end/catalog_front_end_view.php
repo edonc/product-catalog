@@ -653,6 +653,7 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
 	var lightbox_retinaImage = <?php echo $paramssld['light_box_retinaimage'];?>;
 	var lightbox_retinaUrl = <?php echo $paramssld['light_box_retinaurl'];?>;
 	var lightbox_retinaSuffix = "<?php echo $paramssld['light_box_retinasuffix'];?>";
+    var disable_right_click = '<?php echo get_option( 'product_catalog_disable_right_click' ); ?>' == 'on';
 	
 				jQuery(document).ready(function(){
 
@@ -743,6 +744,14 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
                                          jQuery('.main-image-block.for_zoom').show();
                                   }
                            },100);
+                           if(disable_right_click) {
+                                  jQuery('section[id^="huge_it_catalog_content_"] img, ul[id^="huge_it_catalog_popup_list_"] img, div[id^="main-slider_"] img').bind('contextmenu', function () {
+                                         return false;
+                                  });
+                                  jQuery('#ccolorbox').bind('contextmenu', '#pcboxLoadedContent img', function () {
+                                         return false;
+                                  });
+                           }
 					}
 					else {
 						if(response != '') {
@@ -1459,6 +1468,7 @@ else{
 	border: none;
 	color: #272717;
 	background: #FFFFFF;
+       margin: 0;
 } 
 #search_block_<?php echo $catalogID; ?> > form > input + div {
 	display: inline-block;
@@ -1491,6 +1501,7 @@ else{
 	border: 0;
 	background: #<?php echo $paramssld["ht_view0_search_button_background"]; ?>;
 	color: #<?php echo $paramssld["ht_view0_search_button_text_color"]; ?>;
+    margin: 0;
 } 
 
 #search_block_<?php echo $catalogID; ?> > form > #search_button_<?php echo $catalogID; ?>:hover {
@@ -2543,6 +2554,7 @@ else{
 	border: none;
 	color: #272717;
 	background: #FFFFFF;
+       margin: 0;
 } 
 #search_block_<?php echo $catalogID; ?> > form > input + div {
 	display: inline-block;
@@ -2575,6 +2587,7 @@ else{
 	border: 0;
 	background: #<?php echo $paramssld["ht_view1_search_button_background"]; ?>;
 	color: #<?php echo $paramssld["ht_view1_search_button_text_color"]; ?>;
+    margin: 0;
 } 
 
 #search_block_<?php echo $catalogID; ?> > form > #search_button_<?php echo $catalogID; ?>:hover {
@@ -4237,6 +4250,7 @@ var defaultBlockHeight=<?php echo $paramssld['ht_view2_element_height']; ?>;
 	border: none;
 	color: #272717;
 	background: #FFFFFF;
+       margin: 0;
 } 
 #search_block_<?php echo $catalogID; ?> > form > input + div {
 	display: inline-block;
@@ -4269,6 +4283,7 @@ var defaultBlockHeight=<?php echo $paramssld['ht_view2_element_height']; ?>;
 	border: 0;
 	background: #<?php echo $paramssld["ht_view2_search_button_background"]; ?>;
 	color: #<?php echo $paramssld["ht_view2_search_button_text_color"]; ?>;
+    margin: 0;
 } 
 
 #search_block_<?php echo $catalogID; ?> > form > #search_button_<?php echo $catalogID; ?>:hover {
@@ -5104,6 +5119,7 @@ else{
 	border: none;
 	color: #272717;
 	background: #FFFFFF;
+       margin: 0;
 } 
 #search_block_<?php echo $catalogID; ?> > form > input + div {
 	display: inline-block;
@@ -5136,6 +5152,7 @@ else{
 	border: 0;
 	background: #<?php echo $paramssld["ht_view3_search_button_background"]; ?>;
 	color: #<?php echo $paramssld["ht_view3_search_button_text_color"]; ?>;
+    margin: 0;
 } 
 
 #search_block_<?php echo $catalogID; ?> > form > #search_button_<?php echo $catalogID; ?>:hover {
