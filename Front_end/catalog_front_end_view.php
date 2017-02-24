@@ -763,6 +763,15 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 							jQuery(".catalog_load_block_<?php echo $catalogID; ?>").css('display','none'); 
 							jQuery('#search_block_<?php echo $catalogID; ?> form > input').keyup();
 						}
+
+                        if(disable_right_click) {
+                               jQuery('section[id^="huge_it_catalog_content_"] img, ul[id^="huge_it_catalog_popup_list_"] img, div[id^="main-slider_"] img').bind('contextmenu', function () {
+                                      return false;
+                               });
+                               jQuery('#ccolorbox').bind('contextmenu', '#pcboxLoadedContent img', function () {
+                                      return false;
+                               });
+                        }
 					}
                         setTimeout(function(){
                               jQuery("#huge_it_catalog_container_<?php echo $catalogID; ?>").hugeitmicro('reloadItems' ).hugeitmicro({ sortBy: 'original-order' }).hugeitmicro( 'reLayout' );
