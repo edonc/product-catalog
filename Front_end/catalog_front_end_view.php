@@ -1468,7 +1468,7 @@ else{
 	border: none;
 	color: #272717;
 	background: #FFFFFF;
-       margin: 0;
+    margin: 0;
 } 
 #search_block_<?php echo $catalogID; ?> > form > input + div {
 	display: inline-block;
@@ -1476,7 +1476,8 @@ else{
     position: absolute;
 	display: none;
     cursor: pointer;
-    height: 100%;
+    height: calc(100% - 2px);
+    top: 1px;
     width: 6%;
     right: 20%;
     text-align: center;
@@ -2562,7 +2563,8 @@ else{
     position: absolute;
 	display: none;
     cursor: pointer;
-    height: 100%;
+    height: calc(100% - 2px);
+    top: 1px;
     width: 6%;
     right: 20%;
     text-align: center;
@@ -4258,7 +4260,8 @@ var defaultBlockHeight=<?php echo $paramssld['ht_view2_element_height']; ?>;
     position: absolute;
 	display: none;
     cursor: pointer;
-    height: 100%;
+    height: calc(100% - 2px);
+    top: 1px;
     width: 6%;
     right: 20%;
     text-align: center;
@@ -5127,7 +5130,8 @@ else{
     position: absolute;
 	display: none;
     cursor: pointer;
-    height: 100%;
+    height: calc(100% - 2px);
+    top: 1px;
     width: 6%;
     right: 20%;
     text-align: center;
@@ -6092,6 +6096,7 @@ jQuery(function(){
         
         $adminLink = get_option( 'admin_email' );
 
+        if ($paramssld==null) $paramssld=array();
         
         $paramssld["ht_view0_sorting_float"] = "none";
         $paramssld["ht_view1_sorting_float"] = "none";
@@ -6160,6 +6165,8 @@ jQuery(function(){
         $paramssld["ht_single_product_your_Comment_text"] = "Your Comment";
         $paramssld["ht_single_product_captcha_text"] = "Captcha";
         $paramssld["ht_single_product_invalid_captcha_text"] = "Invalid Captcha";
+
+        if ($paramssld2==null) $paramssld=array();
 
         $paramssld2["ht_view0_togglebutton_style"] = "dark";
         $paramssld2["ht_view0_show_separator_lines"] = "on";
@@ -6496,6 +6503,9 @@ jQuery(function(){
         
     if ( is_plugin_active( 'product-catalog-releated-products/product-catalog-releated-products.php' ) ){  }
     else{
+
+        if ($paramssld2==null) $paramssld=array();
+
         $paramssld4['ht_catalog_related_products_show'] = "off";
         $paramssld4['ht_catalog_related_products_visible_count'] = "4";
         $paramssld4['ht_catalog_related_products_vertical'] = "false";
