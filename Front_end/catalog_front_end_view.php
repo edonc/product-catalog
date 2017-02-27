@@ -3394,7 +3394,7 @@ var defaultBlockHeight=<?php echo $paramssld['ht_view2_element_height']; ?>;
                 jQuery(this).closest(".pupup-element").removeClass("active");
                 jQuery("#huge_it_catalog_popup_list_<?php echo $catalogID; ?>").find(".pupup-element").last().addClass("active");
             }
-            if(jQuery('.pupup-element.active .description').height() + jQuery('.right-block h3').height() + 270 > jQuery('.pupup-element.active .right-block').height()){
+            if(jQuery('.pupup-element.active .description').height() + jQuery('.right-block h3').height() + 350 > jQuery('.pupup-element.active .right-block').height()){
             if(jQuery('.pupup-element.active img').height() > jQuery('.pupup-element.active .image-block_<?php echo $catalogID; ?>').height()){
                 jQuery('.pupup-element.active .right-block').css('overflow-y', '');
                 jQuery('.pupup-element.active .popup-wrapper_<?php echo $catalogID; ?>').css('overflow-y', 'auto');
@@ -3429,7 +3429,7 @@ var defaultBlockHeight=<?php echo $paramssld['ht_view2_element_height']; ?>;
                 jQuery(this).closest(".pupup-element").removeClass("active");
                 jQuery("#huge_it_catalog_popup_list_<?php echo $catalogID; ?>").find(".pupup-element:first-child").addClass("active");
             }
-            if(jQuery('.pupup-element.active .description').height() + jQuery('.right-block h3').height() + 270 > jQuery('.pupup-element.active .right-block').height()){
+            if(jQuery('.pupup-element.active .description').height() + jQuery('.right-block h3').height() + 350 > jQuery('.pupup-element.active .right-block').height()){
             if(jQuery('.pupup-element.active img').height() > jQuery('.pupup-element.active .image-block_<?php echo $catalogID; ?>').height()){
                 jQuery('.pupup-element.active .right-block').css('overflow-y', '');
                 jQuery('.pupup-element.active .popup-wrapper_<?php echo $catalogID; ?>').css('overflow-y', 'auto');
@@ -3465,7 +3465,7 @@ var defaultBlockHeight=<?php echo $paramssld['ht_view2_element_height']; ?>;
 		var strsrc=jQuery('#huge_it_catalog_pupup_element_'+strid+' ul.thumbs-list_<?php echo $catalogID; ?> li:first-child a img').attr('src');
 		jQuery('#huge_it_catalog_pupup_element_'+strid+' .image-block_<?php echo $catalogID; ?> img').attr('src',strsrc);
 		//alert(strsrc);
-        if(jQuery('.pupup-element.active .description').height() + jQuery('.right-block h3').height() + 270 > jQuery('.pupup-element.active .right-block').height()){
+        if(jQuery('.pupup-element.active .description').height() + jQuery('.right-block h3').height() + 350 > jQuery('.pupup-element.active .right-block').height()){
             if(jQuery('.pupup-element.active img').height() > jQuery('.pupup-element.active .image-block_<?php echo $catalogID; ?>').height()){
                 jQuery('.pupup-element.active .right-block').css('overflow-y', '');
                 jQuery('.pupup-element.active .popup-wrapper_<?php echo $catalogID; ?>').css('overflow-y', 'auto');
