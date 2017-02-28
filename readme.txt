@@ -4,7 +4,7 @@ Donate link: https://huge-it.com/product-catalog/
 Tags: catalog, catalogs, products, product catalog, shopping cart, store, product, product gallery, ecommerce, shop, wordpress ecommerce, wordpress store,
 Requires at least: 3.0.1
 Tested up to: 4.7.2
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -300,6 +300,13 @@ After installation of pro version, in pro options all your changes will be saved
 * Unfortunately  the plugin is demonstration catalog and not a shopping plugin, so it doesn't have the payment button ability, but you always may add some external link made with HTML into the description of the product, or order additional button customization to our support team.
 
 == Changelog ==
+
+= 1.5.4 =
+* 1) We have fixed the issue with the Contact seller popup when title was too close with close button.
+* 2) Fixed the issue with full width where image was conflicting with description.
+* 3) Fixed the bug with load more button where right click protection did not work.
+* 4) Fixed some CSS issues with DIVI theme.
+* 5) Fixed other minor reported CSS bugs and issues by optimizing the code.
 
 = 1.5.3 =
 * 1) Added image behaviour option in Toogle-Updown View.
