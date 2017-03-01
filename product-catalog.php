@@ -130,6 +130,8 @@ function huge_it_catalog_products_list_shotrcode($atts)
     wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
     wp_enqueue_style( 'fontawesome-css' );
 
+    wp_localize_script('catalog-all-js', 'catalog_disable_right_click', get_option('product_catalog_disable_right_click'));
+
     extract(shortcode_atts(array(
         'id' => 'no huge_it catalog',
 
@@ -215,6 +217,8 @@ function huge_it_catalog_single_product_shotrcode($atts)
 
     wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
     wp_enqueue_style( 'fontawesome-css' );
+
+    wp_localize_script('catalog-all-js', 'catalog_disable_right_click', get_option('product_catalog_disable_right_click'));
 
     extract(shortcode_atts(array(
         'id' => 'no huge_it catalog',
