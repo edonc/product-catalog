@@ -1105,8 +1105,10 @@ function huge_it_catalog_my_action_callback_frontend() {
 
                             $thumbs_position = sanitize_text_field($_POST["thumbs_position"]);
 
+                            $thumbs_imgurl = $imgurl;
+                            unset($thumbs_imgurl[0]);
                             $thumbs_li = "";
-                            foreach($imgurl as $key=>$img)
+                            foreach($thumbs_imgurl as $key=>$img)
                             {
                                 if($img != "" && $img != ";"){
                                     $thumbs_li .="<li>
@@ -1120,7 +1122,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                             $moreImages .= "<div class='default-block_".$catalog_id."'>";
                             $moreImages .= "<div class='image-block_".$catalog_id." for_zoom'>";
                             if($row->image_url != ';'){
-                                $moreImages .= "<img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
+                                $moreImages .= "<a href='".$imgurl[0]."'><img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
                             }else{
                                 $moreImages .= "<img id='wd-cl-img".$key."' src='images/noimage.png' />";
                             }
