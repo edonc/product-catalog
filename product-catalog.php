@@ -112,6 +112,9 @@ function huge_it_catalog_products_list_shotrcode($atts)
     wp_register_script( 'elevateZoomParams', plugins_url('/js/elevateZoomParams.js', __FILE__), array('jquery'),'1.0.0',true  );
     wp_enqueue_script( 'elevateZoomParams' );
 
+    wp_register_script( 'elevateZoomParams2', plugins_url('/js/jquery.elevateZoom-ContentSlider-3.0.8.min.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'elevateZoomParams2' );
+
     wp_register_script('catalog-carousel', (plugins_url('/js/jquery.cycle2.js', __FILE__)), false);
     wp_enqueue_script('catalog-carousel');
 
@@ -199,6 +202,9 @@ function huge_it_catalog_single_product_shotrcode($atts)
 
     wp_register_script( 'elevateZoomParams', plugins_url('/js/elevateZoomParams.js', __FILE__), array('jquery'),'1.0.0',true  );
     wp_enqueue_script( 'elevateZoomParams' );
+
+    wp_register_script( 'elevateZoomParams2', plugins_url('/js/jquery.elevateZoom-ContentSlider-3.0.8.min.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'elevateZoomParams2' );
 
     wp_register_script('catalog-carousel', (plugins_url('/js/jquery.cycle2.js', __FILE__)), false);
     wp_enqueue_script('catalog-carousel');
@@ -943,7 +949,7 @@ function huge_it_catalog_my_action_callback_frontend() {
             $date = date("Y/m/d");
             $time = date("h:i");
             $datetime = $date." at ".$time;
-            $headers[] = 'From: '.$mail.' <'.$mail.'>'. "\r\n";
+            $headers[] = 'From: '.$mail.' <'.$mail.'>';
             $headers[] = 'Content-type: text/html' ;
             $captcha_sum = intval($_POST['captcha_sum']);
 

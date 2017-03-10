@@ -1539,7 +1539,7 @@ else{
 /*</add search>*/
 </style>
 
-<section id="huge_it_catalog_content_<?php echo $catalogID; ?>">
+<section id="huge_it_catalog_content_<?php echo $catalogID; ?>" class="product-catalog-content">
       <?php if($catalogShowSorting == "on")
         { ?>
           <div id="huge_it_catalog_options_<?php echo $catalogID; ?>" class="" >
@@ -2625,7 +2625,7 @@ else{
 }
 /*</add search>*/
 </style>
-<section id="huge_it_catalog_content_<?php echo $catalogID; ?>">
+<section id="huge_it_catalog_content_<?php echo $catalogID; ?>" class="product-catalog-content">
     <?php if($catalogShowSorting == "on")
         { ?>
           <div id="huge_it_catalog_options_<?php echo $catalogID; ?>" class="">
@@ -4323,7 +4323,7 @@ var defaultBlockHeight=<?php echo $paramssld['ht_view2_element_height']; ?>;
 /*</add search>*/
 </style>
     
-<section id="huge_it_catalog_content_<?php echo $catalogID; ?>">
+<section id="huge_it_catalog_content_<?php echo $catalogID; ?>" class="product-catalog-content">
     <?php if($catalogShowSorting == "on")
         { ?>
           <div id="huge_it_catalog_options_<?php echo $catalogID; ?>" class="">
@@ -5193,7 +5193,7 @@ else{
 /*</add search>*/
 </style>
       
-<section id="huge_it_catalog_content_<?php echo $catalogID; ?>">
+<section id="huge_it_catalog_content_<?php echo $catalogID; ?>" class="product-catalog-content">
     <?php if($catalogShowSorting == "on")
         { ?>
           <div id="huge_it_catalog_options_<?php echo $catalogID; ?>" class="">
@@ -5875,6 +5875,7 @@ jQuery(function(){
 #main-slider_<?php echo $catalogID; ?> .slider-content-wrapper .right-block .price-block_<?php echo $catalogID; ?> {
 	font-size: <?php echo $paramssld['ht_catalog_view5_price_font_size']; ?>px;
         color: #<?php echo $paramssld['ht_catalog_view5_price_font_color']; ?>;
+       line-height: 2 !important;
 }
 
 #main-slider_<?php echo $catalogID; ?> .slider-content-wrapper .right-block .discont-price-block {
@@ -5922,7 +5923,7 @@ jQuery(function(){
 }
 
 </style>
-<div id="main-slider_<?php echo $catalogID; ?>" class="liquid-slider">
+<div id="main-slider_<?php echo $catalogID; ?>" class="liquid-slider product-catalog-content">
 	<?php
 	$catalog_slider_group = 0;
 	foreach($images as $key=>$row)
@@ -7706,7 +7707,7 @@ jQuery(function(){
             }
         ?>
 
-<section id="huge_it_catalog_content_<?php echo $productArray->id; ?>" class="huge_it_catalog_single_product_page">
+<section id="huge_it_catalog_content_<?php echo $productArray->id; ?>" class="huge_it_catalog_single_product_page product-catalog-content">
     <div class="huge_it_catalog_container">
 		<div class="left-block">
 			<div class="main-image-block for_zoom">
