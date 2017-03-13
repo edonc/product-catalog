@@ -113,6 +113,9 @@ function huge_it_catalog_products_list_shotrcode($atts)
     wp_register_script( 'elevateZoomParams', plugins_url('/js/elevateZoomParams.js', __FILE__), array('jquery'),'1.0.0',true  );
     wp_enqueue_script( 'elevateZoomParams' );
 
+    wp_register_script( 'elevateZoomParams2', plugins_url('/js/jquery.elevateZoom-ContentSlider-3.0.8.min.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'elevateZoomParams2' );
+
     wp_register_script('catalog-carousel', (plugins_url('/js/jquery.cycle2.js', __FILE__)), false);
     wp_enqueue_script('catalog-carousel');
 
@@ -200,6 +203,9 @@ function huge_it_catalog_single_product_shotrcode($atts)
 
     wp_register_script( 'elevateZoomParams', plugins_url('/js/elevateZoomParams.js', __FILE__), array('jquery'),'1.0.0',true  );
     wp_enqueue_script( 'elevateZoomParams' );
+
+    wp_register_script( 'elevateZoomParams2', plugins_url('/js/jquery.elevateZoom-ContentSlider-3.0.8.min.js', __FILE__), array('jquery'),'1.0.0',true  );
+    wp_enqueue_script( 'elevateZoomParams2' );
 
     wp_register_script('catalog-carousel', (plugins_url('/js/jquery.cycle2.js', __FILE__)), false);
     wp_enqueue_script('catalog-carousel');
@@ -944,7 +950,7 @@ function huge_it_catalog_my_action_callback_frontend() {
             $date = date("Y/m/d");
             $time = date("h:i");
             $datetime = $date." at ".$time;
-            $headers[] = 'From: '.$mail.' <'.$mail.'>'. "\r\n";
+            $headers[] = 'From: '.$mail.' <'.$mail.'>';
             $headers[] = 'Content-type: text/html' ;
             $captcha_sum = intval($_POST['captcha_sum']);
 
@@ -1100,8 +1106,10 @@ function huge_it_catalog_my_action_callback_frontend() {
 
                             $thumbs_position = sanitize_text_field($_POST["thumbs_position"]);
 
+                            $thumbs_imgurl = $imgurl;
+                            unset($thumbs_imgurl[0]);
                             $thumbs_li = "";
-                            foreach($imgurl as $key=>$img)
+                            foreach($thumbs_imgurl as $key=>$img)
                             {
                                 if($img != "" && $img != ";"){
                                     $thumbs_li .="<li>
@@ -1115,7 +1123,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                             $moreImages .= "<div class='default-block_".$catalog_id."'>";
                             $moreImages .= "<div class='image-block_".$catalog_id." for_zoom'>";
                             if($row->image_url != ';'){
-                                $moreImages .= "<img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
+                                $moreImages .= "<a href='".$imgurl[0]."'><img id='wd-cl-img".$key."' src='".$imgurl[0]."' />  </a>";
                             }else{
                                 $moreImages .= "<img id='wd-cl-img".$key."' src='images/noimage.png' />";
                             }
