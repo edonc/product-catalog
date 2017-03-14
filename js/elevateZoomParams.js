@@ -1,4 +1,3 @@
-console.log(allowZooming);
 if (typeof allowZooming != 'undefined' &&  allowZooming != 'off') {
     if (jQuery(window).width() >= 600) {
         jQuery('.product-catalog-content.liquid-slider ').find(for_zoom).hover(function () {

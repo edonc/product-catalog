@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: https://huge-it.com/product-catalog/
 Tags: catalog, catalogs, products, product catalog, shopping cart, store, product, product gallery, ecommerce, shop, wordpress ecommerce, wordpress store,
 Requires at least: 3.0.1
-Tested up to: 4.7.2
-Stable tag: 1.5.5
+Tested up to: 4.7.3
+Stable tag: 1.5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -300,6 +300,12 @@ After installation of pro version, in pro options all your changes will be saved
 * Unfortunately  the plugin is demonstration catalog and not a shopping plugin, so it doesn't have the payment button ability, but you always may add some external link made with HTML into the description of the product, or order additional button customization to our support team.
 
 == Changelog ==
+
+= 1.5.6 =
+* 1) Fixed the bug where after editing submissions the email to admin did not go through.
+* 2) Fixed the issue where with 2 shortcodes the zoom by default in Full height Block view did not work.
+* 3) Fixed the issue where with 2 shortcodes the zoom by default in Content Slider view did not work.
+* 4) Fixed the issue on Blocks Toggle Up/Down view where load more function did not work after clicking load more first time.
 
 = 1.5.5 =
 * IMPORTANT! Please, update the plugin to the latest version ASAP as due to some technical and functional issues the yesterday's update did not processed correctly. Now the issue where titles and images on front end dissipated had been fixed.

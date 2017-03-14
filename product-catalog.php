@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Product Catalog
 Plugin URI: https://huge-it.com/product-catalog
 Description: Let us introduce our Huge-IT Product Catalog incomparable plugin. To begin with, why do we need this plugin and what are the advantages.
-Version: 1.5.5
+Version: 1.5.6
 Author: Huge-IT
 Author URI: http://huge-it.com
 License: GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
