@@ -10,7 +10,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Catalog Product by Huge-IT introduces incomparable Product Catalog demonstration. Just use it to better lean about all advantages of Product Catalog.
 
-== Description ==
+== Description  ==
+
 
 ### Wordpress Product Catalog
 
