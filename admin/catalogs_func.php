@@ -240,7 +240,7 @@ function add_catalog()
     $sql_2 = "
 INSERT INTO 
 `" . $table_name . "` ( `name`, `sl_height`, `sl_width`, `pause_on_hover`, `catalog_list_effects_s`, `description`, `param`, `sl_position`, `ordering`, `published`, `categories`, `ht_show_sorting`, `ht_show_filtering`,`link_target`) VALUES
-( 'New Catalog', '375', '600', 'on', 'cubeH', '4000', '1000', 'center', 'on', '300', 'param1,param2,', 'off', 'off','on')";
+( 'New Catalog', '375', '600', 'on', 'cubeH', '4000', '1000', 'center', 'on', '300', 'Size,Color,', 'off', 'off','on')";
     $wpdb->query($sql_2);
     $query="SELECT * FROM ".$wpdb->prefix."huge_it_catalogs order by id ASC";
     $rowsldcc=$wpdb->get_results($query);

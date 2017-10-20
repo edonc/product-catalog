@@ -442,8 +442,8 @@ li.multicheck div span{
 #images-list .image-options .options-container label {
 	display: inline-block;
 	float:left;
-	width: 95%;
 	padding: 3px 0px 0px 0px;
+	margin-right:15px;
 	vertical-align: middle;
 } 
 
@@ -1352,7 +1352,6 @@ li.multicheck div span{
 }
 
 #slider-posts-tabs-contents .recent-post-options  label {
-	display:inline-block;
 	width:136px;
 	display: inline-block;
 	float: left;
@@ -1369,4 +1368,6 @@ li.multicheck div span{
 	width:65px;
 }
 
-
+.text_area_small {
+	width: 80px !important;
+}

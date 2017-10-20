@@ -2,3 +2,24 @@ section[id^="huge_it_catalog_content_"] a, ul[id^="huge_it_catalog_popup_list_"]
     box-shadow: none !important;
     text-decoration: none;
 }
+textarea {
+    resize: vertical;
+    padding: 5px !important;
+}
+#comments_name {
+    padding: 5px;
+}
+section[id^="huge_it_catalog_content_"] a img {
+    -moz-box-shadow:none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow:none !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+div[id^="main-slider_"] a img {
+    -moz-box-shadow:none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow:none !important;
+    padding: 0 !important;
+    border: 0 !important;
+}

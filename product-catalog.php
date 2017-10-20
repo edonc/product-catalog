@@ -327,13 +327,16 @@ add_action('admin_menu', 'huge_it_catalog_options_panel');
 function huge_it_catalog_options_panel()
 {
     $page_cat = add_menu_page('Theme page title', 'Huge IT Catalog', 'delete_pages', 'catalogs_huge_it_catalog', 'catalogs_huge_it_catalog', plugins_url('images/huge_it_catalogLogoHover -for_menu.png', __FILE__));
-    $catalogs = add_submenu_page('catalogs_huge_it_catalog', 'Catalogs', 'Catalogs', 'delete_pages', 'catalogs_huge_it_catalog', 'catalogs_huge_it_catalog');
-    $general_options = add_submenu_page('catalogs_huge_it_catalog', 'General Options', 'General Options', 'manage_options', 'huge_it_catalog_general_options_page', 'huge_it_catalog_general_options_page');
-    $Submitions = add_submenu_page('catalogs_huge_it_catalog', 'Submissions', 'Submissions', 'manage_options', 'huge_it_catalog_submitions_page', 'huge_it_catalog_submitions_page');
+    $catalogs = add_submenu_page('catalogs_huge_it_catalog', 'Manage Catalogs', 'Manage Catalogs', 'delete_pages', 'catalogs_huge_it_catalog', 'catalogs_huge_it_catalog');
+    $general_options = add_submenu_page('catalogs_huge_it_catalog', 'Settings', 'Settings', 'manage_options', 'huge_it_catalog_general_options_page', 'huge_it_catalog_general_options_page');
+    $page_option = add_submenu_page('catalogs_huge_it_catalog', 'Grid Styles', 'Grid Styles', 'manage_options', 'Options_product_Catalog_styles', 'Options_product_Catalog_styles');
+    $products_options = add_submenu_page('catalogs_huge_it_catalog', 'Single Product Styles', 'Single Product Styles', 'manage_options', 'huge_it_catalog_products_page', 'huge_it_catalog_products_page');
+    $lightbox_options = add_submenu_page('catalogs_huge_it_catalog', 'Image View Options', 'Image View Options', 'manage_options', 'Options_catalog_lightbox_styles', 'Options_catalog_lightbox_styles');
+    $Submitions = add_submenu_page('catalogs_huge_it_catalog', 'Submissions Manager', 'Submissions Manager', 'manage_options', 'huge_it_catalog_submitions_page', 'huge_it_catalog_submitions_page');
     $Reviews = add_submenu_page('catalogs_huge_it_catalog', 'Comments Manager', 'Comments Manager', 'manage_options', 'huge_it_catalog_reviews_page', 'huge_it_catalog_reviews_page');
     $Ratings = add_submenu_page('catalogs_huge_it_catalog', 'Ratings Manager', 'Ratings Manager', 'manage_options', 'huge_it_catalog_ratings_page', 'huge_it_catalog_ratings_page');
-    $page_option = add_submenu_page('catalogs_huge_it_catalog', 'Catalog Options', 'Catalog Options', 'manage_options', 'Options_product_Catalog_styles', 'Options_product_Catalog_styles');
-    $products_options = add_submenu_page('catalogs_huge_it_catalog', 'Products Options', 'Products Options', 'manage_options', 'huge_it_catalog_products_page', 'huge_it_catalog_products_page');
+
+
 
     if ( is_plugin_active( 'product-catalog-releated-products/product-catalog-releated-products.php' ) ) {
         $related_products = add_submenu_page('catalogs_huge_it_catalog', 'Related Products', 'Related Products', 'manage_options', 'huge_it_catalog_related_products', 'huge_it_catalog_related_products');
@@ -344,7 +347,7 @@ function huge_it_catalog_options_panel()
         add_action('admin_print_styles-' . $catalog_csv, 'huge_it_catalog_option_admin_script');
     }
 
-    $lightbox_options = add_submenu_page('catalogs_huge_it_catalog', 'Image View Options', 'Image View Options', 'manage_options', 'Options_catalog_lightbox_styles', 'Options_catalog_lightbox_styles');
+
     $featured = add_submenu_page('catalogs_huge_it_catalog', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'huge_it__catalog_featured_plugins', 'huge_it__catalog_featured_plugins');
     $licensing = add_submenu_page( 'catalogs_huge_it_catalog', 'Licensing', 'Licensing', 'manage_options', 'huge_it_catalog_Licensing', 'huge_it_catalog_Licensing');
 

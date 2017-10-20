@@ -46,7 +46,8 @@ jQuery(document).ready(function () {
         require "product-catalog-admin-free-banner.php";
 	?>
         <div style="clear:both;"></div>
-        <div style="color: #a00; margin-bottom: 15px;"><?php echo __("This options are for commercial users, it includes one of Personal, Multi-Site or Developer versions.Please upgrade to use this section. Please upgrade to use this section.","product-catalog");?>  
+        <div style="color: #a00; width: 40%; margin: 15px auto;"><?php echo __("These features are available in the Professional version of the plugin only.","product-catalog");?>
+            <a href="https://huge-it.com/product-catalog/" target="_blank" class="button button-primary red_pro_button">Enable</a>
         </div>
             <div id="post-body-content" class="catalog-options">
                     <div id="post-body-heading">
@@ -57,7 +58,7 @@ jQuery(document).ready(function () {
                     </div>
                     <form action="admin.php?page=Options_product_Catalog_styles&task=save" method="post" id="adminForm" name="adminForm">
                         <div id="catalog-options-list">
-			
+
                             <ul id="catalog-view-tabs">
                                     <li><a href="#catalog-view-options-0"><?php echo __("Blocks Toggle Up/Down","product-catalog");?></a></li>
                                     <li><a href="#catalog-view-options-1"><?php echo __("Full-Height Blocks","product-catalog");?></a></li>
@@ -65,6 +66,7 @@ jQuery(document).ready(function () {
                                     <li><a href="#catalog-view-options-3"><?php echo __("Full-Width Blocks","product-catalog");?></a></li>
                                     <li><a href="#catalog-view-options-5"><?php echo __("Content Slider","product-catalog");?></a></li>
                             </ul>
+                            <div class="catalog_options_grey_overlay"></div>
                             <ul class="options-block" id="catalog-view-tabs-contents">
                                  <li id="catalog-view-options-0" style="list-style-type: none;">
                                     <img src="<?php echo $path_site2; ?>/catalog-options-1.jpg" style="width: 100%;"/>
@@ -91,7 +93,7 @@ jQuery(document).ready(function () {
                         
             </div>
     </div>
-</div>
+
 
 <script>
     jQuery("#post-body-heading a, #post-body-footer a").click(function(){

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <a target="_blank"  href="https://wordpress.org/support/plugin/product-catalog/reviews/">Rate Us</a>
         <a target="_blank"  href="https://goo.gl/eyVMZl">Full Demo</a>
         <a target="_blank"  href="https://goo.gl/b3Cwae">FAQ</a>
-        <a target="_blank"  href="http://huge-it.com/contact-us/">Contact Us</a>
+        <a target="_blank"  href="https://wordpress.org/support/plugin/product-catalog">Support Forum</a>
     </div>
     <div  class="description_text"><p>This is the Lite version of the plugin. Click "GET THE FULL VERSION" for more advanced options and customization possibilities. We appreciate your attention and cooperation.</p></div>
     <div style="clear: both;"></div>

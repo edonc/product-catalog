@@ -62,7 +62,7 @@ else{ $visible_submitions = "1-50"; } ?>
                         </div>
                 </div>
             </div>
-            <table class="wp-list-table widefat fixed pages" style="width:95%">
+            <table class="wp-list-table widefat fixed pages" style="width:100%">
                 <thead>
                      <tr>
                         <th scope="col" id="id" style="width:5%" ><span></span><span class="sorting-indicator"></span></th>

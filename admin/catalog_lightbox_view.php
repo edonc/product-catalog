@@ -91,8 +91,9 @@ jQuery(window).load(function(){
     require "product-catalog-admin-free-banner.php";
     ?>
         <div style="clear:both;"></div>
-        <div style="color: #a00; margin-bottom: 15px;"><?php echo __("This options are for commercial users, it includes one of Personal, Multi-Site or Developer versions.Please upgrade to use this section. Please upgrade to use this section.","product-catalog");?>
-        </div>
+    <div style="color: #a00; width: 40%; margin: 15px auto;"><?php echo __("These features are available in the Professional version of the plugin only.","product-catalog");?>
+        <a href="http://huge-it.com/product-catalog/" target="_blank" class="button button-primary red_pro_button">Enable</a>
+    </div>
     <div id="post-body-content" class="catalog-options">            
             <div id="post-body-heading"><h3><?php echo __("Image View Options","product-catalog");?></h3>
                 <a onclick="document.getElementById('adminForm').submit()" onclick="" class="save-catalog-options button-primary"><?php echo __("Save","product-catalog");?></a>
@@ -100,11 +101,12 @@ jQuery(window).load(function(){
             
             <form action="admin.php?page=Options_catalog_lightbox_styles&task=save" method="post" id="adminForm" name="adminForm">
             <div id="catalog-options-list">
+
                 <ul id="catalog-view-tabs">
                     <li><a href="#lightbox-options"><?php echo __("Lightbox Options","product-catalog");?></a></li>
                     <li><a href="#zoom-options"><?php echo __("Zoom Options","product-catalog");?></a></li>
                 </ul>
-
+                <div class="catalog_options_grey_overlay"></div>
                 <ul class="options-block" id="catalog-view-tabs-contents">
                     <li id="lightbox-options">
                                 <!--<div id="post-body-content" class="catalog-options" style="width: 100%;">-->

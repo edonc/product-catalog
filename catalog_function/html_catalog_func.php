@@ -42,7 +42,7 @@ function print_html_nav($count_items,$page_number,$serch_fields=""){
 				 }
 				 		 
 				 </script>
-    <div class="tablenav top" style="width:95%">
+    <div class="tablenav top" style="width:100%">
     <?php if($serch_fields!="")
 	{
 		echo $serch_fields;
