@@ -493,32 +493,50 @@ jQuery(document).ready(function($){
 										jQuery('.add_media').on('click', function(){
 											_custom_media = false;
 										});
-										
-										 /*#####ADD IMAGE######*/  
-										jQuery('.add-image.button<?php echo $rowimages->id; ?>').click(function(e) {
-											var send_attachment_bkp = wp.media.editor.send.attachment;
 
-											var button = jQuery(this);
-											var id = button.attr('id').replace('_button', '');
-											_custom_media = true;
+                                        /*#####ADD IMAGE######*/
+                                        var custom_uploader_2;
+                                        jQuery('.add-image.button<?php echo $rowimages->id; ?>').click(function(e) {
+                                            e.preventDefault();
+                                            var button = jQuery(this);
+                                            var id = button.attr('id').replace('_button', '');
+                                            if (custom_uploader_2) {
+                                                custom_uploader_2.open();
+                                                return;
+                                            }
 
-											wp.media.editor.send.attachment = function(props, attachment){
-											  if ( _custom_media ) {
-													jQuery("#"+id).parent().before('<li class="editthisimage editthisimage1 "><img src="'+attachment.url+'" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
-													//alert(jQuery("#"+id).val());
-													jQuery("#"+id).val(jQuery("#"+id).val()+attachment.url+';');
-													
-													secondimageslistlisize();
+                                            custom_uploader_2 = wp.media.frames.file_frame = wp.media({
+                                                title: 'Insert Into Post',
+                                                button: {
+                                                    text: 'Insert Into Post'
+                                                },
+                                                multiple: true
+                                            });
 
-											  } else {
-												return _orig_send_attachment.apply( this, [props, attachment] );
-											  };
-											}
+                                            //When a file is selected, grab the URL and set it as the text field's value
+                                            custom_uploader_2.on('select', function() {
+                                                var attachment_2 = custom_uploader_2.state().get('selection').toJSON();
+                                                for(var key in attachment_2){
+                                                    jQuery("#"+id).parent().before('<li class="editthisimage editthisimage1 "><img src="'+attachment_2[key].url+'" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
+                                                    jQuery("#"+id).val(jQuery("#"+id).val()+attachment_2[key].url+';');
+                                                }
+                                                secondimageslistlisize();
+                                            });
 
-											wp.media.editor.open(button);
-											 
-											return false;
-										});
+                                            custom_uploader_2.open();
+                                            _custom_media = true;
+
+                                            wp.media.editor.send.attachment = function(props, attachment){
+                                                if ( _custom_media ) {
+                                                    jQuery("#"+id).parent().before('<li class="editthisimage editthisimage1 "><img src="'+attachment.url+'" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
+                                                    jQuery("#"+id).val(jQuery("#"+id).val()+attachment.url+';');
+                                                    secondimageslistlisize();
+                                                } else {
+                                                    return _orig_send_attachment.apply( this, [props, attachment] );
+                                                }
+                                            };
+
+                                        });
 
 										
 										/*#####REMOVE IMAGE######*/  

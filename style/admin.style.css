@@ -1371,3 +1371,16 @@ li.multicheck div span{
 .text_area_small {
 	width: 80px !important;
 }
+.catalog-grey-wrapper:before {
+	content: "";
+	width: 100%;
+	height: 95%;
+	background: rgba(0, 0, 0, .2);
+	position: absolute;
+	z-index: 10;
+}
+
+#catalog-view-tabs {
+	position: relative;
+	display: inline-block;
+}

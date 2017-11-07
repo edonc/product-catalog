@@ -134,6 +134,8 @@ function huge_it_catalog_products_list_shotrcode($atts)
     wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
     wp_enqueue_style( 'fontawesome-css' );
 
+
+
     wp_localize_script('catalog-all-js', 'catalog_disable_right_click', get_option('product_catalog_disable_right_click'));
 
     extract(shortcode_atts(array(
@@ -390,6 +392,7 @@ function huge_it_catalog_admin_script()
     wp_enqueue_script("jquery_ui_new", "http://code.jquery.com/ui/1.10.4/jquery-ui.js", FALSE);
     wp_enqueue_style("admin_css", plugins_url("style/admin.style.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
 }
 
 
@@ -402,6 +405,7 @@ function huge_it_catalog_option_admin_script()
     wp_enqueue_style("admin_css", plugins_url("style/admin.style.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     wp_enqueue_script('param_block2', plugins_url("elements/jscolor/jscolor.js", __FILE__));
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
 }
 
 function catalogs_huge_it_catalog()
@@ -409,6 +413,7 @@ function catalogs_huge_it_catalog()
     require_once("admin/catalogs_func.php");
     require_once("admin/catalogs_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     if (!function_exists('print_html_nav'))
         require_once("catalog_function/html_catalog_func.php");
 
@@ -516,6 +521,7 @@ function Options_product_Catalog_styles()
     require_once("admin/catalog_Options_func.php");
     require_once("admin/catalog_Options_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     showStyles();
 }
@@ -525,6 +531,7 @@ function Options_catalog_lightbox_styles()
     require_once("admin/catalog_lightbox_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     if (isset($_GET['task']))
         if ($_GET['task'] == 'save')
             save_styles_options();
@@ -536,6 +543,7 @@ function huge_it_catalog_reviews_page() {
     require_once("admin/reviews_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     show_reviews();
 }
 
@@ -543,6 +551,7 @@ function huge_it_catalog_submitions_page() {
     require_once("admin/submitions_func.php");
     require_once("admin/submitions_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     if (isset($_GET["task"])){ $task = sanitize_text_field($_GET["task"]); }
     else
     { $task = ''; }
@@ -569,6 +578,7 @@ function huge_it_catalog_products_page(){
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     wp_enqueue_script('param_block2', plugins_url("elements/jscolor/jscolor.js", __FILE__));
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     if (isset($_GET['task'])){
         if ($_GET['task'] == 'save'){
             save_styles_options();
@@ -582,6 +592,7 @@ function huge_it_catalog_general_options_page(){
     require_once("admin/catalog_general_options_func.php");
     require_once("admin/catalog_general_options_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     if (isset($_GET['task'])){
         if ($_GET['task'] == 'save'){
@@ -596,6 +607,7 @@ function huge_it_catalog_ratings_page() {
     require_once("admin/ratings_func.php");
     require_once("admin/ratings_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     show_ratings();
 }
