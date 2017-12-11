@@ -60,6 +60,11 @@ function html_showStyles($param_values, $op_type)
                 <form action="admin.php?page=Options_product_Catalog_styles&task=save" method="post" id="adminForm"
                       name="adminForm">
                     <div id="catalog-options-list">
+                        <div class="get_full_version">
+                            <a href="https://huge-it.com/product-catalog/" target="_blank">
+                                <?php echo __("Get Full Version", "product-catalog"); ?>
+                            </a>
+                        </div>
 
                         <ul id="catalog-view-tabs">
                             <li>
@@ -80,6 +85,7 @@ function html_showStyles($param_values, $op_type)
                         </ul>
 
                         <ul class="options-block catalog-grey-wrapper" id="catalog-view-tabs-contents">
+
                             <li id="catalog-view-options-0">
                                 <div>
                                     <h3><?php echo __("View Types", "product-catalog"); ?></h3>

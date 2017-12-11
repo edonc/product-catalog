@@ -18,6 +18,11 @@ function html_show_product_options($param_values)
                class="save-catalog-options button-primary"><?php echo __("Save", "product-catalog"); ?></a>
         </div>
         <div id="catalog-options-list">
+            <div class="get_full_version">
+                <a href="https://huge-it.com/product-catalog/" target="_blank">
+                    <?php echo __("Get Full Version", "product-catalog"); ?>
+                </a>
+            </div>
             <ul class="options-block catalog-grey-wrapper" id="catalog-view-tabs-contents">
                 <li id="catalog-view-options-0">
                     <div>

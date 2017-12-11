@@ -21,10 +21,11 @@ function html_show_general_options($param_values)
                        class="save-catalog-options button-primary"><?php echo __("Save", "product-catalog"); ?></a>
                 </div>
 
-                <form action="admin.php?page=huge_it_catalog_general_options_page&task=save" method="post" id="adminForm" name="adminForm">
+                <form action="admin.php?page=huge_it_catalog_general_options_page&task=save" method="post"
+                      id="adminForm" name="adminForm">
                     <div id="catalog-options-list">
 
-
+                       
                         <ul class="options-block" id="catalog-view-tabs-contents" class="">
                             <li id="catalog-view-options-0">
 

@@ -102,7 +102,11 @@ function html_showStyles($param_values, $op_type)
                    class="save-catalog-options button-primary"><?php echo __("Save", "product-catalog"); ?></a>
             </div>
             <div id="catalog-options-list">
-
+                <div class="get_full_version">
+                    <a href="https://huge-it.com/product-catalog/" target="_blank">
+                        <?php echo __("Get Full Version", "product-catalog"); ?>
+                    </a>
+                </div>
                 <ul id="catalog-view-tabs">
                     <li><a href="#lightbox-options"><?php echo __("Lightbox Options", "product-catalog"); ?></a></li>
                     <li><a href="#zoom-options"><?php echo __("Zoom Options", "product-catalog"); ?></a></li>
