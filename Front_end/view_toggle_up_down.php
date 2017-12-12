@@ -727,7 +727,8 @@ if ($catalog[0]->pagination_type == "show_all") {
         padding: 5px 10px;
         top: 0;
         left: 0;
-        border: none;
+        border: <?php echo $paramssld["ht_view0_search_form_border_width"]; ?>px solid #<?php echo $paramssld["ht_view0_search_form_border_color"]; ?>;
+        box-shadow:none;
         color: #272717;
         background: #FFFFFF;
         margin: 0;

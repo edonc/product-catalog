@@ -1043,6 +1043,9 @@ function huge_it_catalog_my_action_callback_frontend() {
                 }
             }
             elseif($_POST["post"] == "load_more_elements_into_catalog"){
+                $total_count = 0;
+                $search_type = "load";
+
                 $catalog_id = absint($_POST["catalog_id"]);
                 $count_into_page = absint($_POST["count_into_page"]);
                 $show_thumbs = sanitize_text_field($_POST["show_thumbs"]);
@@ -1079,10 +1082,31 @@ function huge_it_catalog_my_action_callback_frontend() {
                 if(isset($_POST["pagetype"]) && $_POST["pagetype"] != '')
                     $pagetype = sanitize_text_field($_POST["pagetype"]);
                 if($type == 'search') {
+                    if ($_POST['searchBy'] != '') {
+                        $like = '';
+                        $searchParams = explode(',', $_POST['searchBy']);
+                        foreach ($searchParams as $searchParam) {
+                            if ($searchParam == 0)
+                                $like .= " OR `description` LIKE '%" . $test . "%'";
+                            if ($searchParam == 1)
+                                $like .= " OR `parameters` LIKE '%" . $test . "%'";
+                        }
+                    }
+                    $query_count = "SELECT COUNT(*) FROM `" . $wpdb->prefix . "huge_it_catalog_products` WHERE (`catalog_id`='" . $catalog_id . "' AND `name` LIKE '%" . $test . "%')";
+                    $total_count = $wpdb->get_var($query_count);
+                    $search_type = "search";
+
                     $query = ($pagetype == 'load_more')?"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%') order by ordering ASC LIMIT ".$count_into_page
                         :"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%')";
                 }
                 else if($type == 'load') {
+
+                    $query_count = "SELECT COUNT(*) FROM `" . $wpdb->prefix . "huge_it_catalog_products` WHERE (`catalog_id`='" . $catalog_id . "' AND `name` LIKE '%" . $test . "%')";
+                    $total_count = $wpdb->get_var($query_count);
+
+
+                    $search_type = ($test != '') ? "search" : "load";
+
                     $query = ($test == '')?$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_it_catalog_products WHERE catalog_id = '%d' ".$elements." order by ordering ASC LIMIT %d ",$catalog_id,$count_into_page)
                         :"SELECT * FROM ".$wpdb->prefix."huge_it_catalog_products WHERE catalog_id = '".$catalog_id."' ".$elements." AND `name` LIKE '%".$test."%' order by ordering ASC LIMIT ".$count_into_page;
 
@@ -1188,7 +1212,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                         </div>
                                     </div>";
                         }
-                        $response = array('moreImages' => $moreImages, 'query' => $query);
+                        $response = array('moreImages' => $moreImages, 'query' => $query, 'searched_count' => $total_count, "search_type" => $search_type);
                         echo json_encode($response);
                         die();
                         break;
@@ -1281,7 +1305,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                     </div>";
                         }
 
-                        $response = array('moreImages' => $moreImages, 'query' => $query);
+                        $response = array('moreImages' => $moreImages, 'query' => $query, 'searched_count' => $total_count, "search_type" => $search_type);
                         echo json_encode($response);                die();
                         break;
                     case 2:
@@ -1439,7 +1463,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                             </div></li>";
                         }
 
-                        $response = array('moreImages' => $moreImages, 'morePopups' => $morePopups,'query' => $query);
+                        $response = array('moreImages' => $moreImages, 'morePopups' => $morePopups,'query' => $query, 'searched_count' => $total_count, "search_type" => $search_type);
                         echo json_encode($response);
                         die();
                         break;
@@ -1504,7 +1528,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                             $moreImages .= "</div>
                                 </div>";
                         }
-                        $response = array('moreImages' => $moreImages, 'query' => $query);
+                        $response = array('moreImages' => $moreImages, 'query' => $query, 'searched_count' => $total_count, "search_type" => $search_type);
                         echo json_encode($response);
                         die();
                         break;
