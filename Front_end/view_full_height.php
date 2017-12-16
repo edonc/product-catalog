@@ -668,15 +668,17 @@ if ($catalog[0]->pagination_type == "show_all") {
                             <img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.png"/>
                         <?php } ?>
                     </div>
+            <?php if ($row->name): ?>
                     <div class="title-block_<?php echo $catalogID; ?>">
                         <h3 class="title"><?php echo $row->name; ?></h3>
                     </div>
+            <?php endif; ?>
                 </div>
 
                 <div class="wd-catalog-panel_<?php echo $catalogID; ?>" id="panel<?php echo $key; ?>">
                     <?php if ($paramssld['ht_view1_show_thumbs'] == 'on' and $paramssld['ht_view1_thumbs_position'] == "before") {
                         ?>
-                        <div>
+                        <div  id="thumb_div_<?php echo $row->id . "_" . $catalogID; ?>">
                             <ul class="thumbs-list_<?php echo $catalogID; ?>">
                                 <?php
                                 $imgurl = explode(";", $row->image_url);
@@ -684,6 +686,10 @@ if ($catalog[0]->pagination_type == "show_all") {
                                 if (($paramssld['ht_view1_allow_zooming'] == "on" && $paramssld['ht_view1_allow_lightbox'] == "off") || ($paramssld['ht_view1_allow_zooming'] == "off" && $paramssld['ht_view1_allow_lightbox'] == "off")) {
                                 } else {
                                     array_shift($imgurl);
+                                }
+
+                                if(count($imgurl) == 0){
+                                    echo "<style>#thumb_div_".$row->id . "_" . $catalogID."{display:none;}</style>";
                                 }
 
                                 foreach ($imgurl as $key1 => $img) {
@@ -699,14 +705,14 @@ if ($catalog[0]->pagination_type == "show_all") {
                             </ul>
                         </div>
                     <?php }
-                    if ($paramssld['ht_view1_show_description'] == 'on') { ?>
+                    if ($paramssld['ht_view1_show_description'] == 'on' && $row->description) { ?>
                         <div class="description-block_<?php echo $catalogID; ?>">
                             <p><?php echo $row->description; ?></p>
                         </div>
                     <?php }
                     if ($paramssld['ht_view1_show_thumbs'] == 'on' and $paramssld['ht_view1_thumbs_position'] == "after") {
                         ?>
-                        <div>
+                        <div id="thumb_div_<?php echo $row->id . "_" . $catalogID; ?>">
                             <ul class="thumbs-list_<?php echo $catalogID; ?>">
                                 <?php
                                 $imgurl = explode(";", $row->image_url);
@@ -714,6 +720,10 @@ if ($catalog[0]->pagination_type == "show_all") {
                                 if (($paramssld['ht_view1_allow_zooming'] == "on" && $paramssld['ht_view1_allow_lightbox'] == "off") || ($paramssld['ht_view1_allow_zooming'] == "off" && $paramssld['ht_view1_allow_lightbox'] == "off")) {
                                 } else {
                                     array_shift($imgurl);
+                                }
+
+                                if(count($imgurl) == 0){
+                                    echo "<style>#thumb_div_".$row->id . "_" . $catalogID."{display:none;}</style>";
                                 }
 
                                 foreach ($imgurl as $key1 => $img) {

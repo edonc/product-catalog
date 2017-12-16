@@ -363,7 +363,7 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
         $paramssld["ht_catalog_zoom_tint_fadein"] = "200";
         $paramssld["ht_catalog_zoom_tint_fadeout"] = "200";
         $paramssld['ht_catalog_zoom_lens_hide'] = "false";
-        $paramssld["ht_view3_allow_lightbox"] = "on";
+        $paramssld["ht_view3_allow_lightbox"] = "off";
         $paramssld["ht_catalog_zoom_thumbs_zoom"] = "off";
         $paramssld["ht_view3_allow_zooming"] = "on";
 
@@ -383,11 +383,11 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
         $paramssld["ht_view5_filtering_float"] = "none";
         $paramssld["ht_view6_filtering_float"] = "none";
         $paramssld["ht_view0_allow_zooming"] = "off";
-        $paramssld["ht_view0_allow_lightbox"] = "on";
+        $paramssld["ht_view0_allow_lightbox"] = "off";
         $paramssld["ht_view1_allow_zooming"] = "on";
-        $paramssld["ht_view1_allow_lightbox"] = "on";
+        $paramssld["ht_view1_allow_lightbox"] = "off";
         $paramssld["ht_view2_allow_zooming"] = "off";
-        $paramssld["ht_view2_allow_lightbox"] = "on";
+        $paramssld["ht_view2_allow_lightbox"] = "off";
         $paramssld["ht_view5_allow_zooming"] = "on";
         $paramssld["ht_view5_allow_lightbox"] = "off";
 

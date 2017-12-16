@@ -1397,7 +1397,7 @@ if ($catalog[0]->pagination_type == "show_all") {
                     } ?>
                 </div>
                 <div class="right-block">
-                    <?php if ($paramssld["ht_view2_show_popup_title"] == 'on') { ?><h3
+                    <?php if ($paramssld["ht_view2_show_popup_title"] == 'on'  && $row->name) { ?><h3
                             class="title"><?php echo $row->name; ?></h3><?php } ?>
 
                     <?php if ($paramssld["ht_view2_thumbs_position"] == 'before' and $paramssld["ht_view2_show_thumbs"] == 'on') { ?>
@@ -1412,7 +1412,7 @@ if ($catalog[0]->pagination_type == "show_all") {
                         </div>
                     <?php } ?>
 
-                    <?php if ($paramssld["ht_view2_show_description"] == 'on') { ?>
+                    <?php if ($paramssld["ht_view2_show_description"] == 'on'  && $row->description) { ?>
                         <div class="description"><?php echo $row->description; ?></div><?php } ?>
 
                     <?php if ($paramssld["ht_view2_thumbs_position"] == 'after' and $paramssld["ht_view2_show_thumbs"] == 'on') { ?>

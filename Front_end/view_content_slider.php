@@ -238,8 +238,10 @@
                     <?php } ?>
                 </div>
                 <div class="right-block">
+                    <?php if($row->name): ?>
                     <div><h2 class="title"><?php echo $row->name; ?></h2></div>
-                    <?php if($paramssld["ht_view5_show_description"]=='on'){ ?>
+                    <?php endif; ?>
+                    <?php if($paramssld["ht_view5_show_description"]=='on' && $row->description){ ?>
                         <div class="description"><?php echo $row->description; ?></div>
                     <?php } ?>
 
