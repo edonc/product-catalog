@@ -423,7 +423,7 @@ if ($catalog[0]->pagination_type == "show_all") {
         height: <?php echo $paramssld['ht_view2_element_height']+45; ?>px;
         margin: 0px 0px 10px 0px;
         background: #<?php echo $paramssld['ht_view2_element_background_color']; ?>;
-        border: <?php echo $paramssld['ht_view2_element_border_width']; ?> px solid #<?php echo $paramssld['ht_view2_element_border_color']; ?>;
+        border: <?php echo $paramssld['ht_view2_element_border_width']; ?>px solid #<?php echo $paramssld['ht_view2_element_border_color']; ?>;
         outline: none;
     }
 
@@ -692,7 +692,7 @@ if ($catalog[0]->pagination_type == "show_all") {
 
     #huge_it_catalog_popup_list_<?php echo $catalogID; ?> .popup-wrapper_<?php echo $catalogID; ?> .right-block .discont-price-block {
         /*	font-size:
-    <?php echo $paramssld['ht_catalog_view2_market_price_font_size']; ?> px;
+    <?php echo $paramssld['ht_catalog_view2_market_price_font_size']; ?>px;
         color: #
     <?php echo $paramssld['ht_catalog_view2_market_price_font_color']; ?> ; */
     }
@@ -878,9 +878,9 @@ if ($catalog[0]->pagination_type == "show_all") {
     }
 
     #huge_it_catalog_content_<?php echo $catalogID; ?> #huge_it_catalog_options_<?php echo $catalogID; ?> ul li a {
-        background-color: # <?php echo $paramssld["ht_view2_sortbutton_background_color"];?> !important;
+        background-color: #<?php echo $paramssld["ht_view2_sortbutton_background_color"];?> !important;
         font-size: <?php echo $paramssld["ht_view2_sortbutton_font_size"];?>px !important;
-        color: # <?php echo $paramssld["ht_view2_sortbutton_font_color"];?> !important;
+        color: #<?php echo $paramssld["ht_view2_sortbutton_font_color"];?> !important;
         text-decoration: none;
         cursor: pointer;
         margin: 0px !important;
@@ -896,8 +896,8 @@ if ($catalog[0]->pagination_type == "show_all") {
     }*/
 
     #huge_it_catalog_content_<?php echo $catalogID; ?> #huge_it_catalog_options_<?php echo $catalogID; ?> ul li a:hover {
-        background-color: # <?php echo $paramssld["ht_view2_sortbutton_hover_background_color"];?> !important;
-        color: # <?php echo $paramssld["ht_view2_sortbutton_hover_font_color"];?> !important;
+        background-color: #<?php echo $paramssld["ht_view2_sortbutton_hover_background_color"];?> !important;
+        color: #<?php echo $paramssld["ht_view2_sortbutton_hover_font_color"];?> !important;
         cursor: pointer;
     }
 
@@ -925,8 +925,8 @@ if ($catalog[0]->pagination_type == "show_all") {
 
     #huge_it_catalog_content_<?php echo $catalogID; ?> #huge_it_catalog_filters_<?php echo $catalogID; ?> ul li a {
         font-size: <?php echo $paramssld["ht_view2_filterbutton_font_size"];?>px !important;
-        color: # <?php echo $paramssld["ht_view2_filterbutton_font_color"];?> !important;
-        background-color: # <?php echo $paramssld["ht_view2_filterbutton_background_color"];?> !important;
+        color: #<?php echo $paramssld["ht_view2_filterbutton_font_color"];?> !important;
+        background-color: #<?php echo $paramssld["ht_view2_filterbutton_background_color"];?> !important;
         border-radius: <?php echo $paramssld["ht_view2_filterbutton_border_radius"];?>px;
         padding: 3px;
         display: block;
@@ -934,8 +934,8 @@ if ($catalog[0]->pagination_type == "show_all") {
     }
 
     #huge_it_catalog_content_<?php echo $catalogID; ?> #huge_it_catalog_filters_<?php echo $catalogID; ?> ul li a:hover {
-        color: # <?php echo $paramssld["ht_view2_filterbutton_hover_font_color"];?> !important;
-        background-color: # <?php echo $paramssld["ht_view2_filterbutton_hover_background_color"];?> !important;
+        color: #<?php echo $paramssld["ht_view2_filterbutton_hover_font_color"];?> !important;
+        background-color: #<?php echo $paramssld["ht_view2_filterbutton_hover_background_color"];?> !important;
         cursor: pointer
     }
 
@@ -1096,14 +1096,14 @@ if ($catalog[0]->pagination_type == "show_all") {
         display: inline-block;
         padding: 5px 15px;
         font-size: <?php echo $paramssld["htc_view2_load_more_font_size"]; ?>px !important;
-        color: # <?php echo $paramssld["htc_view2_load_more_font_color"]; ?> !important;
-        background: # <?php echo $paramssld["htc_view2_load_more_button_background_color"]; ?> !important;
+        color: #<?php echo $paramssld["htc_view2_load_more_font_color"]; ?> !important;
+        background: #<?php echo $paramssld["htc_view2_load_more_button_background_color"]; ?> !important;
         cursor: pointer;
     }
 
     .catalog_load_<?php echo $catalogID; ?> a:hover {
-        color: # <?php echo $paramssld["htc_view2_load_more_font_hover_color"]; ?> !important;
-        background: # <?php echo $paramssld["htc_view2_load_more_button_background_hover_color"]; ?> !important;
+        color: #<?php echo $paramssld["htc_view2_load_more_font_hover_color"]; ?> !important;
+        background: #<?php echo $paramssld["htc_view2_load_more_button_background_hover_color"]; ?> !important;
     }
 
     .catalog_load_<?php echo $catalogID; ?> a:focus {
@@ -1171,7 +1171,7 @@ if ($catalog[0]->pagination_type == "show_all") {
         width: <?php echo $paramssld["ht_view2_search_form_width"]; ?>%;
         overflow: hidden;
         border-radius: <?php echo $paramssld["ht_view2_search_form_border_radius"]; ?>px;
-        border: <?php echo $paramssld["ht_view2_search_form_border_width"]; ?> px solid #<?php echo $paramssld["ht_view2_search_form_border_color"]; ?>;
+        border: <?php echo $paramssld["ht_view2_search_form_border_width"]; ?>px solid #<?php echo $paramssld["ht_view2_search_form_border_color"]; ?>;
     }
 
     #search_block_<?php echo $catalogID; ?> > form > input {

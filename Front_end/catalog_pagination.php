@@ -95,6 +95,20 @@ if ($catalog[0]->pagination_type == "pagination" && $pages != 1) {
     .catalog_pagination_<?php echo $catalogID ?> a:hover, .catalog_pagination_<?php echo $catalogID ?> a:hover i {
         color: #333;
     }
+
+    .catalog_pagination_block_<?php echo $catalogID; ?>, .catalog_load_block_<?php echo $catalogID; ?> {
+        padding: 0px !important;
+        margin: 0px !important;
+        position: relative !important;
+        margin-bottom: 30px !important;
+    }
+
+    .catalog_pagination_<?php echo $catalogID; ?>, .catalog_load_<?php echo $catalogID; ?> {
+        position: absolute;
+        width: 100%;
+        z-index: 9999;
+        padding: 23px 15px;
+    }
 </style>
 
 
