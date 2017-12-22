@@ -11,7 +11,7 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
 	$slidepausetime=((int)$catalog[0]->description+(int)$catalog[0]->param);
 	$catalogpauseonhover=$catalog[0]->pause_on_hover;
 	$catalogposition=$catalog[0]->sl_position;
-	$catalogcountinpage = $catalog[0]->count_into_page;
+    $catalogcountinpage = ($catalog[0]->count_into_page) ? $catalog[0]->count_into_page : 999;
 	$slidechangespeed=$catalog[0]->param;
         $catalogCats=$catalog[0]->categories;
         $catalogShowSorting=$catalog[0]->ht_show_sorting;
@@ -890,31 +890,31 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
         /////////////////////////////// VIEW 0 Toggle Up/Down Blocks /////////////////////////////////////////
 
         case 0:
-            include_once('view_toggle_up_down.php');
+            include('view_toggle_up_down.php');
             break;
 
         ///////////////////////////////// VIEW 1 FullHeight Blocks ///////////////////////////////////////////
 
         case 1:
-            include_once('view_full_height.php');
+            include('view_full_height.php');
             break;
 
         /////////////////////////////// VIEW 2 Popup /////////////////////////////////////////////////////////
 
         case 2:
-            include_once('view_content_popup.php');
+            include('view_content_popup.php');
             break;
 
         ////////////////////////////// VIEW 3 FullWidth //////////////////////////////////////////////////////
 
         case 3:
-            include_once('view_full_width.php');
+            include('view_full_width.php');
             break;
 
         /////////////////////////////////// VIEW 5 Content Slider ////////////////////////////////////////////
 
         case 5:
-            include_once('view_content_slider.php');
+            include('view_content_slider.php');
             break;
 
     }
