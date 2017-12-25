@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 12/4/2017
- * Time: 2:16 PM
- */
 
 if ($catalog[0]->pagination_type == "pagination" && $pages != 1) {
     $protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' : 'http://';
