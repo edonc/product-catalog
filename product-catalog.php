@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Product Catalog
 Plugin URI: https://huge-it.com/product-catalog
 Description: Let us introduce our Huge-IT Product Catalog incomparable plugin. To begin with, why do we need this plugin and what are the advantages.
-Version: 1.5.6
+Version: 1.5.7
 Author: Huge-IT
 Author URI: http://huge-it.com
 License: GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
@@ -133,6 +133,8 @@ function huge_it_catalog_products_list_shotrcode($atts)
 
     wp_register_style( 'fontawesome-css', plugins_url('/style/css/hugeiticons.css', __FILE__) );
     wp_enqueue_style( 'fontawesome-css' );
+
+
 
     wp_localize_script('catalog-all-js', 'catalog_disable_right_click', get_option('product_catalog_disable_right_click'));
 
@@ -327,13 +329,16 @@ add_action('admin_menu', 'huge_it_catalog_options_panel');
 function huge_it_catalog_options_panel()
 {
     $page_cat = add_menu_page('Theme page title', 'Huge IT Catalog', 'delete_pages', 'catalogs_huge_it_catalog', 'catalogs_huge_it_catalog', plugins_url('images/huge_it_catalogLogoHover -for_menu.png', __FILE__));
-    $catalogs = add_submenu_page('catalogs_huge_it_catalog', 'Catalogs', 'Catalogs', 'delete_pages', 'catalogs_huge_it_catalog', 'catalogs_huge_it_catalog');
-    $general_options = add_submenu_page('catalogs_huge_it_catalog', 'General Options', 'General Options', 'manage_options', 'huge_it_catalog_general_options_page', 'huge_it_catalog_general_options_page');
-    $Submitions = add_submenu_page('catalogs_huge_it_catalog', 'Submissions', 'Submissions', 'manage_options', 'huge_it_catalog_submitions_page', 'huge_it_catalog_submitions_page');
+    $catalogs = add_submenu_page('catalogs_huge_it_catalog', 'Manage Catalogs', 'Manage Catalogs', 'delete_pages', 'catalogs_huge_it_catalog', 'catalogs_huge_it_catalog');
+    $general_options = add_submenu_page('catalogs_huge_it_catalog', 'Settings', 'Settings', 'manage_options', 'huge_it_catalog_general_options_page', 'huge_it_catalog_general_options_page');
+    $page_option = add_submenu_page('catalogs_huge_it_catalog', 'Grid Styles', 'Grid Styles', 'manage_options', 'Options_product_Catalog_styles', 'Options_product_Catalog_styles');
+    $products_options = add_submenu_page('catalogs_huge_it_catalog', 'Single Product Styles', 'Single Product Styles', 'manage_options', 'huge_it_catalog_products_page', 'huge_it_catalog_products_page');
+    $lightbox_options = add_submenu_page('catalogs_huge_it_catalog', 'Image View Options', 'Image View Options', 'manage_options', 'Options_catalog_lightbox_styles', 'Options_catalog_lightbox_styles');
+    $Submitions = add_submenu_page('catalogs_huge_it_catalog', 'Submissions Manager', 'Submissions Manager', 'manage_options', 'huge_it_catalog_submitions_page', 'huge_it_catalog_submitions_page');
     $Reviews = add_submenu_page('catalogs_huge_it_catalog', 'Comments Manager', 'Comments Manager', 'manage_options', 'huge_it_catalog_reviews_page', 'huge_it_catalog_reviews_page');
     $Ratings = add_submenu_page('catalogs_huge_it_catalog', 'Ratings Manager', 'Ratings Manager', 'manage_options', 'huge_it_catalog_ratings_page', 'huge_it_catalog_ratings_page');
-    $page_option = add_submenu_page('catalogs_huge_it_catalog', 'Catalog Options', 'Catalog Options', 'manage_options', 'Options_product_Catalog_styles', 'Options_product_Catalog_styles');
-    $products_options = add_submenu_page('catalogs_huge_it_catalog', 'Products Options', 'Products Options', 'manage_options', 'huge_it_catalog_products_page', 'huge_it_catalog_products_page');
+
+
 
     if ( is_plugin_active( 'product-catalog-releated-products/product-catalog-releated-products.php' ) ) {
         $related_products = add_submenu_page('catalogs_huge_it_catalog', 'Related Products', 'Related Products', 'manage_options', 'huge_it_catalog_related_products', 'huge_it_catalog_related_products');
@@ -344,7 +349,7 @@ function huge_it_catalog_options_panel()
         add_action('admin_print_styles-' . $catalog_csv, 'huge_it_catalog_option_admin_script');
     }
 
-    $lightbox_options = add_submenu_page('catalogs_huge_it_catalog', 'Image View Options', 'Image View Options', 'manage_options', 'Options_catalog_lightbox_styles', 'Options_catalog_lightbox_styles');
+
     $featured = add_submenu_page('catalogs_huge_it_catalog', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'huge_it__catalog_featured_plugins', 'huge_it__catalog_featured_plugins');
     $licensing = add_submenu_page( 'catalogs_huge_it_catalog', 'Licensing', 'Licensing', 'manage_options', 'huge_it_catalog_Licensing', 'huge_it_catalog_Licensing');
 
@@ -387,6 +392,7 @@ function huge_it_catalog_admin_script()
     wp_enqueue_script("jquery_ui_new", "http://code.jquery.com/ui/1.10.4/jquery-ui.js", FALSE);
     wp_enqueue_style("admin_css", plugins_url("style/admin.style.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
 }
 
 
@@ -399,6 +405,7 @@ function huge_it_catalog_option_admin_script()
     wp_enqueue_style("admin_css", plugins_url("style/admin.style.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     wp_enqueue_script('param_block2', plugins_url("elements/jscolor/jscolor.js", __FILE__));
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
 }
 
 function catalogs_huge_it_catalog()
@@ -406,6 +413,7 @@ function catalogs_huge_it_catalog()
     require_once("admin/catalogs_func.php");
     require_once("admin/catalogs_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     if (!function_exists('print_html_nav'))
         require_once("catalog_function/html_catalog_func.php");
 
@@ -513,6 +521,7 @@ function Options_product_Catalog_styles()
     require_once("admin/catalog_Options_func.php");
     require_once("admin/catalog_Options_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     showStyles();
 }
@@ -522,6 +531,7 @@ function Options_catalog_lightbox_styles()
     require_once("admin/catalog_lightbox_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     if (isset($_GET['task']))
         if ($_GET['task'] == 'save')
             save_styles_options();
@@ -533,6 +543,7 @@ function huge_it_catalog_reviews_page() {
     require_once("admin/reviews_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     show_reviews();
 }
 
@@ -540,6 +551,7 @@ function huge_it_catalog_submitions_page() {
     require_once("admin/submitions_func.php");
     require_once("admin/submitions_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     if (isset($_GET["task"])){ $task = sanitize_text_field($_GET["task"]); }
     else
     { $task = ''; }
@@ -566,6 +578,7 @@ function huge_it_catalog_products_page(){
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     wp_enqueue_script('param_block2', plugins_url("elements/jscolor/jscolor.js", __FILE__));
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     if (isset($_GET['task'])){
         if ($_GET['task'] == 'save'){
             save_styles_options();
@@ -579,6 +592,7 @@ function huge_it_catalog_general_options_page(){
     require_once("admin/catalog_general_options_func.php");
     require_once("admin/catalog_general_options_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     if (isset($_GET['task'])){
         if ($_GET['task'] == 'save'){
@@ -593,6 +607,7 @@ function huge_it_catalog_ratings_page() {
     require_once("admin/ratings_func.php");
     require_once("admin/ratings_view.php");
     wp_enqueue_style("free-banner", plugins_url("style/free-banner.css", __FILE__), FALSE);
+    wp_enqueue_style("font-awesome", 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', true);
     wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
     show_ratings();
 }
@@ -1028,6 +1043,9 @@ function huge_it_catalog_my_action_callback_frontend() {
                 }
             }
             elseif($_POST["post"] == "load_more_elements_into_catalog"){
+                $total_count = 0;
+                $search_type = "load";
+
                 $catalog_id = absint($_POST["catalog_id"]);
                 $count_into_page = absint($_POST["count_into_page"]);
                 $show_thumbs = sanitize_text_field($_POST["show_thumbs"]);
@@ -1064,10 +1082,31 @@ function huge_it_catalog_my_action_callback_frontend() {
                 if(isset($_POST["pagetype"]) && $_POST["pagetype"] != '')
                     $pagetype = sanitize_text_field($_POST["pagetype"]);
                 if($type == 'search') {
+                    if ($_POST['searchBy'] != '') {
+                        $like = '';
+                        $searchParams = explode(',', $_POST['searchBy']);
+                        foreach ($searchParams as $searchParam) {
+                            if ($searchParam == 0)
+                                $like .= " OR `description` LIKE '%" . $test . "%'";
+                            if ($searchParam == 1)
+                                $like .= " OR `parameters` LIKE '%" . $test . "%'";
+                        }
+                    }
+                    $query_count = "SELECT COUNT(*) FROM `" . $wpdb->prefix . "huge_it_catalog_products` WHERE (`catalog_id`='" . $catalog_id . "' AND `name` LIKE '%" . $test . "%')";
+                    $total_count = $wpdb->get_var($query_count);
+                    $search_type = "search";
+
                     $query = ($pagetype == 'load_more')?"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%') order by ordering ASC LIMIT ".$count_into_page
                         :"SELECT * FROM `".$wpdb->prefix."huge_it_catalog_products` WHERE (`catalog_id`='".$catalog_id."' AND `name` LIKE '%".$test."%')";
                 }
                 else if($type == 'load') {
+
+                    $query_count = "SELECT COUNT(*) FROM `" . $wpdb->prefix . "huge_it_catalog_products` WHERE (`catalog_id`='" . $catalog_id . "' AND `name` LIKE '%" . $test . "%')";
+                    $total_count = $wpdb->get_var($query_count);
+
+
+                    $search_type = ($test != '') ? "search" : "load";
+
                     $query = ($test == '')?$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_it_catalog_products WHERE catalog_id = '%d' ".$elements." order by ordering ASC LIMIT %d ",$catalog_id,$count_into_page)
                         :"SELECT * FROM ".$wpdb->prefix."huge_it_catalog_products WHERE catalog_id = '".$catalog_id."' ".$elements." AND `name` LIKE '%".$test."%' order by ordering ASC LIMIT ".$count_into_page;
 
@@ -1173,7 +1212,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                         </div>
                                     </div>";
                         }
-                        $response = array('moreImages' => $moreImages, 'query' => $query);
+                        $response = array('moreImages' => $moreImages, 'query' => $query, 'searched_count' => $total_count, "search_type" => $search_type);
                         echo json_encode($response);
                         die();
                         break;
@@ -1266,7 +1305,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                     </div>";
                         }
 
-                        $response = array('moreImages' => $moreImages, 'query' => $query);
+                        $response = array('moreImages' => $moreImages, 'query' => $query, 'searched_count' => $total_count, "search_type" => $search_type);
                         echo json_encode($response);                die();
                         break;
                     case 2:
@@ -1424,7 +1463,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                                             </div></li>";
                         }
 
-                        $response = array('moreImages' => $moreImages, 'morePopups' => $morePopups,'query' => $query);
+                        $response = array('moreImages' => $moreImages, 'morePopups' => $morePopups,'query' => $query, 'searched_count' => $total_count, "search_type" => $search_type);
                         echo json_encode($response);
                         die();
                         break;
@@ -1489,7 +1528,7 @@ function huge_it_catalog_my_action_callback_frontend() {
                             $moreImages .= "</div>
                                 </div>";
                         }
-                        $response = array('moreImages' => $moreImages, 'query' => $query);
+                        $response = array('moreImages' => $moreImages, 'query' => $query, 'searched_count' => $total_count, "search_type" => $search_type);
                         echo json_encode($response);
                         die();
                         break;

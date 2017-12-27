@@ -84,7 +84,7 @@
 			// using this.href would give the absolute url, when the href may have been inteded as a selector (e.g. '#container')
 			return jQuery(this).attr('href');
 		},
-		
+
 		title: function() {
 		//alert(lightbox_title);
 		if(lightbox_title == true){

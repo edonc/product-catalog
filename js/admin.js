@@ -41,6 +41,12 @@ jQuery(document).ready(function () {
 		jQuery(".free_version_banner").css("display","none");
 		hgSliderSetCookie( 'productCatalogFreeBannerShow', 'no', {expires:86400} );
 	});
+
+
+    jQuery(".close_banner").on("click", function () {
+        jQuery(".free_version_banner").css("display", "none");
+    });
+
 });
 
 function hgSliderSetCookie(name, value, options) {
@@ -68,6 +74,7 @@ function hgSliderSetCookie(name, value, options) {
 	}
 	document.cookie = updatedCookie;
 }
-	
+
+
 
 	

@@ -70,7 +70,7 @@ function html_showcatalogs( $rows,  $pageNav,$sort,$cat_row){
 
 			 print_html_nav($pageNav['total'],$pageNav['limit'],$serch_fields);
 			?>
-			<table class="wp-list-table widefat fixed pages" style="width:95%">
+			<table class="wp-list-table widefat fixed pages" style="width:100%">
 				<thead>
 				 <tr>
 					<th scope="col" id="id" style="width:30px" ><span>ID</span><span class="sorting-indicator"></span></th>
@@ -493,32 +493,50 @@ jQuery(document).ready(function($){
 										jQuery('.add_media').on('click', function(){
 											_custom_media = false;
 										});
-										
-										 /*#####ADD IMAGE######*/  
-										jQuery('.add-image.button<?php echo $rowimages->id; ?>').click(function(e) {
-											var send_attachment_bkp = wp.media.editor.send.attachment;
 
-											var button = jQuery(this);
-											var id = button.attr('id').replace('_button', '');
-											_custom_media = true;
+                                        /*#####ADD IMAGE######*/
+                                        var custom_uploader_2;
+                                        jQuery('.add-image.button<?php echo $rowimages->id; ?>').click(function(e) {
+                                            e.preventDefault();
+                                            var button = jQuery(this);
+                                            var id = button.attr('id').replace('_button', '');
+                                            if (custom_uploader_2) {
+                                                custom_uploader_2.open();
+                                                return;
+                                            }
 
-											wp.media.editor.send.attachment = function(props, attachment){
-											  if ( _custom_media ) {
-													jQuery("#"+id).parent().before('<li class="editthisimage editthisimage1 "><img src="'+attachment.url+'" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
-													//alert(jQuery("#"+id).val());
-													jQuery("#"+id).val(jQuery("#"+id).val()+attachment.url+';');
-													
-													secondimageslistlisize();
+                                            custom_uploader_2 = wp.media.frames.file_frame = wp.media({
+                                                title: 'Insert Into Post',
+                                                button: {
+                                                    text: 'Insert Into Post'
+                                                },
+                                                multiple: true
+                                            });
 
-											  } else {
-												return _orig_send_attachment.apply( this, [props, attachment] );
-											  };
-											}
+                                            //When a file is selected, grab the URL and set it as the text field's value
+                                            custom_uploader_2.on('select', function() {
+                                                var attachment_2 = custom_uploader_2.state().get('selection').toJSON();
+                                                for(var key in attachment_2){
+                                                    jQuery("#"+id).parent().before('<li class="editthisimage editthisimage1 "><img src="'+attachment_2[key].url+'" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
+                                                    jQuery("#"+id).val(jQuery("#"+id).val()+attachment_2[key].url+';');
+                                                }
+                                                secondimageslistlisize();
+                                            });
 
-											wp.media.editor.open(button);
-											 
-											return false;
-										});
+                                            custom_uploader_2.open();
+                                            _custom_media = true;
+
+                                            wp.media.editor.send.attachment = function(props, attachment){
+                                                if ( _custom_media ) {
+                                                    jQuery("#"+id).parent().before('<li class="editthisimage editthisimage1 "><img src="'+attachment.url+'" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
+                                                    jQuery("#"+id).val(jQuery("#"+id).val()+attachment.url+';');
+                                                    secondimageslistlisize();
+                                                } else {
+                                                    return _orig_send_attachment.apply( this, [props, attachment] );
+                                                }
+                                            };
+
+                                        });
 
 										
 										/*#####REMOVE IMAGE######*/  
@@ -556,13 +574,13 @@ jQuery(document).ready(function($){
 										<label for="titleimage<?php echo $rowimages->id; ?>"><?php echo __("Title","product-catalog");?>:</label>
 										<input  class="text_area" type="text" id="titleimage<?php echo $rowimages->id; ?>" name="titleimage<?php echo $rowimages->id; ?>" id="titleimage<?php echo $rowimages->id; ?>"  value="<?php echo esc_html(stripslashes($rowimages->name)); ?>">
 									</div>
-                                                                        <div>
-										<label for="price<?php echo $rowimages->id; ?>"><?php echo __("Price","product-catalog");?>:</label>
-										<input  class="text_area" type="text" id="price<?php echo $rowimages->id; ?>" name="price<?php echo $rowimages->id; ?>" id="price<?php echo $rowimages->id; ?>"  value="<?php echo esc_html(stripslashes($rowimages->price)); ?>">
-									</div>
-                                                                        <div>
-										<label for="market_price<?php echo $rowimages->id; ?>"><?php echo __("Discount Price","product-catalog");?>:</label>
-										<input  class="text_area" type="text" id="market_price<?php echo $rowimages->id; ?>" name="market_price<?php echo $rowimages->id; ?>" style="margin-top: 1%;" id="market_price<?php echo $rowimages->id; ?>"  value="<?php echo esc_html(stripslashes($rowimages->market_price)); ?>">
+                                    <div>
+										<label for="price<?php echo $rowimages->id; ?>"><?php echo __("Price","product-catalog");?>:
+										    <input  class="text_area_small" type="text" id="price<?php echo $rowimages->id; ?>" name="price<?php echo $rowimages->id; ?>" id="price<?php echo $rowimages->id; ?>"  value="<?php echo esc_html(stripslashes($rowimages->price)); ?>">
+                                        </label>
+										<label for="market_price<?php echo $rowimages->id; ?>"><?php echo __("Discount Price","product-catalog");?>:
+										    <input  class="text_area_small" type="text" id="market_price<?php echo $rowimages->id; ?>" name="market_price<?php echo $rowimages->id; ?>" style="margin-top: 1%;" id="market_price<?php echo $rowimages->id; ?>"  value="<?php echo esc_html(stripslashes($rowimages->market_price)); ?>">
+                                        </label>
 									</div>
                                                                         
                                                                         <div>
@@ -582,7 +600,7 @@ jQuery(document).ready(function($){
 										<textarea id="im_description<?php echo $rowimages->id; ?>" name="im_description<?php echo $rowimages->id; ?>" ><?php echo esc_html(stripslashes($rowimages->description)); ?></textarea>
 									</div>
                                     <div>
-										<label for="show_product<?php echo $rowimages->id; ?>"><?php echo __("Show Product","product-catalog");?></label>
+										<label for="show_product<?php echo $rowimages->id; ?>"><?php echo __("Visible","product-catalog");?></label>
 										<input type="hidden" value="off" name="show_product<?php echo $rowimages->id; ?>" />
 										<input type="checkbox" id="show_product<?php echo $rowimages->id; ?>" name="show_product<?php echo $rowimages->id; ?>" <?php if($rowimages->published == 'on') echo 'checked="checked"';?> value="on">
                                     </div>                                 
@@ -608,8 +626,6 @@ jQuery(document).ready(function($){
                     if(count($separateParamAndChildsInArrayOrdered) != 1){
                         foreach ($separateParamAndChildsInArrayOrdered as $paramKey => $separateParamAndChild){
                             if($separateParamAndChild != "") {
-//                                var_dump($separateParamAndChild);
-//                                echo "'&lt;a href= &gt;aaa&lt;/a&gt;'";
                                 if($paramKey == 0){ ?>
                                     <ul class="full_param">
                                         <li class="new_parameter"><span><?php echo $separateParamAndChild; ?></span>
@@ -1013,7 +1029,7 @@ jQuery(document).ready(function($){
 						</li>
                                                 
                                                 <li style=" <?php if($row->pagination_type == 'show_all'){echo "display:none;"; } ?>">
-							<label for="count_into_page"><?php echo __("Content Per Page","product-catalog");?></label>
+							<label for="count_into_page"><?php echo __("Products Per Page","product-catalog");?></label>
 							<input type="text" name="count_into_page" id="count_into_page" value="<?php echo esc_html(stripslashes($row->count_into_page)); ?>" class="text_area" />
 						</li>
 						<li style="display:none;">
