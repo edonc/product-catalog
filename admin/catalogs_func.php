@@ -382,7 +382,7 @@ INSERT INTO
         $wpdb->query($wpdb->prepare("UPDATE " . $wpdb->prefix . "huge_it_catalogs SET  published = %d WHERE id = %d ", $_POST["posthuge-it-description-length"], $_GET['id']));
     }
     ?>
-    <div class="updated"><p><strong><?php _e('Item Saved'); ?></strong></p></div>
+    <div class="updated"><p><strong><?php _e('Item Saved', "product-catalog"); ?></strong></p></div>
     <?php
 
     return true;

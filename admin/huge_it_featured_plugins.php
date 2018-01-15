@@ -44,8 +44,8 @@
 		<div class="plugin">
 			<div class="image-block slider"><a href="http://huge-it.com/slider/" target="_blank"></a></div>
 			<div class="info-block">
-				<h2><a href="http://huge-it.com/slider/" target="_blank">Slider</a></h2>
-				<p>Use million times downloaded slider with theme editor, post feed sliders,video support and advanced options right away.</p>
+				<h2><a href="http://huge-it.com/slider/" target="_blank"><?php _e("Slider","product-catalog") ?></a></h2>
+				<p><?php _e("Use million times downloaded slider with theme editor, post feed sliders,video support and advanced options right away.","product-catalog") ?></p>
 				<a href="http://huge-it.com/slider/" class="view" target="_blank"><?php _e('View Plugin', 'product-catalog' ); ?></a>
 			</div>
 		</div>
@@ -68,8 +68,8 @@
 		<div class="plugin">
 			<div class="image-block login"><a href="http://huge-it.com/wordpress-login/" target="_blank"></a></div>
 			<div class="info-block">
-				<h2><a href="http://huge-it.com/wordpress-login/" target="_blank">Login</a></h2>
-				<p>Add Login and sign up buttons on your site with amazing popup. Customize and style it to your liking, using security options and reCAPTCHA.</p>
+				<h2><a href="http://huge-it.com/wordpress-login/" target="_blank"><?php _e('Login', 'product-catalog' ); ?></a></h2>
+				<p><?php _e('Add Login and sign up buttons on your site with amazing popup. Customize and style it to your liking, using security options and reCAPTCHA.', 'product-catalog' ); ?></p>
 				<a href="http://huge-it.com/wordpress-login/" class="view" target="_blank"><?php _e('View Plugin', 'product-catalog' ); ?></a>
 			</div>
 		</div>

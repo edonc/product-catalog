@@ -19,7 +19,7 @@ function save_styles_options()
     if (isset($_POST['params'])) {
       $params = $_POST['params'];
       ?>
-      <div class="updated"><p><strong><?php _e('Item Saved'); ?></strong></p></div>
+      <div class="updated"><p><strong><?php _e('Item Saved', 'product-catalog'); ?></strong></p></div>
       <?php
     }
 }

@@ -217,11 +217,11 @@ function html_huge_it_catalog_show_message($messageInArray, $submitionsCount){  
 //                                var_dump($previous_page_url)." ";
 //                                var_dump($next_page_url)." ";
                                     if($myNum > 1){
-                                        echo "<a href='".$previous_page_url."' class='prev_message' >".__('Prev')."</a>";
+                                        echo "<a href='".$previous_page_url."' class='prev_message' >".__('Prev', "product-catalog")."</a>";
                                     }
 //                                  
                                     if($myNum < $max_count){
-                                        echo "<a href='".$next_page_url."' class='next_message' >".__('Next')."</a>";
+                                        echo "<a href='".$next_page_url."' class='next_message' >".__('Next', "product-catalog")."</a>";
                                     }
                                 ?>
                         </div>

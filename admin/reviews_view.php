@@ -122,7 +122,7 @@ function html_show_reviews($reviewsArray) { $reviewsArray = array_reverse($revie
         </tbody>
     </table>
     <div class="alignleft actions bulkactions">
-        <label for="bulk-action-selector-top" class="screen-reader-text"><?php echo __("Trash","product-catalog"); ?>Select bulk action</label>
+        <label for="bulk-action-selector-top" class="screen-reader-text"><?php echo __("Trash","product-catalog"); ?> <?php echo __("Select bulk action","product-catalog"); ?></label>
         <select name="action" id="bulk-action-selector-top">
             <option value="-1" selected="selected"><?php echo __("Bulk Actions","product-catalog"); ?></option>
             <option value="spam"><?php echo __("Mark As Spam","product-catalog"); ?></option>

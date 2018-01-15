@@ -5,33 +5,33 @@ if (!defined('ABSPATH')) {
 
 $license = array(
     array(
-        "title" => "Advanced View Customization",
-        "text" => "Unlock all the settings of gallery views, allowing to edit and customize the views, size, effects, buttons, navigation tools, colors and more.",
+        "title" => __("Advanced View Customization", "product-catalog"),
+        "text" => __("Unlock all the settings of gallery views, allowing to edit and customize the views, size, effects, buttons, navigation tools, colors and more.", "product-catalog"),
         "icon" => "-26px -285px"
     ),
     array(
-        "title" => "Product Page Customization",
-        "text" => "Product Catalog automatically generates Single Product page for each product – on this page you can find detailed information of each product, including parameters, rating, share buttons and others.",
+        "title" => __("Product Page Customization", "product-catalog"),
+        "text" => __("Product Catalog automatically generates Single Product page for each product – on this page you can find detailed information of each product, including parameters, rating, share buttons and others.", "product-catalog"),
         "icon" => "-132px -288px"
     ),
     array(
-        "title" => "Image Resizer Settings",
-        "text" => "Unlock the options allowing to play around images, thumbs and edit all the corners of media using advanced resizer settings",
+        "title" => __("Image Resizer Settings", "product-catalog"),
+        "text" => __("Unlock the options allowing to play around images, thumbs and edit all the corners of media using advanced resizer settings", "product-catalog"),
         "icon" => "-229px -286px"
     ),
     array(
-        "title" => "Color and Text Styling",
-        "text" => "Unlock more options allowing to edit, add or customize every text and color of the plugin with multiple solutions",
+        "title" => __("Color and Text Styling", "product-catalog"),
+        "text" => __("Unlock more options allowing to edit, add or customize every text and color of the plugin with multiple solutions", "product-catalog"),
         "icon" => "-315px -286px"
     ),
     array(
-        "title" => "Advanced Lightbox Options",
-        "text" => "Use Lightbox option to show your images in full size. Whether it on products lists or single product page activate the lightbox and images after click will be opened in fancy popup with real (bigger) sizes.",
+        "title" => __("Advanced Lightbox Options", "product-catalog"),
+        "text" => __("Use Lightbox option to show your images in full size. Whether it on products lists or single product page activate the lightbox and images after click will be opened in fancy popup with real (bigger) sizes.", "product-catalog"),
         "icon" => "-243px -384px"
     ),
     array(
-        "title" => "Image Zoom Options",
-        "text" => "Image zoom is very necessary feature, with it you can zoom every pixel of the product image and see it’s details.",
+        "title" => __("Image Zoom Options", "product-catalog"),
+        "text" => __("Image zoom is very necessary feature, with it you can zoom every pixel of the product image and see it’s details.", "product-catalog"),
         "icon" => "-335px -387px"
     )
 );

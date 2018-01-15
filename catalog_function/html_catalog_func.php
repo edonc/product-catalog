@@ -49,7 +49,7 @@ function print_html_nav($count_items,$page_number,$serch_fields=""){
 	}
 	?>
 	<div class="tablenav-pages">
-    <span class="displaying-num"><?php echo $count_items; ?> <?php echo __("items");?></span>
+    <span class="displaying-num"><?php echo $count_items; ?> <?php echo __("items","product-catalog");?></span>
 	<?php if($count_items>20) {
 
 			if($page_number==1)
