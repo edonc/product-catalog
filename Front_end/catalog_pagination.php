@@ -1,6 +1,5 @@
 <?php
 
-
 if ($catalog[0]->pagination_type == "pagination" && $pages != 1) {
     $protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' : 'http://';
     $actual_link = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "";
