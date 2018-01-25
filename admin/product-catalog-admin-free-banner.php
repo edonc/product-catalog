@@ -7,9 +7,9 @@ if (!defined('ABSPATH')) {
     <img class="manual_icon"
          src="<?php echo  plugins_url('../images/catalog_banner_logo.png',__FILE__); ?>"
          alt="user manual"/>
-    <p class="usermanual_text"><?php _e('Wordpress Product Catalog', 'hugeit_contact'); ?></p>
+    <p class="usermanual_text"><?php _e('Wordpress Product Catalog', 'product-catalog'); ?></p>
     <a class="get_full_version" href="https://huge-it.com/product-catalog/" target="_blank">
-        <?php _e('GO PRO', 'hugeit_contact'); ?>
+        <?php _e('GO PRO', 'product-catalog'); ?>
     </a>
     <p class="close_banner">Close for now</p>
     <img class="closer_icon_only" alt="Close Icon"
@@ -35,37 +35,37 @@ if (!defined('ABSPATH')) {
         <ul class="inline_menu">
             <li>
                 <a target="_blank" href="https://huge-it.com/product-catalog/">
-                    <?php _e('Demo', 'hugeit_contact'); ?>
+                    <?php _e('Demo', 'product-catalog'); ?>
                 </a>
             </li>
             <li>
                 <a target="_blank" href="https://wordpress.org/plugins/product-catalog/">
-                    <?php _e('Review', 'hugeit_contact'); ?>
+                    <?php _e('Review', 'product-catalog'); ?>
                 </a>
             </li>
             <li class="help_element">
 
-                <?php _e('Help', 'hugeit_contact'); ?>
+                <?php _e('Help', 'product-catalog'); ?>
                 </a>
                 <ul class="submenu">
                     <li>
                         <a target="_blank" href="https://huge-it.com/contact-us/">
-                            <?php _e('Contact Us', 'hugeit_contact'); ?>
+                            <?php _e('Contact Us', 'product-catalog'); ?>
                         </a>
                     </li>
                     <li>
                         <a target="_blank" href="https://huge-it.com/wordpress-product-catalog-user-manual/">
-                            <?php _e('User Manual', 'hugeit_contact'); ?>
+                            <?php _e('User Manual', 'product-catalog'); ?>
                         </a>
                     </li>
                     <li>
                         <a target="_blank" href="https://huge-it.com/wordpress-product-catalog-faq/">
-                            <?php _e('FAQ', 'hugeit_contact'); ?>
+                            <?php _e('FAQ', 'product-catalog'); ?>
                         </a>
                     </li>
                     <li>
                         <a target="_blank" href="https://wordpress.org/support/plugin/product-catalog">
-                            <?php _e('Forum', 'hugeit_contact'); ?>
+                            <?php _e('Forum', 'product-catalog'); ?>
                         </a>
                     </li>
                 </ul>
@@ -78,7 +78,7 @@ if (!defined('ABSPATH')) {
             </li>
         </ul>
         <div class="description_text">
-            <p><?php _e('Click GO PRO to activate all additional customization options.', 'hugeit_contact'); ?></p>
+            <p><?php _e('Click GO PRO to activate all additional customization options.', 'product-catalog'); ?></p>
         </div>
     </div>
     <div style="clear: both;"></div>

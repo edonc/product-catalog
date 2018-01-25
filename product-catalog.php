@@ -9,6 +9,7 @@ Author: Huge-IT
 Author URI: http://huge-it.com
 License: GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: product-catalog
+Domain Path:  /languages
 */
 
 
@@ -676,7 +677,7 @@ class Huge_it_catalog_Widget extends WP_Widget {
         <p>
 
         <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php echo __( 'Title:' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php echo __( 'Title:' ,'product-catalog'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
         <label for="<?php echo $this->get_field_id('catalog_id'); ?>"><?php echo __('Select Catalog:',"product-catalog"); ?></label>
@@ -2541,14 +2542,14 @@ function catalog_add_shortcode_popup()
         <div id="huge_it_slider_add_posts" style="">
             <div id="huge_it_slider_add_posts_wrap">
                 <ul id="slider-posts-tabs">
-                    <li class="active" ><a href="#slider-posts-tabs-content-1"><?php echo __("Catalogs"); ?></a></li>
-                    <li><a href="#slider-posts-tabs-content-2"><?php echo __("Products","product-catalog"); ?></a></li>
+                    <li class="active" ><a href="#slider-posts-tabs-content-1"><?php echo __("Catalogs",'product-catalog'); ?></a></li>
+                    <li><a href="#slider-posts-tabs-content-2"><?php echo __("Products","product-catalog",'product-catalog'); ?></a></li>
                 </ul>
                 <ul id="slider-posts-tabs-contents">
                     <li id="slider-posts-tabs-content-1"  class="active">
                         <!-- STATIC POSTS -->
                         <div class="control-panel">
-                            <button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-top'><?php echo __("Insert Posts"); ?></button>
+                            <button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-top'><?php echo __("Insert Posts",'product-catalog'); ?></button>
                             <div class="view-type-block">
                                 <a class="view-type list active" href="#list"><?php echo __("View List","product-catalog"); ?></a>
                                 <a class="view-type thumbs" href="#thumbs"><?php echo __("View List","product-catalog"); ?></a>
@@ -2652,7 +2653,7 @@ function catalog_add_shortcode_popup()
 
                                 ?>
                             </form>
-                            <button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-top'><?php echo __("Insert Posts");?></button>
+                            <button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-top'><?php echo __("Insert Posts","product-catalog");?></button>
                             <div class="view-type-block">
                                 <a class="view-type list active" href="#list"><?php echo __("View List","product-catalog"); ?></a>
                                 <a class="view-type thumbs" href="#thumbs"><?php echo __("View List","product-catalog"); ?></a>

@@ -54,7 +54,7 @@ function html_showStyles($param_values, $op_type)
                 <div id="post-body-heading">
                     <h3><?php echo __("Themes Options", "product-catalog"); ?></h3>
 
-                    <a class="save-catalog-options button-primary"><?php echo __("Save"); ?></a>
+                    <a class="save-catalog-options button-primary"><?php echo __("Save", "product-catalog"); ?></a>
 
                 </div>
                 <form action="admin.php?page=Options_product_Catalog_styles&task=save" method="post" id="adminForm"

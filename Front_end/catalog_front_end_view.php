@@ -2487,7 +2487,6 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 /*  ################### MOBILE ################  */
 
 
-
 @media only screen and (max-width: 640px) {
 
 /*  ### responsive tabs ###  */
@@ -2545,6 +2544,16 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 
 
 }
+
+@media only screen and (max-width: 500px) {
+    .modalDialog > div{
+        width:100% !important;
+        position:fixed;
+        left:0;
+        right:0;
+    }
+}
+
 .zoomContainer {
     z-index: 10;
 }

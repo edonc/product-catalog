@@ -430,9 +430,9 @@ function html_show_product_options($param_values)
                             <label for="ht_single_product_asc_seller_popup_close_style"><?php echo __("Close Button Style", "product-catalog"); ?></label>
                             <select id="ht_single_product_asc_seller_popup_close_style"
                                     name="params[ht_single_product_asc_seller_popup_close_style]">
-                                <option value="light">Light
+                                <option value="light"><?php echo __("Light", "product-catalog"); ?>
                                 </option>
-                                <option value="dark">Dark
+                                <option value="dark"><?php echo __("Dark", "product-catalog"); ?>
                                 </option>
                             </select>
                         </div>

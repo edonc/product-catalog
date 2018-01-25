@@ -226,7 +226,7 @@
                                     }
                                 }
                             }
-                            else { echo "<br>".__("No Parameters"); }
+                            else { echo "<br>".__("No Parameters","product-catalog"); }
                             ?>
                         </ul>
                     </li>
