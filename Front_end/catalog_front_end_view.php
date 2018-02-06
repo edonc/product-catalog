@@ -1856,7 +1856,7 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 	padding:0px;
 	font-weight:normal;
 	float:left;
-        padding: 2% 0px;
+    padding: 21px 0px 2% 0px;
 }
 
 .huge_it_catalog_single_product_page .rating-block .label {
@@ -2133,7 +2133,7 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 .huge_it_catalog_view_tabs {
 	<?php if($paramssld["ht_single_product_show_parameters"] == 'on' && $paramssld["ht_single_product_show_comments"] == 'on')
       { ?>
-          border-top: 1px solid #<?php echo $paramssld['ht_single_product_tabs_border_color']; ?>;
+          border-bottom: 1px solid #<?php echo $paramssld['ht_single_product_tabs_border_color']; ?>;
 	<?php } ?>
 	margin:0px 0px -1px 0px !important;
 	padding:0px !important;
@@ -2172,11 +2172,12 @@ function HugeCatalogSearch_<?php echo $catalogID; ?>(searchText,type,paginationT
 }
 
 .huge_it_catalog_view_tabs  > li.active > a {
-	color: #fff !important;
+	/*color: #fff !important;*/
 	height:30px;
 	margin:0px 0px -1px 0px !important;
-	background: #<?php echo $paramssld['ht_single_product_asc_seller_button_background_color']; ?>;
+	background: #<?php echo $paramssld['ht_single_product_background_color']; ?>;
 	border-radius: 2px;
+    border-bottom:0px;
 }
 
 .huge_it_catalog_view_tabs_contents {
