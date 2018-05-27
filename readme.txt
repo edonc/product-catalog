@@ -3,7 +3,7 @@ Contributors: Huge-IT
 Donate link: https://huge-it.com/product-catalog/
 Tags: catalog, catalogs, products, product catalog, shopping cart, store, product, product gallery, ecommerce, shop, wordpress ecommerce, wordpress store,
 Requires at least: 3.0.1
-Tested up to: 4.7.3
+Tested up to: 4.9.6
 Stable tag: 1.5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

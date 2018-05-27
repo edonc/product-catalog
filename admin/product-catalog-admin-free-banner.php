@@ -34,7 +34,7 @@ if (!defined('ABSPATH')) {
     <div class="hg_view_plugins_block">
         <ul class="inline_menu">
             <li>
-                <a target="_blank" href="https://huge-it.com/product-catalog/">
+                <a target="_blank" href="https://demo.huge-it.com/wordpress-plugins-product-catalog-blocks-toggle-up-down">
                     <?php _e('Demo', 'product-catalog'); ?>
                 </a>
             </li>
